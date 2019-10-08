@@ -18,6 +18,18 @@ struct ContentView: View {
 
     let tipPercentages = [10, 15, 20, 25, 0]
     
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentages[tipPercentage])
+        let orderAmount = Double(checkAmount) ?? 0
+        
+        let tipValue = orderAmount / 100 * tipSelection
+        let grandTotal = orderAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+        
+        return amountPerPerson
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -43,8 +55,8 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    // checkAmount and not $checkAmount as there is no need to update the var here
-                    Text("$\(checkAmount)")
+                    // totalPerPerson and not $totalPerPerson as there is no need to update the var here
+                    Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
             }
             .navigationBarTitle("WeSplit")
