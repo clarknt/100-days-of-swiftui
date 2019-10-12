@@ -39,48 +39,36 @@ struct ContentView: View {
                 }
 
                 Section() {
-                    TextField("Value", text: $value)
-                        .keyboardType(.decimalPad)
-
-                    Button(action: {
-                        self.showingSheet = true
-                    }) {
-                        Text("\(Units.types[self.unitType].units[from[self.unitType]].name) (\(Units.types[self.unitType].units[from[self.unitType]].unit.symbol))")
-                    }
-                    .actionSheet(isPresented: $showingSheet) {
-                        ActionSheet(title: Text("Source \(Units.types[unitType].name)"), message: nil, buttons: actionSheetButtons(for: .source))
+                    HStack {
+                        TextField("Value", text: $value)
+                            .keyboardType(.decimalPad)
+                        Spacer()
+                        Text(Units.types[unitType].units[from[unitType]].name)
                     }
 
-                    // note: a segmented control Picker with a ForEach does not work with
-                    // an array that varies in size like it is the case here
-                    // this is probably a bug, see https://stackoverflow.com/q/58352798
-                    //Picker("in", selection: $from) {
-                    //    ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
-                    //        Text("\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))")
-                    //    }
-                    //}
-                    //.pickerStyle(SegmentedPickerStyle())
+                    Picker("in", selection: $from[unitType]) {
+                        ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
+                            Text(Units.types[self.unitType].units[i].unit.symbol)
+                        }
+                    }
+                    .id(unitType) // important with variable number of elements in picker
+                    .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section(header: Text("=")) {
-                    Text("\(result, specifier: "%.3f")")
-
-                    Button(action: {
-                        self.showingSheet = true
-                    }) {
-                        Text("\(Units.types[self.unitType].units[to[self.unitType]].name) (\(Units.types[self.unitType].units[to[self.unitType]].unit.symbol))")
-                    }
-                    .actionSheet(isPresented: $showingSheet) {
-                        ActionSheet(title: Text("Destination \(Units.types[unitType].name)"), message: nil, buttons: actionSheetButtons(for: .destination))
+                    HStack {
+                        Text("\(result, specifier: "%.3f")")
+                        Spacer()
+                        Text(Units.types[unitType].units[to[unitType]].name)
                     }
 
-                    //Picker("in", selection: $to) {
-                    //    ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
-                    //        Text("\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))")
-                    //            .multilineTextAlignment(.leading)
-                    //    }
-                    //}
-                    //.pickerStyle(SegmentedPickerStyle())
+                    Picker("in", selection: $to[unitType]) {
+                        ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
+                            Text(Units.types[self.unitType].units[i].unit.symbol)
+                        }
+                    }
+                    .id(unitType) // important with variable number of elements in picker
+                    .pickerStyle(SegmentedPickerStyle())
                 }
             }
             .navigationBarTitle("Converter")
