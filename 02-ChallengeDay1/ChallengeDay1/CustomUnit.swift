@@ -9,6 +9,6 @@
 import Foundation
 
 struct CustomUnit {
-    let text: String
+    let name: String
     let unit: Dimension
 }

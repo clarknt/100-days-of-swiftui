@@ -8,44 +8,108 @@
 
 import SwiftUI
 
+enum UnitUsage {
+    case source
+    case destination
+}
+
 struct ContentView: View {
-    @State private var from = 0
-    @State private var to = 0
     @State private var value = "0"
+    @State private var unitType = 0
+    @State private var from = Array(repeating: 0, count: Units.types.count)
+    @State private var to = Array(repeating: 0, count: Units.types.count)
+    @State private var showingSheet = false
 
     var result: Double {
-        let source = Measurement(value: Double(value) ?? 0, unit: Temperature.units[from].unit)
-
-        return source.converted(to: Temperature.units[to].unit).value
+        let units = Units.types[unitType].units
+        let source = Measurement(value: Double(value) ?? 0, unit: units[from[unitType]].unit)
+        return source.converted(to: units[to[unitType]].unit).value
     }
 
     var body: some View {
         NavigationView {
             Form {
-                Section() {
-                    TextField("Value", text: $value)
-
-                    Picker("From", selection: $from) {
-                        ForEach(0 ..< Temperature.units.count) {
-                            Text(Temperature.units[$0].text)
+                Section(header: Text("Unit type")) {
+                    Picker("Unit", selection: $unitType) {
+                        ForEach(0 ..< Units.types.count, id: \.self) {
+                            Text("\(Units.types[$0].name)")
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
 
-                Section(header: Text("=")) {
-                    Text("\(result, specifier: "%.2f")")
+                Section() {
+                    TextField("Value", text: $value)
+                        .keyboardType(.decimalPad)
 
-                    Picker("To", selection: $to) {
-                        ForEach(0 ..< Temperature.units.count) {
-                            Text(Temperature.units[$0].text)
-                        }
+                    Button(action: {
+                        self.showingSheet = true
+                    }) {
+                        Text("\(Units.types[self.unitType].units[from[self.unitType]].name) (\(Units.types[self.unitType].units[from[self.unitType]].unit.symbol))")
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                    .actionSheet(isPresented: $showingSheet) {
+                        ActionSheet(title: Text("Source \(Units.types[unitType].name)"), message: nil, buttons: actionSheetButtons(for: .source))
+                    }
+
+                    // note: a segmented control Picker with a ForEach does not work with
+                    // an array that varies in size like it is the case here
+                    // this is probably a bug, see https://stackoverflow.com/q/58352798
+                    //Picker("in", selection: $from) {
+                    //    ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
+                    //        Text("\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))")
+                    //    }
+                    //}
+                    //.pickerStyle(SegmentedPickerStyle())
+                }
+
+                Section(header: Text("=")) {
+                    Text("\(result, specifier: "%.3f")")
+
+                    Button(action: {
+                        self.showingSheet = true
+                    }) {
+                        Text("\(Units.types[self.unitType].units[to[self.unitType]].name) (\(Units.types[self.unitType].units[to[self.unitType]].unit.symbol))")
+                    }
+                    .actionSheet(isPresented: $showingSheet) {
+                        ActionSheet(title: Text("Destination \(Units.types[unitType].name)"), message: nil, buttons: actionSheetButtons(for: .destination))
+                    }
+
+                    //Picker("in", selection: $to) {
+                    //    ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
+                    //        Text("\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))")
+                    //            .multilineTextAlignment(.leading)
+                    //    }
+                    //}
+                    //.pickerStyle(SegmentedPickerStyle())
                 }
             }
             .navigationBarTitle("Converter")
         }
+    }
+
+    func actionSheetButtons(for usage: UnitUsage) -> [ActionSheet.Button] {
+        var buttons = [ActionSheet.Button]()
+
+        for i in 0 ..< Units.types[unitType].units.count {
+            var baseText = "\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))"
+
+            if (usage == .source && i == from[unitType]) || (usage == .destination && i == to[unitType]) {
+                baseText = "✓ " + baseText
+            }
+
+            buttons.append(.default(Text(baseText)) {
+                if usage == .source {
+                    self.from[self.unitType] = i
+                }
+                else {
+                    self.to[self.unitType] = i
+                }
+            })
+        }
+
+        buttons.append(.cancel())
+
+        return buttons
     }
 }
 

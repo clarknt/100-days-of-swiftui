@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Temperature {
-    static let celsius = CustomUnit(text: "° Celsius", unit: UnitTemperature.celsius)
-    static let farenheit = CustomUnit(text: "° Farenheit", unit: UnitTemperature.fahrenheit)
-    static let kelvin = CustomUnit(text: "° Kelvin", unit: UnitTemperature.kelvin)
+struct Temperature: Unit {
+    static var name = "Temperature"
+    
+    static let celsius = CustomUnit(name: "Celsius", unit: UnitTemperature.celsius)
+    static let farenheit = CustomUnit(name: "Farenheit", unit: UnitTemperature.fahrenheit)
+    static let kelvin = CustomUnit(name: "Kelvin", unit: UnitTemperature.kelvin)
 
     static let units = [celsius, farenheit, kelvin]
 }
