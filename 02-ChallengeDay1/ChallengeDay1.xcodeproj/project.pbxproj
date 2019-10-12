@@ -13,6 +13,8 @@
 		95428C2E2351714B0037E783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95428C2D2351714B0037E783 /* Assets.xcassets */; };
 		95428C312351714B0037E783 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95428C302351714B0037E783 /* Preview Assets.xcassets */; };
 		95428C342351714B0037E783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95428C322351714B0037E783 /* LaunchScreen.storyboard */; };
+		95428C3C2351869D0037E783 /* CustomUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3B2351869D0037E783 /* CustomUnit.swift */; };
+		95428C3E235186F00037E783 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3D235186F00037E783 /* Temperature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		95428C302351714B0037E783 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95428C332351714B0037E783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95428C352351714B0037E783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95428C3B2351869D0037E783 /* CustomUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUnit.swift; sourceTree = "<group>"; };
+		95428C3D235186F00037E783 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				95428C272351714A0037E783 /* AppDelegate.swift */,
 				95428C292351714A0037E783 /* SceneDelegate.swift */,
 				95428C2B2351714A0037E783 /* ContentView.swift */,
+				95428C3B2351869D0037E783 /* CustomUnit.swift */,
+				95428C3D235186F00037E783 /* Temperature.swift */,
 				95428C2D2351714B0037E783 /* Assets.xcassets */,
 				95428C322351714B0037E783 /* LaunchScreen.storyboard */,
 				95428C352351714B0037E783 /* Info.plist */,
@@ -148,6 +154,8 @@
 			files = (
 				95428C282351714A0037E783 /* AppDelegate.swift in Sources */,
 				95428C2A2351714A0037E783 /* SceneDelegate.swift in Sources */,
+				95428C3C2351869D0037E783 /* CustomUnit.swift in Sources */,
+				95428C3E235186F00037E783 /* Temperature.swift in Sources */,
 				95428C2C2351714A0037E783 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
