@@ -1,4 +1,4 @@
-# Challenge Day 1
+# Challenge Day 1 - Converter
 
 https://www.hackingwithswift.com/100/swiftui/19
 
