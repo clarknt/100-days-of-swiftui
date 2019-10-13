@@ -29,7 +29,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Unit type")) {
+                Section() {
                     Picker("Unit", selection: $unitType) {
                         ForEach(0 ..< Units.types.count, id: \.self) {
                             Text("\(Units.types[$0].name)")
@@ -57,7 +57,7 @@ struct ContentView: View {
 
                 Section(header: Text("=")) {
                     HStack {
-                        Text("\(result, specifier: "%.3f")")
+                        Text(format(number: result))
                         Spacer()
                         Text(Units.types[unitType].units[to[unitType]].name)
                     }
@@ -73,31 +73,32 @@ struct ContentView: View {
             }
             .navigationBarTitle("Converter")
         }
+        .modifier(DismissingKeyboard())
     }
 
-    func actionSheetButtons(for usage: UnitUsage) -> [ActionSheet.Button] {
-        var buttons = [ActionSheet.Button]()
+    // better than %.5f specifier because it removes trailing zeros
+    func format(number: Double) -> String {
+        let formatter = NumberFormatter()
+        let nsnumber = NSNumber(value: number)
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 5
+        return String(formatter.string(from: nsnumber) ?? "")
+    }
+}
 
-        for i in 0 ..< Units.types[unitType].units.count {
-            var baseText = "\(Units.types[self.unitType].units[i].name) (\(Units.types[self.unitType].units[i].unit.symbol))"
-
-            if (usage == .source && i == from[unitType]) || (usage == .destination && i == to[unitType]) {
-                baseText = "✓ " + baseText
-            }
-
-            buttons.append(.default(Text(baseText)) {
-                if usage == .source {
-                    self.from[self.unitType] = i
-                }
-                else {
-                    self.to[self.unitType] = i
-                }
-            })
+// allow dismissing keyboard by a double tap outside
+// (using a single tap breaks the Pickers)
+struct DismissingKeyboard: ViewModifier {
+    func body(content: Content) -> some View {
+        content.onTapGesture(count: 2) {
+            let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+            keyWindow?.endEditing(true)
         }
-
-        buttons.append(.cancel())
-
-        return buttons
     }
 }
 
