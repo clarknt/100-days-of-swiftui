@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Volume: Unit {
+struct Volume: UnitType {
     static var name = "Volume"
 
-    static let milliliters = CustomUnit(name: "Milliliters", unit: UnitVolume.milliliters)
-    static let liters = CustomUnit(name: "Liters", unit: UnitVolume.liters)
-    static let cups = CustomUnit(name: "Cups", unit: UnitVolume.cups)
-    static let pints = CustomUnit(name: "Pints", unit: UnitVolume.pints)
-    static let gallons = CustomUnit(name: "Gallons", unit: UnitVolume.gallons)
+    private static let milliliters = NamedUnit(name: "Milliliters", unit: UnitVolume.milliliters)
+    private static let liters = NamedUnit(name: "Liters", unit: UnitVolume.liters)
+    private static let cups = NamedUnit(name: "Cups", unit: UnitVolume.cups)
+    private static let pints = NamedUnit(name: "Pints", unit: UnitVolume.pints)
+    private static let gallons = NamedUnit(name: "Gallons", unit: UnitVolume.gallons)
 
     static let units = [milliliters, liters, cups, pints, gallons]
 }

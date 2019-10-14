@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Time: Unit {
+struct Time: UnitType {
     static var name = "Time"
 
-    static let seconds = CustomUnit(name: "Seconds", unit: UnitDuration.seconds)
-    static let minutes = CustomUnit(name: "Minutes", unit: UnitDuration.minutes)
-    static let hours = CustomUnit(name: "Hours", unit: UnitDuration.hours)
+    private static let seconds = NamedUnit(name: "Seconds", unit: UnitDuration.seconds)
+    private static let minutes = NamedUnit(name: "Minutes", unit: UnitDuration.minutes)
+    private static let hours = NamedUnit(name: "Hours", unit: UnitDuration.hours)
 
     static let units = [seconds, minutes, hours]
 }

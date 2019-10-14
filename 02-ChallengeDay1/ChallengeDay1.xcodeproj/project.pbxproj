@@ -13,11 +13,11 @@
 		95428C2E2351714B0037E783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95428C2D2351714B0037E783 /* Assets.xcassets */; };
 		95428C312351714B0037E783 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95428C302351714B0037E783 /* Preview Assets.xcassets */; };
 		95428C342351714B0037E783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95428C322351714B0037E783 /* LaunchScreen.storyboard */; };
-		95428C3C2351869D0037E783 /* CustomUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3B2351869D0037E783 /* CustomUnit.swift */; };
+		95428C3C2351869D0037E783 /* NamedUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3B2351869D0037E783 /* NamedUnit.swift */; };
 		95428C3E235186F00037E783 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3D235186F00037E783 /* Temperature.swift */; };
 		95428C4023518A450037E783 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C3F23518A450037E783 /* Length.swift */; };
-		95428C4223518C610037E783 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C4123518C610037E783 /* Unit.swift */; };
-		95428C4423518D1A0037E783 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C4323518D1A0037E783 /* Units.swift */; };
+		95428C4223518C610037E783 /* UnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C4123518C610037E783 /* UnitType.swift */; };
+		95428C4423518D1A0037E783 /* UnitTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428C4323518D1A0037E783 /* UnitTypes.swift */; };
 		954969922352783100CEB844 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954969912352783100CEB844 /* Volume.swift */; };
 		954AC75F23523F7000149AE1 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AC75E23523F7000149AE1 /* Time.swift */; };
 /* End PBXBuildFile section */
@@ -31,11 +31,11 @@
 		95428C302351714B0037E783 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95428C332351714B0037E783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95428C352351714B0037E783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95428C3B2351869D0037E783 /* CustomUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUnit.swift; sourceTree = "<group>"; };
+		95428C3B2351869D0037E783 /* NamedUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedUnit.swift; sourceTree = "<group>"; };
 		95428C3D235186F00037E783 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		95428C3F23518A450037E783 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
-		95428C4123518C610037E783 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
-		95428C4323518D1A0037E783 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		95428C4123518C610037E783 /* UnitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitType.swift; sourceTree = "<group>"; };
+		95428C4323518D1A0037E783 /* UnitTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypes.swift; sourceTree = "<group>"; };
 		954969912352783100CEB844 /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		954AC75E23523F7000149AE1 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,13 +73,13 @@
 				95428C272351714A0037E783 /* AppDelegate.swift */,
 				95428C292351714A0037E783 /* SceneDelegate.swift */,
 				95428C2B2351714A0037E783 /* ContentView.swift */,
-				95428C3B2351869D0037E783 /* CustomUnit.swift */,
+				95428C3B2351869D0037E783 /* NamedUnit.swift */,
+				95428C4123518C610037E783 /* UnitType.swift */,
 				95428C3D235186F00037E783 /* Temperature.swift */,
 				95428C3F23518A450037E783 /* Length.swift */,
 				954AC75E23523F7000149AE1 /* Time.swift */,
 				954969912352783100CEB844 /* Volume.swift */,
-				95428C4123518C610037E783 /* Unit.swift */,
-				95428C4323518D1A0037E783 /* Units.swift */,
+				95428C4323518D1A0037E783 /* UnitTypes.swift */,
 				95428C2D2351714B0037E783 /* Assets.xcassets */,
 				95428C322351714B0037E783 /* LaunchScreen.storyboard */,
 				95428C352351714B0037E783 /* Info.plist */,
@@ -168,12 +168,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				95428C282351714A0037E783 /* AppDelegate.swift in Sources */,
-				95428C4423518D1A0037E783 /* Units.swift in Sources */,
+				95428C4423518D1A0037E783 /* UnitTypes.swift in Sources */,
 				95428C4023518A450037E783 /* Length.swift in Sources */,
 				95428C2A2351714A0037E783 /* SceneDelegate.swift in Sources */,
-				95428C4223518C610037E783 /* Unit.swift in Sources */,
+				95428C4223518C610037E783 /* UnitType.swift in Sources */,
 				954969922352783100CEB844 /* Volume.swift in Sources */,
-				95428C3C2351869D0037E783 /* CustomUnit.swift in Sources */,
+				95428C3C2351869D0037E783 /* NamedUnit.swift in Sources */,
 				954AC75F23523F7000149AE1 /* Time.swift in Sources */,
 				95428C3E235186F00037E783 /* Temperature.swift in Sources */,
 				95428C2C2351714A0037E783 /* ContentView.swift in Sources */,

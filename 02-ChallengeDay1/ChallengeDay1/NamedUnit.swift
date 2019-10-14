@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct CustomUnit {
+/// Unit, with a name
+struct NamedUnit {
     let name: String
     let unit: Dimension
 }

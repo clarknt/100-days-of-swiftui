@@ -14,60 +14,93 @@ enum UnitUsage {
 }
 
 struct ContentView: View {
+    /// Input value
     @State private var value = "0"
-    @State private var unitType = 0
-    @State private var from = Array(repeating: 0, count: Units.types.count)
-    @State private var to = Array(repeating: 0, count: Units.types.count)
-    @State private var showingSheet = false
 
+    /// Selected unit type index
+    @State private var unitTypeIndex = 0
+
+    /// Selected source indexes for all unit types
+    @State private var sourceNamedUnitIndexes = Array(repeating: 0, count: UnitTypes.types.count)
+
+    /// Selected destination indexes for all unit types
+    @State private var destinationNamedUnitIndexes = Array(repeating: 0, count: UnitTypes.types.count)
+
+    /// Available unit types
+    var unitTypes: [UnitType.Type] {
+        return UnitTypes.types
+    }
+
+    /// Available units for selected unit type
+    var namedUnits: [NamedUnit] {
+        return unitTypes[unitTypeIndex].units
+    }
+
+    /// Selected source unit
+    var sourceNamedUnit: NamedUnit {
+        let selectedSourceIndex = sourceNamedUnitIndexes[unitTypeIndex]
+        return namedUnits[selectedSourceIndex]
+    }
+
+    /// Selected destination unit
+    var destinationNamedUnit: NamedUnit {
+        let selectedDestinationIndex = destinationNamedUnitIndexes[unitTypeIndex]
+        return namedUnits[selectedDestinationIndex]
+    }
+
+    /// Conversion result
     var result: Double {
-        let units = Units.types[unitType].units
-        let source = Measurement(value: Double(value) ?? 0, unit: units[from[unitType]].unit)
-        return source.converted(to: units[to[unitType]].unit).value
+        let source = Measurement(value: Double(value) ?? 0, unit: sourceNamedUnit.unit)
+        return source.converted(to: destinationNamedUnit.unit).value
     }
 
     var body: some View {
         NavigationView {
             Form {
+                // unit type selection
                 Section() {
-                    Picker("Unit", selection: $unitType) {
-                        ForEach(0 ..< Units.types.count, id: \.self) {
-                            Text("\(Units.types[$0].name)")
+                    Picker("Unit", selection: $unitTypeIndex) {
+                        ForEach(0 ..< unitTypes.count, id: \.self) {
+                            Text("\(self.unitTypes[$0].name)")
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section() {
+                    // input value
                     HStack {
                         TextField("Value", text: $value)
                             .keyboardType(.decimalPad)
                         Spacer()
-                        Text(Units.types[unitType].units[from[unitType]].name)
+                        Text(sourceNamedUnit.name)
                     }
 
-                    Picker("in", selection: $from[unitType]) {
-                        ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
-                            Text(Units.types[self.unitType].units[i].unit.symbol)
+                    // source unit selection
+                    Picker("in", selection: $sourceNamedUnitIndexes[unitTypeIndex]) {
+                        ForEach(0 ..< namedUnits.count, id: \.self) { i in
+                            Text(self.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(unitType) // important with variable number of elements in picker
+                    .id(unitTypeIndex) // important with variable number of elements in picker
                     .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section(header: Text("=")) {
+                    // conversion result
                     HStack {
                         Text(format(number: result))
                         Spacer()
-                        Text(Units.types[unitType].units[to[unitType]].name)
+                        Text(destinationNamedUnit.name)
                     }
 
-                    Picker("in", selection: $to[unitType]) {
-                        ForEach(0 ..< Units.types[unitType].units.count, id: \.self) { i in
-                            Text(Units.types[self.unitType].units[i].unit.symbol)
+                    // destination unit selection
+                    Picker("in", selection: $destinationNamedUnitIndexes[unitTypeIndex]) {
+                        ForEach(0 ..< namedUnits.count, id: \.self) { i in
+                            Text(self.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(unitType) // important with variable number of elements in picker
+                    .id(unitTypeIndex) // important with variable number of elements in picker
                     .pickerStyle(SegmentedPickerStyle())
                 }
             }
@@ -76,8 +109,9 @@ struct ContentView: View {
         .modifier(DismissingKeyboard())
     }
 
-    // better than %.5f specifier because it removes trailing zeros
+    /// Format a number with up to 5 digits after the decimal point
     func format(number: Double) -> String {
+        // better than %.5f specifier because it removes trailing zeros
         let formatter = NumberFormatter()
         let nsnumber = NSNumber(value: number)
         formatter.minimumFractionDigits = 0
@@ -86,10 +120,10 @@ struct ContentView: View {
     }
 }
 
-// allow dismissing keyboard by a double tap outside
-// (using a single tap breaks the Pickers)
+/// Dismiss keyboard by a double tap outside the keyboard
 struct DismissingKeyboard: ViewModifier {
     func body(content: Content) -> some View {
+        // note: using a single tap breaks the Pickers
         content.onTapGesture(count: 2) {
             let keyWindow = UIApplication.shared.connectedScenes
                 .filter({$0.activationState == .foregroundActive})

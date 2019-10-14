@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol Unit {
+/// List of units of the same type
+protocol UnitType {
     static var name: String { get }
-    static var units: [CustomUnit] { get }
+    static var units: [NamedUnit] { get }
 }

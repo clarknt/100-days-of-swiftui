@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Length: Unit {
+struct Length: UnitType {
     static var name = "Length"
     
-    static let meters = CustomUnit(name: "Meters", unit: UnitLength.meters)
-    static let kilometers = CustomUnit(name: "Kilometers", unit: UnitLength.kilometers)
-    static let feet = CustomUnit(name: "Feet", unit: UnitLength.feet)
-    static let yards = CustomUnit(name: "Yards", unit: UnitLength.yards)
-    static let miles = CustomUnit(name: "Miles", unit: UnitLength.miles)
+    private static let meters = NamedUnit(name: "Meters", unit: UnitLength.meters)
+    private static let kilometers = NamedUnit(name: "Kilometers", unit: UnitLength.kilometers)
+    private static let feet = NamedUnit(name: "Feet", unit: UnitLength.feet)
+    private static let yards = NamedUnit(name: "Yards", unit: UnitLength.yards)
+    private static let miles = NamedUnit(name: "Miles", unit: UnitLength.miles)
 
     static let units = [meters, kilometers, feet, yards, miles]
 }
