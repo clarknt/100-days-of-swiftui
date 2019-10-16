@@ -1,4 +1,4 @@
-# Project 3 - ViewsAndModifiers
+# Project 3 - Views and modifiers
 
 https://www.hackingwithswift.com/100/swiftui/23
 
