@@ -14,4 +14,5 @@ Projects / Topics                                                               
 [Challenge Day 1](02-ChallengeDay1) - *Converter*  | ![screen1](02-ChallengeDay1/screenshots/small/screen01.png) ![screen2](02-ChallengeDay1/screenshots/small/screen02.png) |
 [Project 2](03-Project2) *Guess the Flag* <br/>(with challenges)                                         <br/><sub> VStack, Image, Alert </sub> | ![screen1](03-Project2/screenshots/small/screen01.png) ![screen2](03-Project2/screenshots/small/screen02.png) |
 [Project 3](04-Project3) *View and Modifiers* <br/>(with challenge 1)                                         <br/><sub> Views, modifiers, composition, containers </sub> | ![screen1](04-Project3/screenshots/small/screen01.png) |
-[Project 3 - Challenge 2](05-Project3-Challenge2)                                          | ![screen1](05-Project3-Challenge2/screenshots/small/screen01.png) |
+[Project 3 - Challenge 2](05-Project3-Challenge2) <br/>(base: project 1)                <br/>                                         | ![screen1](05-Project3-Challenge2/screenshots/small/screen01.png) |
+[Project 3 - Challenge 3](06-Project3-Challenge3) <br/>(base: project 2)                <br/>                                         | ![screen1](06-Project3-Challenge3/screenshots/small/screen01.png) |

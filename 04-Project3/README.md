@@ -13,7 +13,7 @@ Views, modifiers, composition, containers
 From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/views-and-modifiers-wrap-up):
 >1. Create a custom ViewModifier (and accompanying View extension) that makes a view have a large, blue font suitable for prominent titles in a view.
 >2. [Challenge 2](../05-Project3-Challenge2/)
->3. Challenge 3
+>3. [Challenge 3](../06-Project3-Challenge3/)
 
 ## Screenshots
 
