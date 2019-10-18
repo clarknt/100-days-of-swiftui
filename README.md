@@ -16,3 +16,4 @@ Projects / Topics                                                               
 [Project 3](04-Project3) *View and Modifiers* <br/>(with challenge 1)                                         <br/><sub> Views, modifiers, composition, containers </sub> | ![screen1](04-Project3/screenshots/small/screen01.png) |
 [Project 3 - Challenge 2](05-Project3-Challenge2) <br/>(base: project 1)                <br/>                                         | ![screen1](05-Project3-Challenge2/screenshots/small/screen01.png) |
 [Project 3 - Challenge 3](06-Project3-Challenge3) <br/>(base: project 2)                <br/>                                         | ![screen1](06-Project3-Challenge3/screenshots/small/screen01.png) |
+[Milestone Projects 1-3](07-Milestone-Projects1-3) - *Rock Paper Scissors*  | ![screen1](07-Milestone-Projects1-3/screenshots/small/screen01.png) ![screen2](07-Milestone-Projects1-3/screenshots/small/screen02.png) |
