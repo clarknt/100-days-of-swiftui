@@ -4,8 +4,6 @@ https://www.hackingwithswift.com/100/swiftui/25
 
 Bonus: timed mode
 
-Note: MVC-Version contains a version of the same project but with the model completely separate. It has been kept aside because it uses elements that have not yet been seen as part of the 100 days of SwiftUI.
-
 ## Challenge
 
 From [Hacking with Swift](https://www.hackingwithswift.com/guide/ios-swiftui/2/3/challenge):
