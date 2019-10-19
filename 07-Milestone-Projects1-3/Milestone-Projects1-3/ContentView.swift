@@ -43,26 +43,31 @@ struct GoalView: View {
     }
 }
 
+enum Mode: CaseIterable {
+    case normal
+    case timed
+}
+
 struct ContentView: View {
-    @State var game = RockPaperScissors()
-    @State var score = 0
+    @State private var game = RockPaperScissors()
+    @State private var score = 0
 
-    static let availableTime = 5
-    @State var remainingTime = ContentView.availableTime
-    @State var timedGame = false
+    static private let maxTime = 5.0
+    @State private var remainingTime = ContentView.maxTime
+    @State private var gameMode: Mode = .normal
 
-    var timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+    private static var timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
 
     var body: some View {
         VStack {
             Button(action: {
-                self.timedGame = !self.timedGame
-                self.resetGame()
+                self.gameMode = (self.gameMode == .normal ? .timed : .normal)
+                self.newQuestion()
             }, label: {
-                Text(timedGame ? "Timed game, remaining \(remainingTime)s" : "Untimed game")
+                Text(gameMode == .normal ? "Untimed game" : "Timed game, remaining \(remainingTime, specifier: "%.0f")s")
                     .padding()
             })
-            .onReceive(timer) { _ in
+            .onReceive(ContentView.timer) { _ in
                 self.updateTime()
             }
 
@@ -75,8 +80,7 @@ struct ContentView: View {
             HStack {
                 ForEach(Gesture.allCases, id: \.self) { gesture in
                     Button(action: {
-                        let win = (gesture == self.game.result())
-                        self.updateResult(withWin: win)
+                        self.submitAnswer(withGuess: gesture)
                     }, label: {
                         GestureView(gesture: gesture)
                             .font(Font.system(size: 50))
@@ -93,27 +97,29 @@ struct ContentView: View {
         }
     }
 
-    func updateTime() {
-        if timedGame {
+    private func updateTime() {
+        if gameMode == .timed {
             remainingTime -= 1
+
             if remainingTime <= 0 {
-                updateResult(withWin: false)
+                updateScore(withWin: false)
             }
         }
     }
 
-    func updateResult(withWin win: Bool) {
+    private func submitAnswer(withGuess guess: Gesture) {
+        let win = self.game.isCorrect(guess: guess)
+        self.updateScore(withWin: win)
+    }
+
+    private func updateScore(withWin win: Bool) {
         score += win ? 1 : -1
-        resetGame()
+        newQuestion()
     }
 
-    func resetGame() {
+    private func newQuestion() {
         game = RockPaperScissors()
-        resetTime()
-    }
-
-    func resetTime() {
-        self.remainingTime = ContentView.availableTime
+        remainingTime = ContentView.maxTime
     }
 }
 

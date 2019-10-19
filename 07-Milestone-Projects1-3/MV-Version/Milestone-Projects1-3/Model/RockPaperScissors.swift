@@ -15,7 +15,7 @@ class RockPaperScissors: ObservableObject {
 
     private var timer: Timer?
     private static let maxTime = 5.0
-    @Published var timerValue = RockPaperScissors.maxTime
+    @Published var remainingTime = RockPaperScissors.maxTime
 
     @Published var score = 0 {
         didSet {
@@ -30,14 +30,14 @@ class RockPaperScissors: ObservableObject {
                 timer?.invalidate()
                 timer = nil
             case .timed:
-                timerValue = RockPaperScissors.maxTime
+                remainingTime = RockPaperScissors.maxTime
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                     // note: because of this it is not possible to make RockPaperScissors a
                     // struct (which would have no need for ObservableObject, @Published and
                     // could be used as @State instead of @ObservedObject)
                     // indeed updateTime() is mutating; as a struct the Timer would only
                     // have a copy of self and would not be able to mutate the original struct
-                    self?.updateTime()
+                    self?.updateRemainingTime()
                 }
             }
             newQuestion()
@@ -52,17 +52,17 @@ class RockPaperScissors: ObservableObject {
     func submitAnswer(withGuess guess: Gesture) {
         switch mode {
         case .normal:
-            score += guess == result() ? 1 : -1
+            score += isCorrect(guess: guess) ? 1 : -1
         case .timed:
-            score += timerValue > 0 && guess == result() ? 1 : -1
+            score += remainingTime > 0 && isCorrect(guess: guess) ? 1 : -1
         }
     }
 
-    private func updateTime() {
+    private func updateRemainingTime() {
         if mode == .timed {
-            timerValue -= 1
+            remainingTime -= 1
 
-            if timerValue <= 0 {
+            if remainingTime <= 0 {
                 score -= 1
             }
         }
@@ -73,38 +73,27 @@ class RockPaperScissors: ObservableObject {
         goal = Goal.allCases.randomElement()!
 
         if mode == .timed {
-            timerValue = RockPaperScissors.maxTime
+            remainingTime = RockPaperScissors.maxTime
         }
     }
 
-    private func result() -> Gesture {
+    private func isCorrect(guess: Gesture) -> Bool {
         switch goal {
         case .win:
-            return winner()
+            return isWinner(guess, over: gesture)
         case .lose:
-            return loser()
+            return isWinner(gesture, over: guess)
         }
     }
 
-    private func winner() -> Gesture {
-        switch gesture {
+    private func isWinner(_ shouldWin: Gesture, over shouldLose: Gesture) -> Bool {
+        switch shouldWin {
         case .rock:
-            return .paper
+            return shouldLose == .scissors
         case .paper:
-            return .scissors
+            return shouldLose == .rock
         case .scissors:
-            return .rock
-        }
-    }
-
-    private func loser() -> Gesture {
-        switch gesture {
-        case .rock:
-            return .scissors
-        case .paper:
-            return .rock
-        case .scissors:
-            return .paper
+            return shouldLose == .paper
         }
     }
 }

@@ -23,35 +23,23 @@ struct RockPaperScissors {
     var gesture: Gesture = Gesture.allCases.randomElement()!
     var goal = Goal.allCases.randomElement()!
 
-    func result() -> Gesture {
+    func isCorrect(guess: Gesture) -> Bool {
         switch goal {
         case .win:
-            return winner()
+            return isWinner(guess, over: gesture)
         case .lose:
-            return loser()
+            return isWinner(gesture, over: guess)
         }
     }
 
-    private func winner() -> Gesture {
-        switch gesture {
+    private func isWinner(_ shouldWin: Gesture, over shouldLose: Gesture) -> Bool {
+        switch shouldWin {
         case .rock:
-            return .paper
+            return shouldLose == .scissors
         case .paper:
-            return .scissors
+            return shouldLose == .rock
         case .scissors:
-            return .rock
+            return shouldLose == .paper
         }
-    }
-
-    private func loser() -> Gesture {
-        switch gesture {
-        case .rock:
-            return .scissors
-        case .paper:
-            return .rock
-        case .scissors:
-            return .paper
-        }
-
     }
 }

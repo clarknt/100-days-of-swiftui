@@ -43,14 +43,14 @@ struct GoalView: View {
 }
 
 struct ContentView: View {
-    @ObservedObject var game = RockPaperScissors()
+    @ObservedObject private var game = RockPaperScissors()
 
     var body: some View {
         VStack {
             Button(action: {
                 self.game.mode = (self.game.mode == .normal ? .timed : .normal)
             }, label: {
-                Text(game.mode == .normal ? "Untimed game" : "Timed game, remaining \(game.timerValue, specifier: "%.0f")s")
+                Text(game.mode == .normal ? "Untimed game" : "Timed game, remaining \(game.remainingTime, specifier: "%.0f")s")
                     .padding()
             })
 
