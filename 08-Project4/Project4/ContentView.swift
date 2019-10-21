@@ -55,6 +55,7 @@ struct ContentView: View {
                 // challenge 3
                 Section(header: Text("Recommended bed time").font(.headline)) {
                     Text("\(calculatedBedTime)")
+                        .font(.title)
                 }
             }
             .navigationBarTitle("BetterRest")
