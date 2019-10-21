@@ -6,7 +6,7 @@ Includes solutions to the [challenges](https://www.hackingwithswift.com/books/io
 
 ## Topics
 
-DatePicker, Stepper, navigationBarItems(), Date, DateComponents, DateFormatter
+Machine Learning, Dates (DatePicker, DateComponents, DateFormatter) Stepper, navigationBarItems()
 
 ## Challenges
 
