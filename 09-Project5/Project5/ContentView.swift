@@ -20,6 +20,15 @@ struct ContentView: View {
     // challenge 1
     private let minWordLength = 3
 
+    // challenge 3
+    private var score: Int {
+        var count = 0
+        for word in usedWords {
+            count += word.count
+        }
+        return count
+    }
+
     var body: some View {
         NavigationView {
             VStack {
@@ -35,6 +44,9 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+
+                // challenge 3
+                Text("Score: \(score)")
             }
             .navigationBarTitle(rootWord)
             // challenge 2
@@ -47,6 +59,9 @@ struct ContentView: View {
     }
 
     func startGame() {
+        // challenge 2
+        usedWords.removeAll()
+
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
