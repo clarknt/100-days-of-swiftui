@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
 
+    // challenge 1
+    private let minWordLength = 3
+
     var body: some View {
         NavigationView {
             VStack {
@@ -77,6 +80,18 @@ struct ContentView: View {
             return
         }
 
+        // challenge 1
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word too short", message: "Words must be \(minWordLength) letters at least")
+            return
+        }
+
+        // challenge 1
+        guard isNotWordToGuess(word: answer) else {
+            wordError(title: "Incorrect word", message: "Word must be different than word to guess")
+            return
+        }
+
         // insert on top of the list
         usedWords.insert(answer, at: 0)
         newWord = ""
@@ -107,6 +122,16 @@ struct ContentView: View {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
 
         return misspelledRange.location == NSNotFound
+    }
+
+    // challenge 1
+    func isLongEnough(word: String) -> Bool {
+        return word.count >= minWordLength
+    }
+
+    // challenge 1
+    func isNotWordToGuess(word: String) -> Bool {
+        return word != rootWord
     }
 
     func wordError(title: String, message: String) {
