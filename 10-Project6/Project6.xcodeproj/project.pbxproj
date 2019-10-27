@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		954E8222236523C600C2E121 /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E8221236523C600C2E121 /* CustomAnimation.swift */; };
 		954E8224236523FC00C2E121 /* ImplicitAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E8223236523FC00C2E121 /* ImplicitAnimation.swift */; };
+		954E82262365247000C2E121 /* BindingsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E82252365247000C2E121 /* BindingsAnimation.swift */; };
 		95591F54236274A6008BD23B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95591F53236274A6008BD23B /* AppDelegate.swift */; };
 		95591F56236274A6008BD23B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95591F55236274A6008BD23B /* SceneDelegate.swift */; };
 		95591F58236274A6008BD23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95591F57236274A6008BD23B /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		954E8221236523C600C2E121 /* CustomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 		954E8223236523FC00C2E121 /* ImplicitAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplicitAnimation.swift; sourceTree = "<group>"; };
+		954E82252365247000C2E121 /* BindingsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingsAnimation.swift; sourceTree = "<group>"; };
 		95591F50236274A6008BD23B /* Project6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95591F53236274A6008BD23B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95591F55236274A6008BD23B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				95591F57236274A6008BD23B /* ContentView.swift */,
 				954E8223236523FC00C2E121 /* ImplicitAnimation.swift */,
 				954E8221236523C600C2E121 /* CustomAnimation.swift */,
+				954E82252365247000C2E121 /* BindingsAnimation.swift */,
 				95591F59236274A9008BD23B /* Assets.xcassets */,
 				95591F5E236274A9008BD23B /* LaunchScreen.storyboard */,
 				95591F61236274A9008BD23B /* Info.plist */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954E82262365247000C2E121 /* BindingsAnimation.swift in Sources */,
 				95591F54236274A6008BD23B /* AppDelegate.swift in Sources */,
 				954E8224236523FC00C2E121 /* ImplicitAnimation.swift in Sources */,
 				95591F56236274A6008BD23B /* SceneDelegate.swift in Sources */,
