@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		953C4453236627E5001511F8 /* AnimatedGestures1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C4452236627E5001511F8 /* AnimatedGestures1.swift */; };
+		953C445523662ACE001511F8 /* AnimatedGestures2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C445423662ACE001511F8 /* AnimatedGestures2.swift */; };
+		953C44572366568A001511F8 /* ShowHideViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C44562366568A001511F8 /* ShowHideViewAnimation.swift */; };
 		954E8222236523C600C2E121 /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E8221236523C600C2E121 /* CustomAnimation.swift */; };
 		954E8224236523FC00C2E121 /* ImplicitAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E8223236523FC00C2E121 /* ImplicitAnimation.swift */; };
 		954E82262365247000C2E121 /* BindingsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E82252365247000C2E121 /* BindingsAnimation.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		953C4452236627E5001511F8 /* AnimatedGestures1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGestures1.swift; sourceTree = "<group>"; };
+		953C445423662ACE001511F8 /* AnimatedGestures2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGestures2.swift; sourceTree = "<group>"; };
+		953C44562366568A001511F8 /* ShowHideViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowHideViewAnimation.swift; sourceTree = "<group>"; };
 		954E8221236523C600C2E121 /* CustomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 		954E8223236523FC00C2E121 /* ImplicitAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplicitAnimation.swift; sourceTree = "<group>"; };
 		954E82252365247000C2E121 /* BindingsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingsAnimation.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				954E82252365247000C2E121 /* BindingsAnimation.swift */,
 				954E82272365254800C2E121 /* ExplicitAnimation.swift */,
 				954E8229236525C500C2E121 /* AnimationStack.swift */,
+				953C4452236627E5001511F8 /* AnimatedGestures1.swift */,
+				953C445423662ACE001511F8 /* AnimatedGestures2.swift */,
+				953C44562366568A001511F8 /* ShowHideViewAnimation.swift */,
 				95591F59236274A9008BD23B /* Assets.xcassets */,
 				95591F5E236274A9008BD23B /* LaunchScreen.storyboard */,
 				95591F61236274A9008BD23B /* Info.plist */,
@@ -168,6 +177,9 @@
 				95591F58236274A6008BD23B /* ContentView.swift in Sources */,
 				954E822A236525C500C2E121 /* AnimationStack.swift in Sources */,
 				954E82282365254800C2E121 /* ExplicitAnimation.swift in Sources */,
+				953C445523662ACE001511F8 /* AnimatedGestures2.swift in Sources */,
+				953C4453236627E5001511F8 /* AnimatedGestures1.swift in Sources */,
+				953C44572366568A001511F8 /* ShowHideViewAnimation.swift in Sources */,
 				954E8222236523C600C2E121 /* CustomAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project6/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project6/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,6 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project6/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project6/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
