@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9556C36F2369C49B001144C4 /* DeleteItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9556C36E2369C49B001144C4 /* DeleteItems.swift */; };
 		9556C3712369D007001144C4 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9556C3702369D007001144C4 /* UserDefaultsData.swift */; };
+		9556C3732369E18A001144C4 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9556C3722369E18A001144C4 /* CodableData.swift */; };
+		9556C3772369E76D001144C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9556C3762369E76D001144C4 /* MainView.swift */; };
 		95B521D523691B8A0051FD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D423691B8A0051FD9D /* AppDelegate.swift */; };
 		95B521D723691B8A0051FD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D623691B8A0051FD9D /* SceneDelegate.swift */; };
 		95B521D923691B8A0051FD9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D823691B8A0051FD9D /* ContentView.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		9556C36E2369C49B001144C4 /* DeleteItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItems.swift; sourceTree = "<group>"; };
 		9556C3702369D007001144C4 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
+		9556C3722369E18A001144C4 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
+		9556C3762369E76D001144C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		95B521D123691B8A0051FD9D /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B521D423691B8A0051FD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B521D623691B8A0051FD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9556C3742369E73E001144C4 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				9556C3762369E76D001144C4 /* MainView.swift */,
+				9556C3752369E752001144C4 /* Topics */,
+			);
+			path = Introduction;
+			sourceTree = "<group>";
+		};
+		9556C3752369E752001144C4 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				95B521E823691E520051FD9D /* StateAndStruct.swift */,
+				95B521EA2369221C0051FD9D /* ObservedObjects.swift */,
+				95B521EC236925570051FD9D /* ShowHideViews.swift */,
+				9556C36E2369C49B001144C4 /* DeleteItems.swift */,
+				9556C3702369D007001144C4 /* UserDefaultsData.swift */,
+				9556C3722369E18A001144C4 /* CodableData.swift */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
 		95B521C823691B8A0051FD9D = {
 			isa = PBXGroup;
 			children = (
@@ -66,14 +92,10 @@
 		95B521D323691B8A0051FD9D /* Project7 */ = {
 			isa = PBXGroup;
 			children = (
+				9556C3742369E73E001144C4 /* Introduction */,
 				95B521D423691B8A0051FD9D /* AppDelegate.swift */,
 				95B521D623691B8A0051FD9D /* SceneDelegate.swift */,
 				95B521D823691B8A0051FD9D /* ContentView.swift */,
-				95B521E823691E520051FD9D /* StateAndStruct.swift */,
-				95B521EA2369221C0051FD9D /* ObservedObjects.swift */,
-				95B521EC236925570051FD9D /* ShowHideViews.swift */,
-				9556C36E2369C49B001144C4 /* DeleteItems.swift */,
-				9556C3702369D007001144C4 /* UserDefaultsData.swift */,
 				95B521DA23691B8C0051FD9D /* Assets.xcassets */,
 				95B521DF23691B8C0051FD9D /* LaunchScreen.storyboard */,
 				95B521E223691B8C0051FD9D /* Info.plist */,
@@ -164,8 +186,10 @@
 				9556C36F2369C49B001144C4 /* DeleteItems.swift in Sources */,
 				95B521E923691E520051FD9D /* StateAndStruct.swift in Sources */,
 				95B521ED236925570051FD9D /* ShowHideViews.swift in Sources */,
+				9556C3772369E76D001144C4 /* MainView.swift in Sources */,
 				95B521D523691B8A0051FD9D /* AppDelegate.swift in Sources */,
 				9556C3712369D007001144C4 /* UserDefaultsData.swift in Sources */,
+				9556C3732369E18A001144C4 /* CodableData.swift in Sources */,
 				95B521D723691B8A0051FD9D /* SceneDelegate.swift in Sources */,
 				95B521D923691B8A0051FD9D /* ContentView.swift in Sources */,
 				95B521EB2369221C0051FD9D /* ObservedObjects.swift in Sources */,
