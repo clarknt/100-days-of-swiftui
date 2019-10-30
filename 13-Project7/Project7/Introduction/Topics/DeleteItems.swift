@@ -16,6 +16,7 @@ struct DeleteItems: View {
         NavigationView {
             VStack {
                 List {
+                    // onDelete is available on ForEach but not on the List
                     ForEach(numbers, id: \Int.self) {
                         Text("\($0)")
                     }
