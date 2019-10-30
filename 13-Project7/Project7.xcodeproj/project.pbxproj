@@ -15,6 +15,7 @@
 		95B521E123691B8C0051FD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B521DF23691B8C0051FD9D /* LaunchScreen.storyboard */; };
 		95B521E923691E520051FD9D /* StateAndStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521E823691E520051FD9D /* StateAndStruct.swift */; };
 		95B521EB2369221C0051FD9D /* ObservedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521EA2369221C0051FD9D /* ObservedObjects.swift */; };
+		95B521ED236925570051FD9D /* ShowHideViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521EC236925570051FD9D /* ShowHideViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		95B521E223691B8C0051FD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95B521E823691E520051FD9D /* StateAndStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateAndStruct.swift; sourceTree = "<group>"; };
 		95B521EA2369221C0051FD9D /* ObservedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObjects.swift; sourceTree = "<group>"; };
+		95B521EC236925570051FD9D /* ShowHideViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowHideViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				95B521D823691B8A0051FD9D /* ContentView.swift */,
 				95B521E823691E520051FD9D /* StateAndStruct.swift */,
 				95B521EA2369221C0051FD9D /* ObservedObjects.swift */,
+				95B521EC236925570051FD9D /* ShowHideViews.swift */,
 				95B521DA23691B8C0051FD9D /* Assets.xcassets */,
 				95B521DF23691B8C0051FD9D /* LaunchScreen.storyboard */,
 				95B521E223691B8C0051FD9D /* Info.plist */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95B521E923691E520051FD9D /* StateAndStruct.swift in Sources */,
+				95B521ED236925570051FD9D /* ShowHideViews.swift in Sources */,
 				95B521D523691B8A0051FD9D /* AppDelegate.swift in Sources */,
 				95B521D723691B8A0051FD9D /* SceneDelegate.swift in Sources */,
 				95B521D923691B8A0051FD9D /* ContentView.swift in Sources */,
