@@ -14,6 +14,7 @@ class User: ObservableObject {
 }
 
 struct ObservedObjects: View {
+    // not private to make it clear that the object is shared
     @ObservedObject var user = User()
 
     var body: some View {

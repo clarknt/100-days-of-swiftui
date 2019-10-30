@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SecondView: View {
-    @Environment(\.presentationMode)var presentationMode
+    @Environment(\.presentationMode) var presentationMode
 
     var name: String
 

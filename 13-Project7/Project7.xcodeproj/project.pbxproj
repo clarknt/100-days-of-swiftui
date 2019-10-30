@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9556C36F2369C49B001144C4 /* DeleteItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9556C36E2369C49B001144C4 /* DeleteItems.swift */; };
 		95B521D523691B8A0051FD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D423691B8A0051FD9D /* AppDelegate.swift */; };
 		95B521D723691B8A0051FD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D623691B8A0051FD9D /* SceneDelegate.swift */; };
 		95B521D923691B8A0051FD9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B521D823691B8A0051FD9D /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9556C36E2369C49B001144C4 /* DeleteItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItems.swift; sourceTree = "<group>"; };
 		95B521D123691B8A0051FD9D /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B521D423691B8A0051FD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B521D623691B8A0051FD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				95B521E823691E520051FD9D /* StateAndStruct.swift */,
 				95B521EA2369221C0051FD9D /* ObservedObjects.swift */,
 				95B521EC236925570051FD9D /* ShowHideViews.swift */,
+				9556C36E2369C49B001144C4 /* DeleteItems.swift */,
 				95B521DA23691B8C0051FD9D /* Assets.xcassets */,
 				95B521DF23691B8C0051FD9D /* LaunchScreen.storyboard */,
 				95B521E223691B8C0051FD9D /* Info.plist */,
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9556C36F2369C49B001144C4 /* DeleteItems.swift in Sources */,
 				95B521E923691E520051FD9D /* StateAndStruct.swift in Sources */,
 				95B521ED236925570051FD9D /* ShowHideViews.swift in Sources */,
 				95B521D523691B8A0051FD9D /* AppDelegate.swift in Sources */,
