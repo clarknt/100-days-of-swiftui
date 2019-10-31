@@ -17,6 +17,9 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = ""
 
+    // challenge 3
+    @State private var showingAlert = false
+
     static let types = ["Business", "Personal"]
 
     var body: some View {
@@ -41,8 +44,16 @@ struct AddView: View {
                         self.expenses.items.append(item)
                         self.presentationMode.wrappedValue.dismiss()
                     }
+                    // challenge 3
+                    else {
+                        self.showingAlert = true
+                    }
                 }
             )
+        }
+        // challenge 3
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Incorrect amount"), message: Text("Amount must be an integer"), dismissButton: .default(Text("OK")))
         }
     }
 }
