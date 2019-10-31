@@ -32,8 +32,9 @@ struct ContentView: View {
                 .onDelete(perform: removeItems)
             }
             .navigationBarTitle("iExpense")
-            .navigationBarItems(trailing:
-                Button(action: {
+            .navigationBarItems(
+                leading: EditButton(), // challenge 1
+                trailing: Button(action: {
                     self.showingAddExpense = true
                 }) {
                     Image(systemName: "plus")
