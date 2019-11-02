@@ -22,6 +22,8 @@ struct MainView: View {
     private let topics: [NamedView] = [
         NamedView("Resizing images to fit the screen using GeometryReader", view: ResizeImage()),
     NamedView("How ScrollView lets us work with scrolling data", view: Scrolling()),
+    NamedView("Pushing new views onto the stack using NavigationLink", view: PushingViews()),
+
     ]
 
     var body: some View {
