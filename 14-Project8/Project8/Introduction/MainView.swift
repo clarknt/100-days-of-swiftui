@@ -23,6 +23,7 @@ struct MainView: View {
         NamedView("Resizing images to fit the screen using GeometryReader", view: ResizeImage()),
     NamedView("How ScrollView lets us work with scrolling data", view: Scrolling()),
     NamedView("Pushing new views onto the stack using NavigationLink", view: PushingViews()),
+    NamedView("Working with hierarchical Codable data", view: HierarchyCodable()),
 
     ]
 

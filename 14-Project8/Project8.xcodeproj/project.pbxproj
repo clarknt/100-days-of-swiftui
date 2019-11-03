@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		956013E6236E71CF0017EE98 /* HierarchyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956013E5236E71CF0017EE98 /* HierarchyCodable.swift */; };
 		9580B268236D23FE00ADCF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580B267236D23FE00ADCF51 /* AppDelegate.swift */; };
 		9580B26A236D23FE00ADCF51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580B269236D23FE00ADCF51 /* SceneDelegate.swift */; };
 		9580B26C236D23FE00ADCF51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580B26B236D23FE00ADCF51 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		956013E5236E71CF0017EE98 /* HierarchyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HierarchyCodable.swift; sourceTree = "<group>"; };
 		9580B264236D23FE00ADCF51 /* Project8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9580B267236D23FE00ADCF51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9580B269236D23FE00ADCF51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				9580B27C236D244C00ADCF51 /* ResizeImage.swift */,
 				95B5DFA8236D289900CF748F /* Scrolling.swift */,
 				95B5DFAA236D2A7900CF748F /* PushingViews.swift */,
+				956013E5236E71CF0017EE98 /* HierarchyCodable.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				95B5DFAB236D2A7900CF748F /* PushingViews.swift in Sources */,
 				9580B268236D23FE00ADCF51 /* AppDelegate.swift in Sources */,
+				956013E6236E71CF0017EE98 /* HierarchyCodable.swift in Sources */,
 				9580B27D236D244C00ADCF51 /* ResizeImage.swift in Sources */,
 				9580B26A236D23FE00ADCF51 /* SceneDelegate.swift in Sources */,
 				9580B27F236D247D00ADCF51 /* MainView.swift in Sources */,
