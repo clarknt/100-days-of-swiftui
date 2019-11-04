@@ -48,29 +48,32 @@ struct MissionView: View {
                     .padding()
 
                     ForEach(self.astronauts, id: \.role) { crewMember in
-                        HStack {
-                            Image(crewMember.astronaut.id)
-                                .resizable()
-                                .frame(width: 166, height: 120)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.primary, lineWidth: 1))
+                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
+                            HStack {
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    .frame(width: 166, height: 120)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.primary, lineWidth: 1))
 
-                            VStack(alignment: .leading) {
-                                Text(crewMember.astronaut.name)
-                                    .font(.headline)
-                                HStack {
-                                    Text(crewMember.role)
-                                        .foregroundColor(.secondary)
-                                    if crewMember.role == "Commander" {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(Color.yellow)
+                                VStack(alignment: .leading) {
+                                    Text(crewMember.astronaut.name)
+                                        .font(.headline)
+                                    HStack {
+                                        Text(crewMember.role)
+                                            .foregroundColor(.secondary)
+                                        if crewMember.role == "Commander" {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(Color.yellow)
+                                        }
                                     }
                                 }
-                            }
 
-                            Spacer()
+                                Spacer()
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
 
                     Spacer(minLength: 25)
