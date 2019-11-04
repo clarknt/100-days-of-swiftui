@@ -4,6 +4,8 @@ https://www.hackingwithswift.com/100/swiftui/39
 
 Includes solutions to the [challenges](https://www.hackingwithswift.com/books/ios-swiftui/moonshot-wrap-up).
 
+Mission and astronauts descriptions under [CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0) license thanks to [Wikipedia](https://www.wikipedia.org/)
+
 ## Topics
 
 GeometryReader, ScrollView, Navigation, Codable hierarchy, Generics
