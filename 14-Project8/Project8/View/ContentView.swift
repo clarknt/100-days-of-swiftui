@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
-    let missions: [Mission] = Bundle.main.decode("missions.json")
+    let missions: [Mission] = Missions.missions
 
     var body: some View {
         NavigationView {
             List(missions) { mission in
-                NavigationLink(destination: MissionView(mission: mission, astronauts: self.astronauts)) {
+                NavigationLink(destination: MissionView(mission: mission)) {
                     Image(mission.image)
                         .resizable()
                         .scaledToFit() // shortcut for .aspectRatio(contentMode: .fit)
