@@ -34,7 +34,7 @@ struct Mission: Codable, Identifiable {
             return formatter.string(from: launchDate)
         }
         else {
-            return "N/A"
+            return "Date: N/A"
         }
     }
 }
