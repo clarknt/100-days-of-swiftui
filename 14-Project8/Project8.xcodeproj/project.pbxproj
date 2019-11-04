@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9531FB4A236FD6F60011FDA6 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531FB49236FD6F60011FDA6 /* MissionView.swift */; };
 		956013E6236E71CF0017EE98 /* HierarchyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956013E5236E71CF0017EE98 /* HierarchyCodable.swift */; };
 		956013E9236E73FC0017EE98 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 956013E7236E73FC0017EE98 /* missions.json */; };
 		956013EA236E73FC0017EE98 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 956013E8236E73FC0017EE98 /* astronauts.json */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9531FB49236FD6F60011FDA6 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		956013E5236E71CF0017EE98 /* HierarchyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HierarchyCodable.swift; sourceTree = "<group>"; };
 		956013E7236E73FC0017EE98 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		956013E8236E73FC0017EE98 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				956013ED236E74D40017EE98 /* Bundle-Decodable.swift */,
 				956013EB236E74750017EE98 /* Astronaut.swift */,
 				956013EF236E768B0017EE98 /* Mission.swift */,
+				9531FB49236FD6F60011FDA6 /* MissionView.swift */,
 				9580B26D236D240100ADCF51 /* Assets.xcassets */,
 				9580B272236D240200ADCF51 /* LaunchScreen.storyboard */,
 				9580B275236D240200ADCF51 /* Info.plist */,
@@ -199,6 +202,7 @@
 				95B5DFAB236D2A7900CF748F /* PushingViews.swift in Sources */,
 				9580B268236D23FE00ADCF51 /* AppDelegate.swift in Sources */,
 				956013E6236E71CF0017EE98 /* HierarchyCodable.swift in Sources */,
+				9531FB4A236FD6F60011FDA6 /* MissionView.swift in Sources */,
 				9580B27D236D244C00ADCF51 /* ResizeImage.swift in Sources */,
 				9580B26A236D23FE00ADCF51 /* SceneDelegate.swift in Sources */,
 				9580B27F236D247D00ADCF51 /* MainView.swift in Sources */,
