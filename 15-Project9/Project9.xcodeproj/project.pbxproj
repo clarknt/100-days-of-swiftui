@@ -17,6 +17,7 @@
 		9532734E23726FE70062E0A8 /* PathsVsShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532734D23726FE70062E0A8 /* PathsVsShapes.swift */; };
 		953B3EC523730D8C00E4EA09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC423730D8C00E4EA09 /* MainView.swift */; };
 		953B3EC723730F5400E4EA09 /* StrokeBorderSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */; };
+		953B3EC92373142600E4EA09 /* TransformingShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC82373142600E4EA09 /* TransformingShapes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9532734D23726FE70062E0A8 /* PathsVsShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsVsShapes.swift; sourceTree = "<group>"; };
 		953B3EC423730D8C00E4EA09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeBorderSupport.swift; sourceTree = "<group>"; };
+		953B3EC82373142600E4EA09 /* TransformingShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformingShapes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				9532734B23726F4E0062E0A8 /* CustomPaths.swift */,
 				9532734D23726FE70062E0A8 /* PathsVsShapes.swift */,
 				953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */,
+				953B3EC82373142600E4EA09 /* TransformingShapes.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95327337237265880062E0A8 /* AppDelegate.swift in Sources */,
+				953B3EC92373142600E4EA09 /* TransformingShapes.swift in Sources */,
 				953B3EC523730D8C00E4EA09 /* MainView.swift in Sources */,
 				95327339237265880062E0A8 /* SceneDelegate.swift in Sources */,
 				9532733B237265880062E0A8 /* ContentView.swift in Sources */,

@@ -25,6 +25,7 @@ struct MainView: View {
         NamedView("Creating custom paths with SwiftUI", view: CustomPaths()),
         NamedView("Paths vs shapes in SwiftUI", view: PathsVsShapes()),
         NamedView("Adding strokeBorder() support with InsettableShape", view: StrokeBorderSupport()),
+    NamedView("Transforming shapes using CGAffineTransform and even-odd fills", view: TransformingShapes()),
     ]
 
     var body: some View {
