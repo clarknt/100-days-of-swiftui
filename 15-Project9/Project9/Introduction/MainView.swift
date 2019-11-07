@@ -30,6 +30,7 @@ struct MainView: View {
         NamedView("Enabling high-performance Metal rendering with drawingGroup()", view: MetalRendering()),
         NamedView("Special effects in SwiftUI: blurs, blending, and more", view: SpecialEffects()),
         NamedView("Animating simple shapes with animatableData", view: AnimatingShapes()),
+        NamedView("Animating complex shapes with AnimatablePair", view: AnimatingComplexShapes()),
     ]
 
     var body: some View {
