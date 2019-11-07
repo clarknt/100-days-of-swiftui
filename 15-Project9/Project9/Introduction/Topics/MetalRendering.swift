@@ -8,86 +8,104 @@
 
 import SwiftUI
 
-struct ColorCyclingCircle: View {
+func color(for value: Int, brightness: Double, steps: Int, amount: Double) -> Color {
+    var targetHue = Double(value) / Double(steps) + amount
+
+    if targetHue > 1 {
+        targetHue -= 1
+    }
+
+    return Color(hue: targetHue, saturation: 1, brightness: brightness)
+}
+
+struct ColorCyclingCircleCoreAnimation: View {
     var amount = 0.0
     var steps = 100
-    var coreAnimation = true
 
     var body: some View {
-        Group {
-            if coreAnimation {
-                ZStack {
-                    ForEach(0..<steps) { value in
-                        Circle()
-                            .inset(by: CGFloat(value))
-                            .strokeBorder(self.color(for: value, brightness: 1), lineWidth: 2)
-                    }
-                }
-            }
-            else {
-                ZStack {
-                    ForEach(0..<steps) { value in
-                        Circle()
-                            .inset(by: CGFloat(value))
-                            .strokeBorder(LinearGradient(gradient: Gradient(colors: [
-                                self.color(for: value, brightness: 1),
-                                self.color(for: value, brightness: 0.5)
-                            ]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
-                    }
-                }
-                // use metal to render image offscreen
-                .drawingGroup()
+        ZStack {
+            ForEach(0..<steps) { value in
+                Circle()
+                    .inset(by: CGFloat(value))
+                    .strokeBorder(color(for: value, brightness: 1, steps: self.steps, amount: self.amount), lineWidth: 2)
             }
         }
     }
+}
 
-    func color(for value: Int, brightness: Double) -> Color {
-        var targetHue = Double(value) / Double(self.steps) + self.amount
+struct ColorCyclingCircleCoreAnimationSlow: View {
+    var amount = 0.0
+    var steps = 100
 
-        if targetHue > 1 {
-            targetHue -= 1
+    var body: some View {
+        ZStack {
+            ForEach(0..<steps) { value in
+                Circle()
+                    .inset(by: CGFloat(value))
+                    .strokeBorder(LinearGradient(gradient: Gradient(colors: [
+                        color(for: value, brightness: 1, steps: self.steps, amount: self.amount),
+                        color(for: value, brightness: 0.5, steps: self.steps, amount: self.amount)
+                    ]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
+            }
         }
+    }
+}
 
-        return Color(hue: targetHue, saturation: 1, brightness: brightness)
+struct ColorCyclingCircleMetal: View {
+    var amount = 0.0
+    var steps = 100
+
+    var body: some View {
+        ZStack {
+            ForEach(0..<steps) { value in
+                Circle()
+                    .inset(by: CGFloat(value))
+                    .strokeBorder(LinearGradient(gradient: Gradient(colors: [
+                        color(for: value, brightness: 1, steps: self.steps, amount: self.amount),
+                        color(for: value, brightness: 0.5, steps: self.steps, amount: self.amount)
+                    ]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
+            }
+        }
+        // use metal to render image offscreen
+        .drawingGroup()
     }
 }
 
 struct MetalRendering: View {
     @State private var colorCycle = 0.0
     @State private var selectedView = 0
+    let views = ["CA", "CA (slow)", "Metal"]
 
     var body: some View {
-        TabView(selection: $selectedView) {
-            Group {
-                VStack {
-                    ColorCyclingCircle(amount: self.colorCycle)
-                        .frame(width: 300, height:  300)
+        VStack {
 
-                    Slider(value: $colorCycle)
-                        .padding()
+            Picker("Rendering type", selection: $selectedView) {
+                ForEach(0..<views.count, id: \.self) { i in
+                    Text(self.views[i])
                 }
             }
-            .tabItem {
-                Image(systemName: "1.circle")
-                Text("Core animation")
-            }
-            .tag(0)
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
 
-            Group {
-                VStack {
-                    ColorCyclingCircle(amount: self.colorCycle, coreAnimation: false)
-                        .frame(width: 300, height:  300)
+            Spacer()
 
-                    Slider(value: $colorCycle)
-                        .padding()
-                }
+            if selectedView == 0 {
+                ColorCyclingCircleCoreAnimation(amount: self.colorCycle)
+                    .frame(width: 300, height:  300)
             }
-            .tabItem {
-                Image(systemName: "2.circle")
-                Text("Metal")
+            else if selectedView == 1 {
+                ColorCyclingCircleCoreAnimationSlow(amount: self.colorCycle)
+                    .frame(width: 300, height:  300)
             }
-            .tag(1)
+            else {
+                ColorCyclingCircleMetal(amount: self.colorCycle)
+                    .frame(width: 300, height:  300)
+            }
 
+            Slider(value: $colorCycle)
+                .padding()
+
+            Spacer()
         }
     }
 }
