@@ -27,6 +27,7 @@ struct MainView: View {
         NamedView("Adding strokeBorder() support with InsettableShape", view: StrokeBorderSupport()),
         NamedView("Transforming shapes using CGAffineTransform and even-odd fills", view: TransformingShapes()),
         NamedView("Creative borders and fills using ImagePaint", view: CreativeBorders()),
+        NamedView("Enabling high-performance Metal rendering with drawingGroup()", view: MetalRendering()),
     ]
 
     var body: some View {
