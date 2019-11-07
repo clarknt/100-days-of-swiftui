@@ -28,6 +28,7 @@ struct MainView: View {
         NamedView("Transforming shapes using CGAffineTransform and even-odd fills", view: TransformingShapes()),
         NamedView("Creative borders and fills using ImagePaint", view: CreativeBorders()),
         NamedView("Enabling high-performance Metal rendering with drawingGroup()", view: MetalRendering()),
+        NamedView("Special effects in SwiftUI: blurs, blending, and more", view: SpecialEffects()),
     ]
 
     var body: some View {
