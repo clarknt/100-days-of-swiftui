@@ -50,6 +50,7 @@ struct PathsVsShapes: View {
                 .stroke(Color.blue, lineWidth: 10)
                 .frame(width: 300, height: 300)
         }
+        .navigationBarTitle("Paths vs. shapes", displayMode: .inline)
     }
 }
 

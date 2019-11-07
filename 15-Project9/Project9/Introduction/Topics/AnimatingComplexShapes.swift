@@ -59,6 +59,7 @@ struct AnimatingComplexShapes: View {
                     self.columns = 16
                 }
         }
+        .navigationBarTitle("Animating complex shapes", displayMode: .inline)
     }
 }
 

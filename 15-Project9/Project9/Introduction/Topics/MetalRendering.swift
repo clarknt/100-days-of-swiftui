@@ -107,6 +107,7 @@ struct MetalRendering: View {
 
             Spacer()
         }
+        .navigationBarTitle("Rendering", displayMode: .inline)
     }
 }
 

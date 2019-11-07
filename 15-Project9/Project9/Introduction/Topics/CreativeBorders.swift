@@ -61,6 +61,7 @@ struct CreativeBorders: View {
             }
             .tag(3)
         }
+        .navigationBarTitle("Creative borders", displayMode: .inline)
     }
 }
 

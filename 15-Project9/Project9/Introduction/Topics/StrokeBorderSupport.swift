@@ -42,6 +42,7 @@ struct StrokeBorderSupport: View {
             Arc2(startAngle: .degrees(-90), endAngle: .degrees(90), clockwise: true)
                 .strokeBorder(Color.blue, lineWidth: 40)
         }
+        .navigationBarTitle("Stroke border support", displayMode: .inline)
     }
 }
 

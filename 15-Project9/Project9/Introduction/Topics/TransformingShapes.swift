@@ -46,6 +46,7 @@ struct TransformingShapes: View {
             Slider(value: $petalWidth, in: 0...100)
                 .padding([.horizontal, .bottom])
         }
+        .navigationBarTitle("Transforming shapes", displayMode: .inline)
     }
 }
 

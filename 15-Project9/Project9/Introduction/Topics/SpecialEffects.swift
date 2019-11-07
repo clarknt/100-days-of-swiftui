@@ -107,6 +107,7 @@ struct SpecialEffects: View {
                 BlurSaturation()
             }
         }
+        .navigationBarTitle("Special effects", displayMode: .inline)
     }
 }
 

@@ -39,6 +39,7 @@ struct AnimatingShapes: View {
                     self.insetAmount = CGFloat.random(in: 10...90)
                 }
         }
+        .navigationBarTitle("Animating basic shapes", displayMode: .inline)
     }
 }
 

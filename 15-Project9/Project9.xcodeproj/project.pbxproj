@@ -18,6 +18,8 @@
 		953812BC237469C5007FC28B /* SpecialEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812BB237469C5007FC28B /* SpecialEffects.swift */; };
 		953812BE2374848B007FC28B /* AnimatingShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812BD2374848B007FC28B /* AnimatingShapes.swift */; };
 		953812C023748736007FC28B /* AnimatingComplexShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812BF23748736007FC28B /* AnimatingComplexShapes.swift */; };
+		953812C223748CE2007FC28B /* DefaultSpirograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812C123748CE2007FC28B /* DefaultSpirograph.swift */; };
+		953812C42374AC01007FC28B /* CustomSpirograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812C32374AC01007FC28B /* CustomSpirograph.swift */; };
 		953B3EC523730D8C00E4EA09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC423730D8C00E4EA09 /* MainView.swift */; };
 		953B3EC723730F5400E4EA09 /* StrokeBorderSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */; };
 		953B3EC92373142600E4EA09 /* TransformingShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC82373142600E4EA09 /* TransformingShapes.swift */; };
@@ -39,6 +41,8 @@
 		953812BB237469C5007FC28B /* SpecialEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffects.swift; sourceTree = "<group>"; };
 		953812BD2374848B007FC28B /* AnimatingShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingShapes.swift; sourceTree = "<group>"; };
 		953812BF23748736007FC28B /* AnimatingComplexShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingComplexShapes.swift; sourceTree = "<group>"; };
+		953812C123748CE2007FC28B /* DefaultSpirograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpirograph.swift; sourceTree = "<group>"; };
+		953812C32374AC01007FC28B /* CustomSpirograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpirograph.swift; sourceTree = "<group>"; };
 		953B3EC423730D8C00E4EA09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeBorderSupport.swift; sourceTree = "<group>"; };
 		953B3EC82373142600E4EA09 /* TransformingShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformingShapes.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				953812BB237469C5007FC28B /* SpecialEffects.swift */,
 				953812BD2374848B007FC28B /* AnimatingShapes.swift */,
 				953812BF23748736007FC28B /* AnimatingComplexShapes.swift */,
+				953812C123748CE2007FC28B /* DefaultSpirograph.swift */,
+				953812C32374AC01007FC28B /* CustomSpirograph.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -202,9 +208,11 @@
 				953B3EC723730F5400E4EA09 /* StrokeBorderSupport.swift in Sources */,
 				953812BE2374848B007FC28B /* AnimatingShapes.swift in Sources */,
 				953B3ECB237362D700E4EA09 /* CreativeBorders.swift in Sources */,
+				953812C223748CE2007FC28B /* DefaultSpirograph.swift in Sources */,
 				9532734E23726FE70062E0A8 /* PathsVsShapes.swift in Sources */,
 				953812C023748736007FC28B /* AnimatingComplexShapes.swift in Sources */,
 				9532734C23726F4E0062E0A8 /* CustomPaths.swift in Sources */,
+				953812C42374AC01007FC28B /* CustomSpirograph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
