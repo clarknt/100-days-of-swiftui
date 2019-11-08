@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let topics: [NamedView] = [
+        NamedView("Introduction", view: MainView()),
+        NamedView("Challenges 1 & 2 - Arrow", view: ArrowChallenge()),
+        NamedView("Challenge 3 - ColorCyclingRectangle", view: Challenge3()),
+    ]
+
     var body: some View {
-        MainView()
+        NavigationView {
+            List(0..<topics.count) { i in
+                NavigationLink(destination: self.topics[i].view) {
+                    Text(self.topics[i].name)
+                }
+            }
+            .navigationBarTitle("Drawing")
+        }
     }
 }
 

@@ -20,11 +20,13 @@
 		953812C023748736007FC28B /* AnimatingComplexShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812BF23748736007FC28B /* AnimatingComplexShapes.swift */; };
 		953812C223748CE2007FC28B /* DefaultSpirograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812C123748CE2007FC28B /* DefaultSpirograph.swift */; };
 		953812C42374AC01007FC28B /* CustomSpirograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953812C32374AC01007FC28B /* CustomSpirograph.swift */; };
+		953ADF4D2375F7430063D8C3 /* ArrowChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953ADF4C2375F7430063D8C3 /* ArrowChallenge.swift */; };
 		953B3EC523730D8C00E4EA09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC423730D8C00E4EA09 /* MainView.swift */; };
 		953B3EC723730F5400E4EA09 /* StrokeBorderSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */; };
 		953B3EC92373142600E4EA09 /* TransformingShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3EC82373142600E4EA09 /* TransformingShapes.swift */; };
 		953B3ECB237362D700E4EA09 /* CreativeBorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3ECA237362D700E4EA09 /* CreativeBorders.swift */; };
 		953B3ECD237387CB00E4EA09 /* MetalRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3ECC237387CB00E4EA09 /* MetalRendering.swift */; };
+		9592490023761BB400FC6CE4 /* Challenge3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959248FF23761BB400FC6CE4 /* Challenge3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,11 +45,13 @@
 		953812BF23748736007FC28B /* AnimatingComplexShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingComplexShapes.swift; sourceTree = "<group>"; };
 		953812C123748CE2007FC28B /* DefaultSpirograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpirograph.swift; sourceTree = "<group>"; };
 		953812C32374AC01007FC28B /* CustomSpirograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpirograph.swift; sourceTree = "<group>"; };
+		953ADF4C2375F7430063D8C3 /* ArrowChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowChallenge.swift; sourceTree = "<group>"; };
 		953B3EC423730D8C00E4EA09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		953B3EC623730F5400E4EA09 /* StrokeBorderSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeBorderSupport.swift; sourceTree = "<group>"; };
 		953B3EC82373142600E4EA09 /* TransformingShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformingShapes.swift; sourceTree = "<group>"; };
 		953B3ECA237362D700E4EA09 /* CreativeBorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreativeBorders.swift; sourceTree = "<group>"; };
 		953B3ECC237387CB00E4EA09 /* MetalRendering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalRendering.swift; sourceTree = "<group>"; };
+		959248FF23761BB400FC6CE4 /* Challenge3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		95327335237265880062E0A8 /* Project9 */ = {
 			isa = PBXGroup;
 			children = (
+				953ADF4B2375F7270063D8C3 /* Challenges */,
 				9532734A23726F330062E0A8 /* Introduction */,
 				95327336237265880062E0A8 /* AppDelegate.swift */,
 				95327338237265880062E0A8 /* SceneDelegate.swift */,
@@ -107,6 +112,15 @@
 				953B3EC423730D8C00E4EA09 /* MainView.swift */,
 			);
 			path = Introduction;
+			sourceTree = "<group>";
+		};
+		953ADF4B2375F7270063D8C3 /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				953ADF4C2375F7430063D8C3 /* ArrowChallenge.swift */,
+				959248FF23761BB400FC6CE4 /* Challenge3.swift */,
+			);
+			path = Challenges;
 			sourceTree = "<group>";
 		};
 		953B3EC323730D6300E4EA09 /* Topics */ = {
@@ -199,7 +213,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				953812BC237469C5007FC28B /* SpecialEffects.swift in Sources */,
+				953ADF4D2375F7430063D8C3 /* ArrowChallenge.swift in Sources */,
 				95327337237265880062E0A8 /* AppDelegate.swift in Sources */,
+				9592490023761BB400FC6CE4 /* Challenge3.swift in Sources */,
 				953B3EC92373142600E4EA09 /* TransformingShapes.swift in Sources */,
 				953B3ECD237387CB00E4EA09 /* MetalRendering.swift in Sources */,
 				953B3EC523730D8C00E4EA09 /* MainView.swift in Sources */,

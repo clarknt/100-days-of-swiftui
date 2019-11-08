@@ -36,14 +36,12 @@ struct MainView: View {
     ]
 
     var body: some View {
-        NavigationView {
-            List(0..<topics.count) { i in
-                NavigationLink(destination: self.topics[i].view) {
-                    Text(self.topics[i].name)
-                }
+        List(0..<topics.count) { i in
+            NavigationLink(destination: self.topics[i].view) {
+                Text(self.topics[i].name)
             }
-            .navigationBarTitle("Topics")
         }
+        .navigationBarTitle("Topics", displayMode: .inline)
     }
 }
 

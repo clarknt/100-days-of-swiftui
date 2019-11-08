@@ -48,7 +48,7 @@ struct CustomSpirograph: View {
             Spirograph(innerRadius: Int(self.innerRadius), outerRadius: Int(self.outerRadius), distance: Int(self.distance), amount: self.amount)
                 .stroke(Color(hue: self.hue, saturation: 1, brightness: 1), lineWidth: 1)
                 .drawingGroup() // improve randomize performance
-                .offset(CGSize(width: 0, height: -180)) // bump it up
+                .offset(CGSize(width: 0, height: -185)) // bump it up
 
             VStack(spacing: 0) {
                 Spacer()
@@ -129,7 +129,7 @@ struct CustomSpirograph: View {
                     Stepper(value: $animationDuration, in: 0...5, step: 0.25) {
                         Text("\(animationDuration, specifier: "%.2f")s animation")
                     }
-                    .padding(.leading, 40)
+                    .padding(.leading, 25)
                     .padding(.trailing)
                 }
             }
