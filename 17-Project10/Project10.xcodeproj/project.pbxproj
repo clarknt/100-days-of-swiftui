@@ -13,6 +13,7 @@
 		95395F70237A49F700F08521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95395F6F237A49F700F08521 /* Assets.xcassets */; };
 		95395F73237A49F700F08521 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95395F72237A49F700F08521 /* Preview Assets.xcassets */; };
 		95395F76237A49F700F08521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95395F74237A49F700F08521 /* LaunchScreen.storyboard */; };
+		9539DB0A237BADF5003BF4A1 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539DB09237BADF5003BF4A1 /* CodableData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		95395F72237A49F700F08521 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95395F75237A49F700F08521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95395F77237A49F700F08521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9539DB08237BAD8C003BF4A1 /* PublishedCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedCodable.swift; sourceTree = "<group>"; };
+		9539DB09237BADF5003BF4A1 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 		95395F68237A49F400F08521 /* Project10 */ = {
 			isa = PBXGroup;
 			children = (
+				9539DB07237BAD7E003BF4A1 /* Introduction */,
 				95395F69237A49F400F08521 /* AppDelegate.swift */,
 				95395F6B237A49F400F08521 /* SceneDelegate.swift */,
 				95395F6D237A49F400F08521 /* ContentView.swift */,
@@ -73,6 +77,15 @@
 				95395F72237A49F700F08521 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9539DB07237BAD7E003BF4A1 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				9539DB08237BAD8C003BF4A1 /* PublishedCodable.swift */,
+				9539DB09237BADF5003BF4A1 /* CodableData.swift */,
+			);
+			path = Introduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9539DB0A237BADF5003BF4A1 /* CodableData.swift in Sources */,
 				95395F6A237A49F400F08521 /* AppDelegate.swift in Sources */,
 				95395F6C237A49F400F08521 /* SceneDelegate.swift in Sources */,
 				95395F6E237A49F400F08521 /* ContentView.swift in Sources */,
