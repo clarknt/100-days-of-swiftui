@@ -14,6 +14,7 @@
 		95395F73237A49F700F08521 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95395F72237A49F700F08521 /* Preview Assets.xcassets */; };
 		95395F76237A49F700F08521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95395F74237A49F700F08521 /* LaunchScreen.storyboard */; };
 		9539DB0A237BADF5003BF4A1 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539DB09237BADF5003BF4A1 /* CodableData.swift */; };
+		95412189237CF19500D15836 /* ValidatingForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95412188237CF19500D15836 /* ValidatingForms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		95395F77237A49F700F08521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9539DB08237BAD8C003BF4A1 /* PublishedCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedCodable.swift; sourceTree = "<group>"; };
 		9539DB09237BADF5003BF4A1 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
+		95412188237CF19500D15836 /* ValidatingForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingForms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				9539DB08237BAD8C003BF4A1 /* PublishedCodable.swift */,
 				9539DB09237BADF5003BF4A1 /* CodableData.swift */,
+				95412188237CF19500D15836 /* ValidatingForms.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				9539DB0A237BADF5003BF4A1 /* CodableData.swift in Sources */,
 				95395F6A237A49F400F08521 /* AppDelegate.swift in Sources */,
+				95412189237CF19500D15836 /* ValidatingForms.swift in Sources */,
 				95395F6C237A49F400F08521 /* SceneDelegate.swift in Sources */,
 				95395F6E237A49F400F08521 /* ContentView.swift in Sources */,
 			);
