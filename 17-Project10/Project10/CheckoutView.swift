@@ -14,7 +14,8 @@ enum AlertType {
 }
 
 struct CheckoutView: View {
-    @ObservedObject var order: Order
+    // challenge 3
+    @ObservedObject var oo: ObservableOrder
 
     @State private var confirmationMessage = ""
 
@@ -32,7 +33,7 @@ struct CheckoutView: View {
                         .scaledToFit()
                         .frame(width: geometry.size.width)
 
-                    Text("Your total is $\(self.order.cost, specifier: "%.2f")")
+                    Text("Your total is $\(self.oo.order.cost, specifier: "%.2f")")
                         .font(.title)
 
                     Button("Place Order") {
@@ -55,7 +56,7 @@ struct CheckoutView: View {
     }
 
     func placeOrder() {
-        guard let encoded = try? JSONEncoder().encode(order) else {
+        guard let encoded = try? JSONEncoder().encode(oo.order) else {
             // challenge 2
             self.show(error: "Failed to encode order")
             return
@@ -102,6 +103,7 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(order: Order())
+        // challenge 3
+        CheckoutView(oo: ObservableOrder(order: Order()))
     }
 }

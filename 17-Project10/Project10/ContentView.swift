@@ -9,41 +9,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var order = Order()
+    @ObservedObject var oo = ObservableOrder(order: Order())
 
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Select your cake type", selection: $order.type) {
+                    Picker("Select your cake type", selection: $oo.order.type) {
                         ForEach(0..<Order.types.count, id: \.self) {
                             Text(Order.types[$0])
                         }
                     }
 
-                    Stepper(value: $order.quantity, in: 3...20) {
-                        Text("Number of cakes: \(order.quantity)")
+                    Stepper(value: $oo.order.quantity, in: 3...20) {
+                        Text("Number of cakes: \(oo.order.quantity)")
                     }
                 }
 
                 Section {
-                    Toggle(isOn: $order.specialRequestEnabled.animation()) {
+                    Toggle(isOn: $oo.order.specialRequestEnabled.animation()) {
                         Text("Any special requests?")
                     }
 
-                    if order.specialRequestEnabled {
-                        Toggle(isOn: $order.extraFrosting) {
+                    if oo.order.specialRequestEnabled {
+                        Toggle(isOn: $oo.order.extraFrosting) {
                             Text("Add extra frosting")
                         }
 
-                        Toggle(isOn: $order.addSprinkles) {
+                        Toggle(isOn: $oo.order.addSprinkles) {
                             Text("Add extra sprinkles")
                         }
                     }
                 }
 
                 Section {
-                    NavigationLink(destination: AddressView(order: order)) {
+                    NavigationLink(destination: AddressView(oo: oo)) {
                         Text("Delivery details")
                     }
                 }
