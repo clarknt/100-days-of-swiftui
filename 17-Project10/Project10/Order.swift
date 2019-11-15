@@ -46,6 +46,11 @@ class Order: ObservableObject, Codable {
             return false
         }
 
+        // challenge 1
+        if name.isAllSpaces || streetAddress.isAllSpaces || city.isAllSpaces || zip.isAllSpaces {
+            return false
+        }
+
         return true
     }
 
@@ -104,3 +109,11 @@ class Order: ObservableObject, Codable {
     }
 }
 
+// challenge 1
+fileprivate extension String {
+
+    var isAllSpaces: Bool {
+        guard !self.isEmpty else { return false }
+        return self.drop(while: { $0 == " " }).isEmpty
+    }
+}

@@ -16,7 +16,7 @@ struct ContentView: View {
             Form {
                 Section {
                     Picker("Select your cake type", selection: $order.type) {
-                        ForEach(0..<Order.types.count) {
+                        ForEach(0..<Order.types.count, id: \.self) {
                             Text(Order.types[$0])
                         }
                     }
