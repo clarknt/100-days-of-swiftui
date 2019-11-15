@@ -8,11 +8,20 @@
 
 import SwiftUI
 
+enum AlertType {
+    case confirmation
+    case error
+}
+
 struct CheckoutView: View {
     @ObservedObject var order: Order
 
     @State private var confirmationMessage = ""
-    @State private var showingConfirmation = false
+
+    // challenge 2
+    @State private var showingAlert = false
+    @State private var errorMessage = ""
+    @State var alertType = AlertType.confirmation
 
     var body: some View {
         GeometryReader { geometry in
@@ -34,14 +43,21 @@ struct CheckoutView: View {
             }
         }
         .navigationBarTitle("Check out", displayMode: .inline)
-        .alert(isPresented: $showingConfirmation) { () -> Alert in
-            Alert(title: Text("Thank you!"), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
+        // challenge 2
+        .alert(isPresented: $showingAlert) { () -> Alert in
+            switch alertType {
+            case .confirmation:
+                return Alert(title: Text("Thank you!"), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
+            case .error:
+                return Alert(title: Text("Error!"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
         }
     }
 
     func placeOrder() {
         guard let encoded = try? JSONEncoder().encode(order) else {
-            print("Failed to encode order")
+            // challenge 2
+            self.show(error: "Failed to encode order")
             return
         }
 
@@ -53,18 +69,34 @@ struct CheckoutView: View {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                // challenge 2
+                self.show(error: "No data in response: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 
             if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
-                self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
-                self.showingConfirmation = true
+                // challenge 2
+                self.show(confirmation: "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!")
             }
             else {
-                print("Invalid response from server")
+                // challenge 2
+                self.show(error: "Invalid response from server")
             }
         }.resume()
+    }
+
+    // challenge 2
+    func show(error: String) {
+        self.errorMessage = error
+        self.alertType = .error
+        self.showingAlert = true
+    }
+
+    // challenge 2
+    func show(confirmation: String) {
+        self.confirmationMessage = confirmation
+        self.alertType = .confirmation
+        self.showingAlert = true
     }
 }
 
