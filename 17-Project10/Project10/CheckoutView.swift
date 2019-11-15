@@ -12,7 +12,25 @@ struct CheckoutView: View {
     @ObservedObject var order: Order
 
     var body: some View {
-        Text("Hello, World!")
+        GeometryReader { geometry in
+            ScrollView {
+                VStack {
+                    Image("cupcakes")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geometry.size.width)
+
+                    Text("Your total is $\(self.order.cost, specifier: "%.2f")")
+                        .font(.title)
+
+                    Button("Place Order") {
+                        // place the order
+                    }
+                    .padding()
+                }
+            }
+        }
+        .navigationBarTitle("Check out", displayMode: .inline)
     }
 }
 
