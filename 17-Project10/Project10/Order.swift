@@ -8,7 +8,18 @@
 
 import Foundation
 
-class Order: ObservableObject {
+enum OrderCodingKeys: CodingKey {
+    case type
+    case quantity
+    case extraForsting
+    case addSprinkles
+    case name
+    case streetAddress
+    case city
+    case zip
+}
+
+class Order: ObservableObject, Codable {
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
 
     @Published var type = 0
@@ -56,6 +67,40 @@ class Order: ObservableObject {
         }
 
         return cost
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: OrderCodingKeys.self)
+
+        try container.encode(type, forKey: .type)
+        try container.encode(quantity, forKey: .quantity)
+
+        try container.encode(extraFrosting, forKey: .extraForsting)
+        try container.encode(addSprinkles, forKey: .addSprinkles)
+
+        try container.encode(name, forKey: .name)
+        try container.encode(streetAddress, forKey: .streetAddress)
+        try container.encode(city, forKey: .city)
+        try container.encode(zip, forKey: .zip)
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: OrderCodingKeys.self)
+
+        type = try container.decode(Int.self, forKey: .type)
+        quantity = try container.decode(Int.self, forKey: .quantity)
+
+        extraFrosting = try container.decode(Bool.self, forKey: .extraForsting)
+        addSprinkles = try container.decode(Bool.self, forKey: .addSprinkles)
+
+        name = try container.decode(String.self, forKey: .name)
+        streetAddress = try container.decode(String.self, forKey: .streetAddress)
+        city = try container.decode(String.self, forKey: .city)
+        zip = try container.decode(String.self, forKey: .zip)
+    }
+
+    init() {
+        
     }
 }
 
