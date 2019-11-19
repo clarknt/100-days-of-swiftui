@@ -17,14 +17,32 @@ struct DetailView: View {
 
     let book: Book
 
+    // challenge 1
+    var genreName: String {
+        guard let genre = book.genre else { return "Unknown" }
+        guard !genre.isEmpty else { return "Unknown" }
+
+        return genre
+    }
+
+    // challenge 3
+    var formattedDate: String {
+        guard let date = book.date else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return "Reviewed on \(formatter.string(from: date))"
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(self.book.genre ?? "Fantasy")
+                    // challenge 1
+                    Image(self.genreName)
                         .frame(maxWidth: geometry.size.width)
 
-                    Text(self.book.genre?.uppercased() ?? "FANTASY")
+                    // challenge 1
+                    Text(self.genreName.uppercased())
                         .font(.caption)
                         .fontWeight(.black)
                         .padding(8)
@@ -45,6 +63,10 @@ struct DetailView: View {
                     .font(.largeTitle)
 
                 Spacer()
+
+                // challenge 3
+                Text(self.formattedDate)
+                    .padding()
             }
         }
         .navigationBarTitle(Text(book.title ?? "Unknown Book"), displayMode: .inline)

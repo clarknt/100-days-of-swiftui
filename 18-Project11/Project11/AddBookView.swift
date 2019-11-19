@@ -18,7 +18,7 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
 
-    let genres = ["Fantasy", "Horror", "Kids", "Mistery", "Poetry", "Romance", "Thriller"]
+    let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
 
     var body: some View {
         NavigationView {
@@ -47,6 +47,9 @@ struct AddBookView: View {
                         newBook.rating = Int16(self.rating)
                         newBook.genre = self.genre
                         newBook.review = self.review
+
+                        // challenge 3
+                        newBook.date = Date()
 
                         try? self.moc.save()
 
