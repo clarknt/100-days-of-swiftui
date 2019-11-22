@@ -28,6 +28,7 @@
 		95350FDE2388411100F083ED /* Candy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95350FDA2388411100F083ED /* Candy+CoreDataClass.swift */; };
 		95350FDF2388411100F083ED /* Candy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95350FDB2388411100F083ED /* Candy+CoreDataProperties.swift */; };
 		95350FE12388421F00F083ED /* OneToMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95350FE02388421F00F083ED /* OneToMany.swift */; };
+		95350FEC2388486900F083ED /* FilteringChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95350FEB2388486900F083ED /* FilteringChallenges.swift */; };
 		95CC15CD23877B6E00FBDD06 /* RequestFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC15CC23877B6E00FBDD06 /* RequestFiltering.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		95350FDA2388411100F083ED /* Candy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Candy+CoreDataClass.swift"; path = "Project12/Introduction/OneToMany/Candy+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		95350FDB2388411100F083ED /* Candy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Candy+CoreDataProperties.swift"; path = "Project12/Introduction/OneToMany/Candy+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		95350FE02388421F00F083ED /* OneToMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneToMany.swift; sourceTree = "<group>"; };
+		95350FEB2388486900F083ED /* FilteringChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringChallenges.swift; sourceTree = "<group>"; };
 		95CC15CC23877B6E00FBDD06 /* RequestFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFiltering.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				952C4F2D2385D36000C52B2F /* Introduction */,
+				95350FEA2388480400F083ED /* Challenges */,
 				952C4F162385CA4A00C52B2F /* AppDelegate.swift */,
 				952C4F182385CA4A00C52B2F /* SceneDelegate.swift */,
 				952C4F1D2385CA4A00C52B2F /* ContentView.swift */,
@@ -187,6 +190,14 @@
 			path = RequestDynamicFiltering;
 			sourceTree = "<group>";
 		};
+		95350FEA2388480400F083ED /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				95350FEB2388486900F083ED /* FilteringChallenges.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +275,7 @@
 				95350FDE2388411100F083ED /* Candy+CoreDataClass.swift in Sources */,
 				95350FD22388320600F083ED /* Singer+CoreDataClass.swift in Sources */,
 				95350FDD2388411100F083ED /* Country+CoreDataProperties.swift in Sources */,
+				95350FEC2388486900F083ED /* FilteringChallenges.swift in Sources */,
 				952C4F1E2385CA4A00C52B2F /* ContentView.swift in Sources */,
 				952C4F2F2385D37500C52B2F /* ForEachId.swift in Sources */,
 				95350FD52388325400F083ED /* RequestDynamicFiltering.swift in Sources */,
