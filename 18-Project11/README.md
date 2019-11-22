@@ -1,6 +1,6 @@
 # Project 11 - Bookworm
 
-https://www.hackingwithswift.com/100/swiftui/49
+https://www.hackingwithswift.com/100/swiftui/53
 
 Includes solutions to the [challenges](https://www.hackingwithswift.com/books/ios-swiftui/bookworm-wrap-up).
 
