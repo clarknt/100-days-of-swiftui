@@ -19,6 +19,7 @@
 		952C4F3B238632B800C52B2F /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952C4F39238632B800C52B2F /* Movie+CoreDataProperties.swift */; };
 		952C4F3F2386346A00C52B2F /* ConditionalSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952C4F3E2386346A00C52B2F /* ConditionalSaving.swift */; };
 		952C4F41238635C900C52B2F /* UniqueConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952C4F40238635C900C52B2F /* UniqueConstraints.swift */; };
+		95CC15CD23877B6E00FBDD06 /* RequestFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC15CC23877B6E00FBDD06 /* RequestFiltering.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		952C4F39238632B800C52B2F /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		952C4F3E2386346A00C52B2F /* ConditionalSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalSaving.swift; sourceTree = "<group>"; };
 		952C4F40238635C900C52B2F /* UniqueConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueConstraints.swift; sourceTree = "<group>"; };
+		95CC15CC23877B6E00FBDD06 /* RequestFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFiltering.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				952C4F39238632B800C52B2F /* Movie+CoreDataProperties.swift */,
 				952C4F3E2386346A00C52B2F /* ConditionalSaving.swift */,
 				952C4F40238635C900C52B2F /* UniqueConstraints.swift */,
+				95CC15CC23877B6E00FBDD06 /* RequestFiltering.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				952C4F3A238632B800C52B2F /* Movie+CoreDataClass.swift in Sources */,
 				952C4F3B238632B800C52B2F /* Movie+CoreDataProperties.swift in Sources */,
 				952C4F3F2386346A00C52B2F /* ConditionalSaving.swift in Sources */,
+				95CC15CD23877B6E00FBDD06 /* RequestFiltering.swift in Sources */,
 				952C4F192385CA4A00C52B2F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
