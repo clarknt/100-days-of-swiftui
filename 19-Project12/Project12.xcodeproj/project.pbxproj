@@ -46,8 +46,8 @@
 		952C4F39238632B800C52B2F /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		952C4F3E2386346A00C52B2F /* ConditionalSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalSaving.swift; sourceTree = "<group>"; };
 		952C4F40238635C900C52B2F /* UniqueConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueConstraints.swift; sourceTree = "<group>"; };
-		95350FD02388320600F083ED /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Singer+CoreDataClass.swift"; path = "Project12/Introduction/DynamicFiltering/Singer+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		95350FD12388320600F083ED /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Singer+CoreDataProperties.swift"; path = "Project12/Introduction/DynamicFiltering/Singer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		95350FD02388320600F083ED /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Singer+CoreDataClass.swift"; path = "Project12/Introduction/RequestDynamicFiltering/Singer+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		95350FD12388320600F083ED /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Singer+CoreDataProperties.swift"; path = "Project12/Introduction/RequestDynamicFiltering/Singer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		95350FD42388325400F083ED /* RequestDynamicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDynamicFiltering.swift; sourceTree = "<group>"; };
 		95350FD62388359B00F083ED /* GenericRequestDynamicFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRequestDynamicFiltering.swift; sourceTree = "<group>"; };
 		95350FD82388411100F083ED /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Country+CoreDataClass.swift"; path = "Project12/Introduction/OneToMany/Country+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -117,7 +117,7 @@
 				95350FE62388444D00F083ED /* ConditionalSaving */,
 				95350FE52388443A00F083ED /* UniqueConstraints */,
 				95350FE42388441900F083ED /* RequestFiltering */,
-				95350FE3238843F900F083ED /* RequestDynamicFiltering */,
+				95350FE92388472900F083ED /* RequestDynamicFiltering */,
 				95350FE2238843EA00F083ED /* OneToMany */,
 			);
 			path = Introduction;
@@ -133,17 +133,6 @@
 				95350FE02388421F00F083ED /* OneToMany.swift */,
 			);
 			path = OneToMany;
-			sourceTree = "<group>";
-		};
-		95350FE3238843F900F083ED /* RequestDynamicFiltering */ = {
-			isa = PBXGroup;
-			children = (
-				95350FD02388320600F083ED /* Singer+CoreDataClass.swift */,
-				95350FD12388320600F083ED /* Singer+CoreDataProperties.swift */,
-				95350FD42388325400F083ED /* RequestDynamicFiltering.swift */,
-				95350FD62388359B00F083ED /* GenericRequestDynamicFiltering.swift */,
-			);
-			path = RequestDynamicFiltering;
 			sourceTree = "<group>";
 		};
 		95350FE42388441900F083ED /* RequestFiltering */ = {
@@ -185,6 +174,17 @@
 				952C4F2E2385D37500C52B2F /* ForEachId.swift */,
 			);
 			path = ForEachId;
+			sourceTree = "<group>";
+		};
+		95350FE92388472900F083ED /* RequestDynamicFiltering */ = {
+			isa = PBXGroup;
+			children = (
+				95350FD02388320600F083ED /* Singer+CoreDataClass.swift */,
+				95350FD12388320600F083ED /* Singer+CoreDataProperties.swift */,
+				95350FD42388325400F083ED /* RequestDynamicFiltering.swift */,
+				95350FD62388359B00F083ED /* GenericRequestDynamicFiltering.swift */,
+			);
+			path = RequestDynamicFiltering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
