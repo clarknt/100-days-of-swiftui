@@ -1,4 +1,4 @@
-# Project 10 - Cupcakes Corner
+# Project 11 - Bookworm
 
 https://www.hackingwithswift.com/100/swiftui/49
 
