@@ -28,4 +28,5 @@ Projects / Topics                                                               
 Milestone Projects 7-9 - *Habit Tracking* <br/><sub> Not yet available</sub>  |  |
 [Project 10](17-Project10) - *Cupcakes Corner* <br/>(with challenges)                                         <br/><sub> Codable, URLSession, disabled() </sub> | ![screen1](17-Project10/screenshots/small/screen01.png) ![screen2](17-Project10/screenshots/small/screen02.png) |
 [Project 11](18-Project11) - *Bookworm* <br/>(with challenges)                                         <br/><sub> Core Data, @Binding, Custom components </sub> | ![screen1](18-Project11/screenshots/small/screen01.png) ![screen2](18-Project11/screenshots/small/screen02.png) |
+[Project 12](19-Project12) - *Core Data* <br/>(with challenges)                                         <br/><sub> Core Data </sub> | ![screen1](19-Project12/screenshots/small/screen01.png) |
 
