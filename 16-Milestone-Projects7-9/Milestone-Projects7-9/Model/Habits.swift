@@ -11,6 +11,7 @@ import Foundation
 class Habits: ObservableObject {
     @Published var activities = [Activity]()
 
+    // provide helper functions to avoid as much as possible a dependency to the activities array
     func add(activity: Activity) {
         activities.append(activity)
     }
@@ -21,7 +22,17 @@ class Habits: ObservableObject {
         activities[index] = activity
     }
 
-    func getIndex(activity: Activity) -> Int? {
+    func getActivity(id: UUID) -> Activity {
+        guard let index = getIndex(id: id) else { return Activity(title: "", description: "") }
+
+        return activities[index]
+    }
+
+    private func getIndex(activity: Activity) -> Int? {
         return activities.firstIndex(where: { $0.id == activity.id })
+    }
+
+    private func getIndex(id: UUID) -> Int? {
+        return activities.firstIndex(where: { $0.id == id })
     }
 }

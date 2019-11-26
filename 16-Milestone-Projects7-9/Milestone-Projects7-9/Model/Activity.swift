@@ -15,5 +15,11 @@ struct Activity: Identifiable {
     var title: String
     var description: String
 
-    var completedTimes: Int = 0
+    var completedTimes: Int = 0 {
+        didSet {
+            if completedTimes < 0 {
+                completedTimes = 0
+            }
+        }
+    }
 }

@@ -9,22 +9,40 @@
 import SwiftUI
 
 struct EditActivity: View {
-    @Binding var activity: Activity
+    // binding the activity directly instead of passing habits + activityId would be cleaner
+    // but @Binding has not yet been seen at this part of the 100 days of SwiftUI course
+    // so here's a solution without it
+    @ObservedObject var habits: Habits
+    var activityId: UUID
+
+    @State var completedTimes: Int = 0
+
+    var activity: Activity {
+        habits.getActivity(id: activityId)
+    }
 
     var body: some View {
         Form {
-            TextField("Title", text: $activity.title)
-            TextField("Description", text: $activity.description)
-            Stepper(value: $activity.completedTimes, in: 0...Int.max) {
-                Text("Completed \(activity.completedTimes) times")
-            }
+            Text(activity.title)
+            Text(activity.description)
+            Stepper(
+                onIncrement: { self.updateActivity(by: 1) },
+                onDecrement: { self.updateActivity(by: -1) },
+                label: { Text("Completed \(activity.completedTimes) times") }
+            )
         }
         .navigationBarTitle("Edit Activity")
+    }
+
+    func updateActivity(by change: Int) {
+        var activity = self.activity
+        activity.completedTimes += change
+        self.habits.update(activity: activity)
     }
 }
 
 struct EditActivity_Previews: PreviewProvider {
     static var previews: some View {
-        EditActivity(activity: .constant(Activity(title: "", description: "")))
+        EditActivity(habits: Habits(), activityId: UUID())
     }
 }
