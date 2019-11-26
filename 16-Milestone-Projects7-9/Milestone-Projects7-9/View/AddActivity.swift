@@ -22,7 +22,7 @@ struct AddActivity: View {
                 TextField("Title", text: $title)
                 TextField("Description", text: $description)
             }
-            .navigationBarTitle("Add Acvitity")
+            .navigationBarTitle("Add Activity")
             .navigationBarItems(trailing: Button("Save") {
                 let activity = Activity(title: self.title, description: self.description)
                 self.habits.add(activity: activity)

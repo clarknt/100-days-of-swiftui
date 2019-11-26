@@ -16,6 +16,7 @@
 		95130FB0238CBED300ADE534 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95130FAF238CBED300ADE534 /* Activity.swift */; };
 		95130FB4238CC09300ADE534 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95130FB3238CC09300ADE534 /* Habits.swift */; };
 		95130FB6238CC37900ADE534 /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95130FB5238CC37900ADE534 /* AddActivity.swift */; };
+		95130FB8238CD68000ADE534 /* EditActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95130FB7238CD68000ADE534 /* EditActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		95130FAF238CBED300ADE534 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		95130FB3238CC09300ADE534 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		95130FB5238CC37900ADE534 /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
+		95130FB7238CD68000ADE534 /* EditActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				95130F9F238CBEBB00ADE534 /* HabitsView.swift */,
 				95130FB5238CC37900ADE534 /* AddActivity.swift */,
+				95130FB7238CD68000ADE534 /* EditActivity.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				95130F9E238CBEBB00ADE534 /* SceneDelegate.swift in Sources */,
 				95130FB0238CBED300ADE534 /* Activity.swift in Sources */,
 				95130FB4238CC09300ADE534 /* Habits.swift in Sources */,
+				95130FB8238CD68000ADE534 /* EditActivity.swift in Sources */,
 				95130FB6238CC37900ADE534 /* AddActivity.swift in Sources */,
 				95130FA0238CBEBB00ADE534 /* HabitsView.swift in Sources */,
 			);

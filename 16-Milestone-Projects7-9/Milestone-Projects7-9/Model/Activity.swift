@@ -14,4 +14,6 @@ struct Activity: Identifiable {
 
     var title: String
     var description: String
+
+    var completedTimes: Int = 0
 }

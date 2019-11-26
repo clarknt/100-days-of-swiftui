@@ -14,4 +14,14 @@ class Habits: ObservableObject {
     func add(activity: Activity) {
         activities.append(activity)
     }
+
+    func update(activity: Activity) {
+        guard let index = getIndex(activity: activity) else { return }
+
+        activities[index] = activity
+    }
+
+    func getIndex(activity: Activity) -> Int? {
+        return activities.firstIndex(where: { $0.id == activity.id })
+    }
 }

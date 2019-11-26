@@ -15,12 +15,23 @@ struct HabitsView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(habits.activities) { activity in
-                    VStack(alignment: .leading) {
-                        Text(activity.title)
-                            .font(.headline)
-                        Text(activity.description)
+                ForEach(0..<habits.activities.count, id: \.self) { i in
+                    NavigationLink(destination: EditActivity(activity: self.$habits.activities[i])) {
+                        VStack(alignment: .leading) {
+                            Text(self.habits.activities[i].title)
+                                .font(.headline)
+                            Text(self.habits.activities[i].description)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            HStack {
+                                Text("Completed")
+                                Text("\(self.habits.activities[i].completedTimes)")
+                                    .padding(.horizontal, -5)
+                                    .foregroundColor(self.habits.activities[i].completedTimes > 0 ? .green : .red)
+                                Text("times")
+                            }
                             .font(.subheadline)
+                        }
                     }
                 }
             }
