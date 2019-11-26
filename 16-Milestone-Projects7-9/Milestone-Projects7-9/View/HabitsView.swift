@@ -34,16 +34,21 @@ struct HabitsView: View {
                         }
                     }
                 }
+                .onDelete { offsets in
+                    self.habits.activities.remove(atOffsets: offsets)
+                }
             }
             .navigationBarTitle("Habits")
-            .navigationBarItems(trailing:
-                Button(action: {
-                    self.showAddActivity = true
-                }) {
-                    Image(systemName: "plus")
-                        // increase tap area size
-                        .frame(width: 44, height: 44)
-                }
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing:
+                    Button(action: {
+                        self.showAddActivity = true
+                    }) {
+                        Image(systemName: "plus")
+                            // increase tap area size
+                            .frame(width: 44, height: 44)
+                    }
             )
         }
         .sheet(isPresented: $showAddActivity) {

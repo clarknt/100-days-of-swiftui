@@ -8,15 +8,24 @@
 
 import Foundation
 
-struct Activity: Identifiable {
+struct Activity: Identifiable, Codable {
 
     let id = UUID()
 
-    var title: String
-    var description: String
+    var title: String {
+        didSet { date = Date() }
+    }
+
+    var description: String {
+        didSet { date = Date() }
+    }
+
+    /// last modification date
+    var date = Date()
 
     var completedTimes: Int = 0 {
         didSet {
+            date = Date()
             if completedTimes < 0 {
                 completedTimes = 0
             }
