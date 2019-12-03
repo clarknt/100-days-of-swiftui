@@ -13,6 +13,7 @@
 		955CA5E3239616B000679634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955CA5E2239616B000679634 /* Assets.xcassets */; };
 		955CA5E6239616B000679634 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955CA5E5239616B000679634 /* Preview Assets.xcassets */; };
 		955CA5E9239616B000679634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955CA5E7239616B000679634 /* LaunchScreen.storyboard */; };
+		955CA5F323961B7400679634 /* CustomBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955CA5F223961B7400679634 /* CustomBinding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		955CA5E5239616B000679634 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		955CA5E8239616B000679634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		955CA5EA239616B000679634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		955CA5F223961B7400679634 /* CustomBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBinding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		955CA5DB239616AE00679634 /* Project13 */ = {
 			isa = PBXGroup;
 			children = (
+				955CA5F123961B6800679634 /* Introduction */,
 				955CA5DC239616AE00679634 /* AppDelegate.swift */,
 				955CA5DE239616AE00679634 /* SceneDelegate.swift */,
 				955CA5E0239616AE00679634 /* ContentView.swift */,
@@ -73,6 +76,14 @@
 				955CA5E5239616B000679634 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		955CA5F123961B6800679634 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				955CA5F223961B7400679634 /* CustomBinding.swift */,
+			);
+			path = Introduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955CA5F323961B7400679634 /* CustomBinding.swift in Sources */,
 				955CA5DD239616AE00679634 /* AppDelegate.swift in Sources */,
 				955CA5DF239616AE00679634 /* SceneDelegate.swift in Sources */,
 				955CA5E1239616AE00679634 /* ContentView.swift in Sources */,
