@@ -14,6 +14,7 @@
 		955CA5E6239616B000679634 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955CA5E5239616B000679634 /* Preview Assets.xcassets */; };
 		955CA5E9239616B000679634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955CA5E7239616B000679634 /* LaunchScreen.storyboard */; };
 		955CA5F323961B7400679634 /* CustomBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955CA5F223961B7400679634 /* CustomBinding.swift */; };
+		955CA5F523961EDC00679634 /* MultipleOptionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955CA5F423961EDC00679634 /* MultipleOptionSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		955CA5E8239616B000679634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		955CA5EA239616B000679634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955CA5F223961B7400679634 /* CustomBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBinding.swift; sourceTree = "<group>"; };
+		955CA5F423961EDC00679634 /* MultipleOptionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleOptionSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				955CA5F223961B7400679634 /* CustomBinding.swift */,
+				955CA5F423961EDC00679634 /* MultipleOptionSheet.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955CA5F523961EDC00679634 /* MultipleOptionSheet.swift in Sources */,
 				955CA5F323961B7400679634 /* CustomBinding.swift in Sources */,
 				955CA5DD239616AE00679634 /* AppDelegate.swift in Sources */,
 				955CA5DF239616AE00679634 /* SceneDelegate.swift in Sources */,
