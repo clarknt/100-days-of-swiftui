@@ -17,9 +17,14 @@ struct ContentView: View {
 
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var filterIntensity = 0.5
+    // challenge 3
+    @State private var filterRadius = 0.5
+    @State private var filterScale = 0.5
 
     @State private var showingImagePicker = false
     @State private var showingFilterSheet = false
+    // challenge 1
+    @State private var showingNoPictureOnSave = false
 
     let context = CIContext() // note: expensive to create, so do it once and for all
 
@@ -28,6 +33,24 @@ struct ContentView: View {
             get: { self.filterIntensity },
             set: {
                 self.filterIntensity = $0
+                self.applyProcessing()
+            }
+        )
+
+        // challenge 3
+        let radius = Binding<Double>(
+            get: { self.filterRadius },
+            set: {
+                self.filterRadius = $0
+                self.applyProcessing()
+            }
+        )
+
+        // challenge 3
+        let scale = Binding<Double>(
+            get: { self.filterScale },
+            set: {
+                self.filterScale = $0
                 self.applyProcessing()
             }
         )
@@ -46,9 +69,21 @@ struct ContentView: View {
                             .scaledToFit()
                     }
                     else {
-                        Text("Tap to select a picture")
-                            .foregroundColor(.white)
-                            .font(.headline)
+                        ZStack {
+                            Text("Tap to select a picture")
+                                .foregroundColor(.white)
+
+                            VStack {
+                                Text(" ").padding() // top
+                                Text(" ").padding() // middle
+                                // challenge 1
+                                Text("No picture to save") // bottom
+                                    .foregroundColor(.orange)
+                                    .padding()
+                                    .opacity(showingNoPictureOnSave ? 1 : 0)
+                            }
+                        }
+                        .font(.headline)
                     }
                 }
                 .cornerRadius(20)
@@ -56,21 +91,51 @@ struct ContentView: View {
                     self.showingImagePicker = true
                 }
 
-                HStack {
-                    Text("Intensity")
-                    Slider(value: intensity)
+                // challenge 3
+                VStack {
+                    if currentFilter.inputKeys.contains(kCIInputIntensityKey) {
+                        HStack {
+                            Text("Intensity")
+                            Slider(value: intensity)
+                        }
+                    }
+
+                    if currentFilter.inputKeys.contains(kCIInputRadiusKey) {
+                        HStack {
+                            ZStack(alignment: .leading) {
+                                Text("Intensity").opacity(0) // force same width
+                                Text("Radius")
+                            }
+                            Slider(value: radius)
+                        }
+                    }
+
+                    if currentFilter.inputKeys.contains(kCIInputScaleKey) {
+                        HStack {
+                            ZStack(alignment: .leading) {
+                                Text("Intensity").opacity(0) // force same width
+                                Text("Scale")
+                            }
+                            Slider(value: scale)
+                        }
+                    }
                 }
                 .padding(.vertical)
 
                 HStack {
-                    Button("Change Filter") {
+                    // challenge 2
+                    Button("\(currentFilter.formattedName)") {
                         self.showingFilterSheet = true
                     }
 
                     Spacer()
 
                     Button("Save") {
-                        guard let processedImage = self.processedImage else { return }
+                        guard let processedImage = self.processedImage else {
+                            // challenge 1
+                            self.animateNoPictureMessage()
+                            return
+                        }
 
                         let imageSaver = ImageSaver()
                         imageSaver.successHandler = { print("Success saving image") }
@@ -113,10 +178,12 @@ struct ContentView: View {
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
         }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+            // challenge 3
+            currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey)
         }
         if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
+            // challenge 3
+            currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
         }
 
         guard let outputImage = currentFilter.outputImage else { return }
@@ -130,7 +197,43 @@ struct ContentView: View {
 
     func setFilter(_ filter: CIFilter) {
         currentFilter = filter
+        // reset sliders
+        self.filterIntensity = 0.5
+        self.filterRadius = 0.5
+        self.filterScale = 0.5
         loadImage()
+    }
+
+    // challenge 1
+    func animateNoPictureMessage() {
+        let duration = 0.75
+
+        withAnimation(.linear(duration: duration)) {
+            self.showingNoPictureOnSave = true
+        }
+        // animating with a delay for the disappearance resulted in the
+        // appearance animation not showing. using asyncAfter instead.
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            withAnimation(.linear(duration: duration)) {
+                self.showingNoPictureOnSave = false
+            }
+        }
+    }
+}
+
+// challenge 2
+extension CIFilter {
+    var formattedName: String {
+        let removeCI = name.replacingOccurrences(of: "CI",
+                              with: "",
+                              range: name.range(of: name))
+
+        let spaceOnUpperCase = removeCI.replacingOccurrences(of: "([A-Z])",
+                              with: " $1",
+                              options: .regularExpression,
+                              range: removeCI.range(of: removeCI))
+
+        return spaceOnUpperCase.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
