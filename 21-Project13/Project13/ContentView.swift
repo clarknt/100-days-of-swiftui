@@ -73,10 +73,10 @@ struct ContentView: View {
                             Text("Tap to select a picture")
                                 .foregroundColor(.white)
 
+                            // challenge 1
                             VStack {
                                 Text(" ").padding() // top
                                 Text(" ").padding() // middle
-                                // challenge 1
                                 Text("No picture to save") // bottom
                                     .foregroundColor(.orange)
                                     .padding()
@@ -183,7 +183,7 @@ struct ContentView: View {
         }
         if inputKeys.contains(kCIInputScaleKey) {
             // challenge 3
-            currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
+            currentFilter.setValue(filterScale * 100, forKey: kCIInputScaleKey)
         }
 
         guard let outputImage = currentFilter.outputImage else { return }
