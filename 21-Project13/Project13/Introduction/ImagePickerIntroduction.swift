@@ -8,30 +8,30 @@
 
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct ImagePickerIntroduction: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var image: UIImage?
 
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerIntroduction>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         return picker
     }
 
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePickerIntroduction>) {
         // not used in this case
     }
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+    func makeCoordinator() -> CoordinatorIntroduction {
+        CoordinatorIntroduction(self)
     }
 
     // NOT the coordinator pattern
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePicker
+    class CoordinatorIntroduction: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        var parent: ImagePickerIntroduction
 
-        init(_ parent: ImagePicker) {
+        init(_ parent: ImagePickerIntroduction) {
             self.parent = parent
         }
 

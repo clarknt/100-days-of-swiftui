@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class ImageSaver: NSObject {
+class ImageSaverIntroduction: NSObject {
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
     }
@@ -34,14 +34,14 @@ struct UIViewControllerSwiftUI: View {
             }
         }
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: self.$inputImage)
+            ImagePickerIntroduction(image: self.$inputImage)
         }
     }
 
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
-        let imageSaver = ImageSaver()
+        let imageSaver = ImageSaverIntroduction()
         imageSaver.writeToPhotoAlbum(image: inputImage)
     }
 }
