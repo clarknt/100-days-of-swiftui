@@ -8,6 +8,16 @@
 
 import SwiftUI
 
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished")
+    }
+}
+
 struct UIViewControllerSwiftUI: View {
     @State private var image: Image?
     @State private var inputImage: UIImage?
@@ -31,6 +41,8 @@ struct UIViewControllerSwiftUI: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: inputImage)
     }
 }
 
