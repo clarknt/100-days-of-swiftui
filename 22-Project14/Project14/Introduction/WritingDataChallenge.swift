@@ -19,7 +19,12 @@ extension FileManager {
             fatalError("Failed to encode data")
         }
 
-        try? data.write(to: url)
+        do {
+            try data.write(to: url)
+        }
+        catch {
+            fatalError("Fail to write \(file): \(error.localizedDescription)")
+        }
     }
 
     func decode<T: Codable>(_ file: String) -> T {
