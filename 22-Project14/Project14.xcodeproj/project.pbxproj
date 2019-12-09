@@ -16,6 +16,8 @@
 		95311D1B239A0C6E00244D54 /* CustomComparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95311D1A239A0C6E00244D54 /* CustomComparable.swift */; };
 		9531B008239EB60400E02DFB /* MapViewIntroduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531B007239EB60400E02DFB /* MapViewIntroduction.swift */; };
 		9531B00A239EB7AC00E02DFB /* MapKitSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531B009239EB7AC00E02DFB /* MapKitSwiftUI.swift */; };
+		9531B02E239ED94400E02DFB /* FaceIDSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531B02D239ED94400E02DFB /* FaceIDSwiftUI.swift */; };
+		9531B030239EDCF700E02DFB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531B02F239EDCF700E02DFB /* MapView.swift */; };
 		953A0DFE239AD0C3009C64E0 /* WritingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A0DFD239AD0C3009C64E0 /* WritingData.swift */; };
 		953A0E1A239B65A7009C64E0 /* WritingDataChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A0E19239B65A7009C64E0 /* WritingDataChallenge.swift */; };
 		953A0E1E239B743D009C64E0 /* SwitchingViewStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A0E1D239B743D009C64E0 /* SwitchingViewStates.swift */; };
@@ -33,6 +35,8 @@
 		95311D1A239A0C6E00244D54 /* CustomComparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComparable.swift; sourceTree = "<group>"; };
 		9531B007239EB60400E02DFB /* MapViewIntroduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewIntroduction.swift; sourceTree = "<group>"; };
 		9531B009239EB7AC00E02DFB /* MapKitSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitSwiftUI.swift; sourceTree = "<group>"; };
+		9531B02D239ED94400E02DFB /* FaceIDSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDSwiftUI.swift; sourceTree = "<group>"; };
+		9531B02F239EDCF700E02DFB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		953A0DFD239AD0C3009C64E0 /* WritingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingData.swift; sourceTree = "<group>"; };
 		953A0E19239B65A7009C64E0 /* WritingDataChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingDataChallenge.swift; sourceTree = "<group>"; };
 		953A0E1D239B743D009C64E0 /* SwitchingViewStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingViewStates.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				95311D05239A0C5E00244D54 /* AppDelegate.swift */,
 				95311D07239A0C5E00244D54 /* SceneDelegate.swift */,
 				95311D09239A0C5E00244D54 /* ContentView.swift */,
+				9531B02F239EDCF700E02DFB /* MapView.swift */,
 				95311D0B239A0C5F00244D54 /* Assets.xcassets */,
 				95311D10239A0C5F00244D54 /* LaunchScreen.storyboard */,
 				95311D13239A0C5F00244D54 /* Info.plist */,
@@ -97,6 +102,7 @@
 				953A0E1D239B743D009C64E0 /* SwitchingViewStates.swift */,
 				9531B007239EB60400E02DFB /* MapViewIntroduction.swift */,
 				9531B009239EB7AC00E02DFB /* MapKitSwiftUI.swift */,
+				9531B02D239ED94400E02DFB /* FaceIDSwiftUI.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -175,6 +181,8 @@
 				953A0E1E239B743D009C64E0 /* SwitchingViewStates.swift in Sources */,
 				9531B00A239EB7AC00E02DFB /* MapKitSwiftUI.swift in Sources */,
 				9531B008239EB60400E02DFB /* MapViewIntroduction.swift in Sources */,
+				9531B030239EDCF700E02DFB /* MapView.swift in Sources */,
+				9531B02E239ED94400E02DFB /* FaceIDSwiftUI.swift in Sources */,
 				95311D06239A0C5E00244D54 /* AppDelegate.swift in Sources */,
 				95311D08239A0C5E00244D54 /* SceneDelegate.swift in Sources */,
 				953A0E1A239B65A7009C64E0 /* WritingDataChallenge.swift in Sources */,
