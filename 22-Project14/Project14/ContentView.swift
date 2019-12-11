@@ -10,56 +10,46 @@ import LocalAuthentication
 import MapKit
 import SwiftUI
 
-struct ContentView: View {
+// challenge 2
+struct UnlockedView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [CodableMKPointAnnotation]()
     @State private var selectedPlace: MKPointAnnotation?
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
-    @State private var isUnlocked = false
 
     var body: some View {
         ZStack {
-            if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
-                    .edgesIgnoringSafeArea(.all)
+            MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
+                .edgesIgnoringSafeArea(.all)
 
-                Circle()
-                    .fill(Color.blue)
-                    .opacity(0.3)
-                    .frame(width: 32, height: 32)
+            Circle()
+                .fill(Color.blue)
+                .opacity(0.3)
+                .frame(width: 32, height: 32)
 
-                VStack {
+            VStack {
+                Spacer()
+
+                HStack {
                     Spacer()
-
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            let newLocation = CodableMKPointAnnotation()
-                            newLocation.coordinate = self.centerCoordinate
-                            self.locations.append(newLocation)
-                            self.selectedPlace = newLocation
-                            self.showingEditScreen = true
-                        }) {
-                            Image(systemName: "plus")
-                        }
-                        .padding()
-                        .background(Color.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
+                    Button(action: {
+                        let newLocation = CodableMKPointAnnotation()
+                        newLocation.coordinate = self.centerCoordinate
+                        self.locations.append(newLocation)
+                        self.selectedPlace = newLocation
+                        self.showingEditScreen = true
+                    }) {
+                        // challenge 1
+                        Image(systemName: "plus")
+                            .padding()
+                            .background(Color.black.opacity(0.75))
+                            .foregroundColor(.white)
+                            .font(.title)
+                            .clipShape(Circle())
+                            .padding(.trailing)
                     }
                 }
-            }
-            else {
-                Button("Unlock Places") {
-                    self.authenticate()
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
             }
         }
         .alert(isPresented: $showingPlaceDetails) {
@@ -102,6 +92,36 @@ struct ContentView: View {
             print("Unable to save data")
         }
     }
+}
+
+struct ContentView: View {
+    @State private var isUnlocked = false
+
+    // challenge 3
+    @State private var showingAuthenticationAlert = false
+    @State private var authenticationError = ""
+
+    var body: some View {
+        ZStack {
+            if isUnlocked {
+                // challenge 2
+                UnlockedView()
+            }
+            else {
+                Button("Unlock Places") {
+                    self.authenticate()
+                }
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+            }
+        }
+        // challenge 3
+        .alert(isPresented: $showingAuthenticationAlert) {
+            Alert(title: Text("Authentication error"), message: Text(self.authenticationError), dismissButton: .default(Text("OK")))
+        }
+    }
 
     func authenticate() {
         let context = LAContext()
@@ -116,13 +136,17 @@ struct ContentView: View {
                         self.isUnlocked = true
                     }
                     else {
-                        // error
+                        // challenge 3
+                        self.authenticationError = "\(authenticationError?.localizedDescription ?? "Unknown error.")"
+                        self.showingAuthenticationAlert = true
                     }
                 }
             }
         }
         else {
-            // no biometrics
+            // challenge 3
+            self.authenticationError = "Biometrics authentication unavailable."
+            self.showingAuthenticationAlert = true
         }
     }
 }

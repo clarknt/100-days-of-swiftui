@@ -48,6 +48,10 @@ struct EditView: View {
                 self.presentationMode.wrappedValue.dismiss()
             })
             .onAppear(perform: fetchNearbyPlaces)
+            .onDisappear {
+                if self.placemark.wrappedTitle.isEmpty { self.placemark.wrappedTitle = "Unknown location" }
+                if self.placemark.wrappedSubtitle.isEmpty { self.placemark.wrappedSubtitle = "Unknown description" }
+            }
         }
     }
 
