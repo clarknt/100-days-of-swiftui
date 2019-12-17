@@ -10,10 +10,9 @@ Accessibility
 
 ## Challenges
 
-From [Hacking with Swift](https://www.hackingwithswift.com/books/ios-swiftui/accessibility-wrap-up):
->1. [Challenge 1](../24-Project15-Challenge1/)
->2. [Challenge 2](../25-Project15-Challenge2/)
->3. [Challenge 3](../26-Project15-Challenge3/)
+1. [Challenge 1](../24-Project15-Challenge1/)
+2. [Challenge 2](../25-Project15-Challenge2/)
+3. [Challenge 3](../26-Project15-Challenge3/)
 
 ## Screenshots
 
