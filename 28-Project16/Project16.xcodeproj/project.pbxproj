@@ -16,6 +16,7 @@
 		952E694823AC2EF500B5BF04 /* CustomEnvionment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E694723AC2EF500B5BF04 /* CustomEnvionment.swift */; };
 		9538400823ADD9A600EE3CAF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538400723ADD9A600EE3CAF /* Tabs.swift */; };
 		9538400A23ADDD4700EE3CAF /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538400923ADDD4700EE3CAF /* ResultType.swift */; };
+		9538400C23ADE4BB00EE3CAF /* ManualPublishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		952E694723AC2EF500B5BF04 /* CustomEnvionment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnvionment.swift; sourceTree = "<group>"; };
 		9538400723ADD9A600EE3CAF /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		9538400923ADDD4700EE3CAF /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPublishing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				952E694723AC2EF500B5BF04 /* CustomEnvionment.swift */,
 				9538400723ADD9A600EE3CAF /* Tabs.swift */,
 				9538400923ADDD4700EE3CAF /* ResultType.swift */,
+				9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952E693123AC2E0000B5BF04 /* AppDelegate.swift in Sources */,
+				9538400C23ADE4BB00EE3CAF /* ManualPublishing.swift in Sources */,
 				952E693323AC2E0000B5BF04 /* SceneDelegate.swift in Sources */,
 				952E693523AC2E0000B5BF04 /* ContentView.swift in Sources */,
 				9538400823ADD9A600EE3CAF /* Tabs.swift in Sources */,
