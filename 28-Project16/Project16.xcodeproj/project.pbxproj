@@ -19,6 +19,7 @@
 		9538400C23ADE4BB00EE3CAF /* ManualPublishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */; };
 		956AA60C23B06F9700166D77 /* ImageInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60B23B06F9700166D77 /* ImageInterpolation.swift */; };
 		956AA60E23B071AC00166D77 /* ContextMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60D23B071AC00166D77 /* ContextMenus.swift */; };
+		956AA61023B073E100166D77 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60F23B073E100166D77 /* LocalNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualPublishing.swift; sourceTree = "<group>"; };
 		956AA60B23B06F9700166D77 /* ImageInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInterpolation.swift; sourceTree = "<group>"; };
 		956AA60D23B071AC00166D77 /* ContextMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenus.swift; sourceTree = "<group>"; };
+		956AA60F23B073E100166D77 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				9538400B23ADE4BB00EE3CAF /* ManualPublishing.swift */,
 				956AA60B23B06F9700166D77 /* ImageInterpolation.swift */,
 				956AA60D23B071AC00166D77 /* ContextMenus.swift */,
+				956AA60F23B073E100166D77 /* LocalNotifications.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				956AA60E23B071AC00166D77 /* ContextMenus.swift in Sources */,
 				9538400A23ADDD4700EE3CAF /* ResultType.swift in Sources */,
 				956AA60C23B06F9700166D77 /* ImageInterpolation.swift in Sources */,
+				956AA61023B073E100166D77 /* LocalNotifications.swift in Sources */,
 				952E694823AC2EF500B5BF04 /* CustomEnvionment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
