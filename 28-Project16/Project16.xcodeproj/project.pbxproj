@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		956AA60C23B06F9700166D77 /* ImageInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60B23B06F9700166D77 /* ImageInterpolation.swift */; };
 		956AA60E23B071AC00166D77 /* ContextMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60D23B071AC00166D77 /* ContextMenus.swift */; };
 		956AA61023B073E100166D77 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AA60F23B073E100166D77 /* LocalNotifications.swift */; };
+		956AA61323B07A0E00166D77 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 956AA61223B07A0E00166D77 /* SamplePackage */; };
+		956C308423B0847A00BAEF8D /* SwiftPackageDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C308323B0847A00BAEF8D /* SwiftPackageDependencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		956AA60B23B06F9700166D77 /* ImageInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInterpolation.swift; sourceTree = "<group>"; };
 		956AA60D23B071AC00166D77 /* ContextMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenus.swift; sourceTree = "<group>"; };
 		956AA60F23B073E100166D77 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		956C308323B0847A00BAEF8D /* SwiftPackageDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPackageDependencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956AA61323B07A0E00166D77 /* SamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,7 @@
 				956AA60B23B06F9700166D77 /* ImageInterpolation.swift */,
 				956AA60D23B071AC00166D77 /* ContextMenus.swift */,
 				956AA60F23B073E100166D77 /* LocalNotifications.swift */,
+				956C308323B0847A00BAEF8D /* SwiftPackageDependencies.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -120,6 +125,9 @@
 			dependencies = (
 			);
 			name = Project16;
+			packageProductDependencies = (
+				956AA61223B07A0E00166D77 /* SamplePackage */,
+			);
 			productName = Project16;
 			productReference = 952E692D23AC2E0000B5BF04 /* Project16.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 952E692423AC2E0000B5BF04;
+			packageReferences = (
+				956AA61123B07A0E00166D77 /* XCRemoteSwiftPackageReference "SamplePackage" */,
+			);
 			productRefGroup = 952E692E23AC2E0000B5BF04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -175,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956C308423B0847A00BAEF8D /* SwiftPackageDependencies.swift in Sources */,
 				952E693123AC2E0000B5BF04 /* AppDelegate.swift in Sources */,
 				9538400C23ADE4BB00EE3CAF /* ManualPublishing.swift in Sources */,
 				952E693323AC2E0000B5BF04 /* SceneDelegate.swift in Sources */,
@@ -376,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		956AA61123B07A0E00166D77 /* XCRemoteSwiftPackageReference "SamplePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/SamplePackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		956AA61223B07A0E00166D77 /* SamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 956AA61123B07A0E00166D77 /* XCRemoteSwiftPackageReference "SamplePackage" */;
+			productName = SamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 952E692523AC2E0000B5BF04 /* Project object */;
 }
