@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var persons = Persons()
+    @ObservedObject var persons: Persons
     @State var showingAddContact = false
+
+    init(persons: Persons) {
+        self.persons = persons
+    }
 
     var body: some View {
         NavigationView {
@@ -29,7 +33,11 @@ struct MainView: View {
                     }
                 }
                 .onDelete { offsets in
-                    self.persons.remove(at: offsets)
+                    var persons = [Person]()
+                    for offset in offsets {
+                        persons.append(self.persons.all[offset])
+                    }
+                    self.persons.remove(persons: persons)
                 }
             }
             .navigationBarTitle("Event contacts")
@@ -61,6 +69,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(persons: Persons())
     }
 }
