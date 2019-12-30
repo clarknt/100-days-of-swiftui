@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952C64B723BA9F6600964332 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952C64B623BA9F6600964332 /* Prospect.swift */; };
 		952E693123AC2E0000B5BF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E693023AC2E0000B5BF04 /* AppDelegate.swift */; };
 		952E693323AC2E0000B5BF04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E693223AC2E0000B5BF04 /* SceneDelegate.swift */; };
 		952E693523AC2E0000B5BF04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E693423AC2E0000B5BF04 /* ContentView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		952C64B623BA9F6600964332 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		952E692D23AC2E0000B5BF04 /* Project16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project16.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		952E693023AC2E0000B5BF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		952E693223AC2E0000B5BF04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		952C64B523BA9F4F00964332 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				952C64B623BA9F6600964332 /* Prospect.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		952E692423AC2E0000B5BF04 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 			children = (
 				9537ACAF23B279AF0062D639 /* Init */,
 				952E694423AC2EC500B5BF04 /* Introduction */,
+				952C64B523BA9F4F00964332 /* Model */,
 				9537ACAE23B2799C0062D639 /* View */,
 				952E693623AC2E0100B5BF04 /* Assets.xcassets */,
 				952E693E23AC2E0100B5BF04 /* Info.plist */,
@@ -211,6 +222,7 @@
 				9537ACAB23B279860062D639 /* ProspectsView.swift in Sources */,
 				956C308423B0847A00BAEF8D /* SwiftPackageDependencies.swift in Sources */,
 				952E693123AC2E0000B5BF04 /* AppDelegate.swift in Sources */,
+				952C64B723BA9F6600964332 /* Prospect.swift in Sources */,
 				9538400C23ADE4BB00EE3CAF /* ManualPublishing.swift in Sources */,
 				952E693323AC2E0000B5BF04 /* SceneDelegate.swift in Sources */,
 				952E693523AC2E0000B5BF04 /* ContentView.swift in Sources */,
