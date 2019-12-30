@@ -1,4 +1,4 @@
-# Milestone Projects 13-15 - Events  contacts
+# Milestone Projects 13-15 - Event contacts
 
 https://www.hackingwithswift.com/100/swiftui/77 and https://www.hackingwithswift.com/100/swiftui/78
 
