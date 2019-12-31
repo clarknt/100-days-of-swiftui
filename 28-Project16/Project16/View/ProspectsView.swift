@@ -76,6 +76,7 @@ struct ProspectsView: View {
         self.isShowingScanner = false
 
         switch result {
+            
         case .success(let code):
             let details = code.components(separatedBy: "\n")
             guard details.count == 2 else { return }
@@ -84,7 +85,8 @@ struct ProspectsView: View {
             person.name = details[0]
             person.emailAddress = details[1]
 
-            self.prospects.people.append(person)
+            self.prospects.add(person)
+
         case .failure(let error):
             print("Scanning failed")
         }
