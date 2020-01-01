@@ -47,11 +47,17 @@ struct ProspectsView: View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        // Challenge 1
+                        if self.filter == .none {
+                            Image(systemName: prospect.isContacted ? "envelope" : "envelope.badge")
+                        }
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     .contextMenu {
                         Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
@@ -110,10 +116,10 @@ struct ProspectsView: View {
             var dateComponents = DateComponents()
             // will trigger at 9am
             dateComponents.hour = 9
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 
             // for tests: trigger in 5 seconds
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
