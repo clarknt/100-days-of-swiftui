@@ -10,7 +10,7 @@ import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct MeView: View {
-    @State private var name = "Anonymous"
+    @State private var name = "clarknt"
     @State private var emailAddress = "you@yoursite.com"
 
     let context = CIContext()
