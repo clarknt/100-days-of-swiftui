@@ -8,7 +8,7 @@ Animations and transitions
 
 ## Challenges
 
-[Project 6 - Challenges](../11-Project6-Challenges/)
+[Project 6 - Challenges](Challenges/)
 
 ## Screenshots
 
