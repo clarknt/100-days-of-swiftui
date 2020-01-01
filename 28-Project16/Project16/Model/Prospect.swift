@@ -21,14 +21,19 @@ class Prospects: ObservableObject {
     @Published private(set) var people: [Prospect]
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+        // Challenge 2
+        self.people = []
+
+        // User defaults
+        //if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+
+        // File
+        if let data = loadFile() {
             if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
                 self.people = decoded
                 return
             }
         }
-
-        self.people = []
     }
 
     func add(_ prospect: Prospect) {
@@ -44,7 +49,41 @@ class Prospects: ObservableObject {
 
     private func save() {
         if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+            // Challenge 2
+
+            // User defaults
+            //UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+
+            // File
+            saveFile(data: encoded)
         }
+    }
+
+    // Challenge 2
+    private func saveFile(data: Data) {
+        let url = getDocumentDirectory().appendingPathComponent(Self.saveKey)
+
+        do {
+            try data.write(to: url, options: [.atomicWrite, .completeFileProtection])
+        }
+        catch let error {
+            print("Could not write data: " + error.localizedDescription)
+        }
+    }
+
+    // Challenge 2
+    private func loadFile() -> Data? {
+        let url = getDocumentDirectory().appendingPathComponent(Self.saveKey)
+        if let data = try? Data(contentsOf: url) {
+            return data
+        }
+
+        return nil
+    }
+
+    // Challenge 2
+    private func getDocumentDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
