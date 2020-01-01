@@ -13,6 +13,9 @@ class Prospect: Identifiable, Codable {
     var name = "Anonymous"
     var emailAddress = ""
     fileprivate(set) var isContacted = false
+
+    // Challenge 3
+    var date = Date()
 }
 
 class Prospects: ObservableObject {
@@ -28,12 +31,12 @@ class Prospects: ObservableObject {
         //if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
 
         // File
-        if let data = loadFile() {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                self.people = decoded
-                return
-            }
-        }
+//        if let data = loadFile() {
+//            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
+//                self.people = decoded
+//                return
+//            }
+//        }
     }
 
     func add(_ prospect: Prospect) {
