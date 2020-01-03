@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9537390723BECA7200E05243 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390623BECA7200E05243 /* Haptics.swift */; };
 		95EA6AEF23BD5CDC00754BE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */; };
 		95EA6AF123BD5CDC00754BE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */; };
 		95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AF223BD5CDC00754BE6 /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9537390623BECA7200E05243 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		95EA6AEB23BD5CDC00754BE6 /* Project17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				95EA6B0323BD601300754BE6 /* Gestures.swift */,
+				9537390623BECA7200E05243 /* Haptics.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				95EA6AEF23BD5CDC00754BE6 /* AppDelegate.swift in Sources */,
 				95EA6AF123BD5CDC00754BE6 /* SceneDelegate.swift in Sources */,
+				9537390723BECA7200E05243 /* Haptics.swift in Sources */,
 				95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */,
 				95EA6B0423BD601300754BE6 /* Gestures.swift in Sources */,
 			);
@@ -298,6 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project17/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project17/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,6 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project17/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project17/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
