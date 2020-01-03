@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9537390723BECA7200E05243 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390623BECA7200E05243 /* Haptics.swift */; };
+		9537390923BEE85400E05243 /* DisableInteractivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390823BEE85400E05243 /* DisableInteractivity.swift */; };
 		95EA6AEF23BD5CDC00754BE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */; };
 		95EA6AF123BD5CDC00754BE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */; };
 		95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AF223BD5CDC00754BE6 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		9537390623BECA7200E05243 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		9537390823BEE85400E05243 /* DisableInteractivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableInteractivity.swift; sourceTree = "<group>"; };
 		95EA6AEB23BD5CDC00754BE6 /* Project17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				95EA6B0323BD601300754BE6 /* Gestures.swift */,
 				9537390623BECA7200E05243 /* Haptics.swift */,
+				9537390823BEE85400E05243 /* DisableInteractivity.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9537390923BEE85400E05243 /* DisableInteractivity.swift in Sources */,
 				95EA6AEF23BD5CDC00754BE6 /* AppDelegate.swift in Sources */,
 				95EA6AF123BD5CDC00754BE6 /* SceneDelegate.swift in Sources */,
 				9537390723BECA7200E05243 /* Haptics.swift in Sources */,
