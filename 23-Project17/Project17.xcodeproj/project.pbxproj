@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9537390723BECA7200E05243 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390623BECA7200E05243 /* Haptics.swift */; };
 		9537390923BEE85400E05243 /* DisableInteractivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390823BEE85400E05243 /* DisableInteractivity.swift */; };
+		95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */; };
 		95E1A41823C004040065E0FE /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E1A41723C004040065E0FE /* Timers.swift */; };
 		95E1A41A23C007B60065E0FE /* ResignNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E1A41923C007B60065E0FE /* ResignNotification.swift */; };
 		95EA6AEF23BD5CDC00754BE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		9537390623BECA7200E05243 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		9537390823BEE85400E05243 /* DisableInteractivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableInteractivity.swift; sourceTree = "<group>"; };
+		95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificAccessibility.swift; sourceTree = "<group>"; };
 		95E1A41723C004040065E0FE /* Timers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
 		95E1A41923C007B60065E0FE /* ResignNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignNotification.swift; sourceTree = "<group>"; };
 		95EA6AEB23BD5CDC00754BE6 /* Project17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project17.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 				9537390823BEE85400E05243 /* DisableInteractivity.swift */,
 				95E1A41723C004040065E0FE /* Timers.swift */,
 				95E1A41923C007B60065E0FE /* ResignNotification.swift */,
+				95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				95EA6AF123BD5CDC00754BE6 /* SceneDelegate.swift in Sources */,
 				95E1A41823C004040065E0FE /* Timers.swift in Sources */,
 				9537390723BECA7200E05243 /* Haptics.swift in Sources */,
+				95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */,
 				95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */,
 				95E1A41A23C007B60065E0FE /* ResignNotification.swift in Sources */,
 				95EA6B0423BD601300754BE6 /* Gestures.swift in Sources */,
