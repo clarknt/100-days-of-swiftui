@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952E223123C4D3700002B7D8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E223023C4D3700002B7D8 /* Card.swift */; };
+		952E223323C4D4690002B7D8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952E223223C4D4690002B7D8 /* CardView.swift */; };
 		9537390723BECA7200E05243 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390623BECA7200E05243 /* Haptics.swift */; };
 		9537390923BEE85400E05243 /* DisableInteractivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390823BEE85400E05243 /* DisableInteractivity.swift */; };
 		95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		952E223023C4D3700002B7D8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		952E223223C4D4690002B7D8 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		9537390623BECA7200E05243 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		9537390823BEE85400E05243 /* DisableInteractivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableInteractivity.swift; sourceTree = "<group>"; };
 		95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificAccessibility.swift; sourceTree = "<group>"; };
@@ -49,6 +53,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		952E223423C4D6F50002B7D8 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */,
+				95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */,
+				95EA6AF923BD5CDF00754BE6 /* LaunchScreen.storyboard */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		952E223523C4D7010002B7D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				952E223223C4D4690002B7D8 /* CardView.swift */,
+				95EA6AF223BD5CDC00754BE6 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		952E223623C4D70D0002B7D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				952E223023C4D3700002B7D8 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		95EA6AE223BD5CDC00754BE6 = {
 			isa = PBXGroup;
 			children = (
@@ -69,11 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				95EA6B0223BD600300754BE6 /* Introduction */,
-				95EA6AEE23BD5CDC00754BE6 /* AppDelegate.swift */,
-				95EA6AF023BD5CDC00754BE6 /* SceneDelegate.swift */,
-				95EA6AF223BD5CDC00754BE6 /* ContentView.swift */,
+				952E223423C4D6F50002B7D8 /* Init */,
+				952E223623C4D70D0002B7D8 /* Model */,
+				952E223523C4D7010002B7D8 /* View */,
 				95EA6AF423BD5CDF00754BE6 /* Assets.xcassets */,
-				95EA6AF923BD5CDF00754BE6 /* LaunchScreen.storyboard */,
 				95EA6AFC23BD5CDF00754BE6 /* Info.plist */,
 				95EA6AF623BD5CDF00754BE6 /* Preview Content */,
 			);
@@ -179,7 +209,9 @@
 				9537390723BECA7200E05243 /* Haptics.swift in Sources */,
 				95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */,
 				95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */,
+				952E223123C4D3700002B7D8 /* Card.swift in Sources */,
 				95E1A41A23C007B60065E0FE /* ResignNotification.swift in Sources */,
+				952E223323C4D4690002B7D8 /* CardView.swift in Sources */,
 				95EA6B0423BD601300754BE6 /* Gestures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
