@@ -17,6 +17,15 @@ struct ContentView: View {
     @State private var isActive = true
     @State private var showingEditScreen = false
 
+    // Challenge 1
+    @State private var initialCardsCount = 0
+    @State private var correctCards = 0
+    @State private var incorrectCards = 0
+    private var reviewedCards: Int {
+        correctCards + incorrectCards
+    }
+    let haptics = Haptics()
+
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     private static let initialTimerValue = 100
@@ -43,12 +52,19 @@ struct ContentView: View {
                             .opacity(0.75)
                     )
 
-                // MARK: main UI/cards
                 ZStack {
+                    // MARK: main UI/cards
                     ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: self.cards[index]) {
+                        // Challenge 1
+                        CardView(card: self.cards[index]) { isCorrect in
                             withAnimation {
                                 self.removeCard(at: index)
+                            }
+                            if isCorrect {
+                                self.correctCards += 1
+                            }
+                            else {
+                                self.incorrectCards += 1
                             }
                         }
                         .stacked(at: index, in: self.cards.count)
@@ -57,20 +73,42 @@ struct ContentView: View {
                         // let voice over read only the top card
                         .accessibility(hidden: index < self.cards.count - 1)
                     }
-                }
-                .allowsHitTesting(timeRemaining > 0)
+                    .allowsHitTesting(timeRemaining > 0)
 
-                // MARK: main UI/restart
-                if cards.isEmpty {
-                    Button("Start Again", action: resetCards)
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .clipShape(Capsule())
+                    // MARK: main UI/restart
+                    // Challenge 1
+                    if cards.isEmpty || timeRemaining == 0 {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                .fill(Color.black)
+
+                            VStack(alignment: .center) {
+                                Text("Statistics")
+                                    .font(.headline)
+
+                                VStack {
+                                    Text("Cards reviewed: \(reviewedCards) / \(initialCardsCount)")
+                                    Text("Correct answers: \(correctCards) / \(reviewedCards)")
+                                    Text("Incorrect answers: \(incorrectCards) / \(reviewedCards)")
+                                }
+                                .font(.subheadline)
+                                .padding(.bottom)
+
+                                Button("Start Again", action: resetCards)
+                                    .padding()
+                                    .background(Color.white)
+                                    .foregroundColor(.black)
+                                    .clipShape(Capsule())
+                            }
+                            .foregroundColor(.white)
+                        }
+                        // in comparison with the 450, 250 for each card
+                        .frame(width: 300, height: 200)
+                    }
                 }
             }
 
-            // MARK: edit mode
+            // MARK: edit mode button
             VStack {
                 HStack {
                     Spacer()
@@ -92,7 +130,7 @@ struct ContentView: View {
             .padding()
 
             // MARK: accessibility
-            if differentiateWithoutColor || accessibilityEnabled {
+            if (differentiateWithoutColor || accessibilityEnabled) && timeRemaining > 0 {
                 VStack {
                     Spacer()
 
@@ -101,6 +139,8 @@ struct ContentView: View {
                             action: {
                                 withAnimation {
                                     self.removeCard(at: self.cards.count - 1)
+                                    // Challenge 1
+                                    self.incorrectCards += 1
                                 }
                             },
                             label: {
@@ -119,6 +159,8 @@ struct ContentView: View {
                             action: {
                                 withAnimation {
                                     self.removeCard(at: self.cards.count - 1)
+                                    // Challenge 1
+                                    self.correctCards += 1
                                 }
                             },
                             label: {
@@ -146,6 +188,14 @@ struct ContentView: View {
 
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
+
+                // Challenge 1
+                if self.timeRemaining == 2 {
+                    self.haptics.prepare()
+                }
+                else if self.timeRemaining == 0 {
+                    self.haptics.playEnding()
+                }
             }
         }
         // app will go to background
@@ -165,8 +215,15 @@ struct ContentView: View {
 
         cards.remove(at: index)
 
+        // Challenge 1
+        if cards.count == 1 {
+            haptics.prepare()
+        }
+
         if cards.isEmpty {
             isActive = false
+            // Challenge 1
+            haptics.playEnding()
         }
     }
 
@@ -180,6 +237,14 @@ struct ContentView: View {
         if let data = UserDefaults.standard.data(forKey: "Cards") {
             if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
                 self.cards = decoded
+
+                // Challenge 1
+                self.initialCardsCount = cards.count
+                self.correctCards = 0
+                self.incorrectCards = 0
+                if cards.count == 1 {
+                    self.haptics.prepare()
+                }
             }
         }
     }

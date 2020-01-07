@@ -23,6 +23,8 @@ struct EditCards: View {
                     TextField("Answer", text: $newAnswer)
                     Button("Add card") {
                         self.addCard()
+                        self.newPrompt = ""
+                        self.newAnswer = ""
                     }
                 }
 

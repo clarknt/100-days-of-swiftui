@@ -9,7 +9,7 @@
 import CoreHaptics
 import SwiftUI
 
-struct Haptics: View {
+struct HapticsIntro: View {
     @State private var engine: CHHapticEngine?
 
     var body: some View {
@@ -111,8 +111,8 @@ struct Haptics: View {
 
 }
 
-struct Haptics_Previews: PreviewProvider {
+struct HapticsIntro_Previews: PreviewProvider {
     static var previews: some View {
-        Haptics()
+        HapticsIntro()
     }
 }

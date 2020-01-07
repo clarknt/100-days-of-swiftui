@@ -15,7 +15,8 @@ struct CardView: View {
 
     let card: Card
 
-    var removal: (() -> Void)?
+    // Challenge 1
+    var removal: ((_ isCorrect: Bool) -> Void)?
 
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
@@ -85,7 +86,8 @@ struct CardView: View {
                             self.feedback.notificationOccurred(.error)
                         }
 
-                        self.removal?()
+                        // Challenge 1
+                        self.removal?(self.offset.width > 0)
                     }
                     else {
                         // restore the card
