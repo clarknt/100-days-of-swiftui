@@ -12,9 +12,10 @@ struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
 
-    @State private var cards = [Card](repeating: Card.example, count: 10)
+    @State private var cards = [Card]()
     @State private var timeRemaining = Self.initialTimerValue
     @State private var isActive = true
+    @State private var showingEditScreen = false
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -22,12 +23,15 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            // MARK: background
             Image(decorative: "background")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
 
+            // MARK: main UI
             VStack {
+                // MARK: main UI/time
                 Text("Time: \(timeRemaining)")
                     .font(.largeTitle)
                     .foregroundColor(.white)
@@ -39,6 +43,7 @@ struct ContentView: View {
                             .opacity(0.75)
                     )
 
+                // MARK: main UI/cards
                 ZStack {
                     ForEach(0..<cards.count, id: \.self) { index in
                         CardView(card: self.cards[index]) {
@@ -55,6 +60,7 @@ struct ContentView: View {
                 }
                 .allowsHitTesting(timeRemaining > 0)
 
+                // MARK: main UI/restart
                 if cards.isEmpty {
                     Button("Start Again", action: resetCards)
                         .padding()
@@ -64,7 +70,28 @@ struct ContentView: View {
                 }
             }
 
-            // accessibility
+            // MARK: edit mode
+            VStack {
+                HStack {
+                    Spacer()
+
+                    Button(action: {
+                        self.showingEditScreen = true
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                }
+
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .font(.largeTitle)
+            .padding()
+
+            // MARK: accessibility
             if differentiateWithoutColor || accessibilityEnabled {
                 VStack {
                     Spacer()
@@ -110,6 +137,10 @@ struct ContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
+            EditCards()
+        }
+        .onAppear(perform: resetCards)
         .onReceive(timer) { time in
             guard self.isActive else { return }
 
@@ -140,9 +171,17 @@ struct ContentView: View {
     }
 
     func resetCards() {
-        cards = [Card](repeating: Card.example, count: 10)
         timeRemaining = Self.initialTimerValue
         isActive = true
+        loadData()
+    }
+
+    func loadData() {
+        if let data = UserDefaults.standard.data(forKey: "Cards") {
+            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
+                self.cards = decoded
+            }
+        }
     }
 }
 
