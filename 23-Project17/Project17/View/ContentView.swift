@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+
     @State private var cards = [Card](repeating: Card.example, count: 10)
 
     var body: some View {
@@ -28,6 +30,27 @@ struct ContentView: View {
                         }
                         .stacked(at: index, in: self.cards.count)
                     }
+                }
+            }
+
+            if differentiateWithoutColor {
+                VStack {
+                    Spacer()
+
+                    HStack {
+                        Image(systemName: "xmark.circle")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                        Spacer()
+                        Image(systemName: "checkmark.circle")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .padding()
                 }
             }
         }
