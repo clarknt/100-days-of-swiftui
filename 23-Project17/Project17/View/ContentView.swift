@@ -12,10 +12,12 @@ struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
 
     @State private var cards = [Card](repeating: Card.example, count: 10)
-    @State private var timeRemaining = 100
+    @State private var timeRemaining = Self.initialTimerValue
     @State private var isActive = true
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    private static let initialTimerValue = 100
 
     var body: some View {
         ZStack {
@@ -45,6 +47,15 @@ struct ContentView: View {
                         }
                         .stacked(at: index, in: self.cards.count)
                     }
+                }
+                .allowsHitTesting(timeRemaining > 0)
+
+                if cards.isEmpty {
+                    Button("Start Again", action: resetCards)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .clipShape(Capsule())
                 }
             }
 
@@ -82,12 +93,24 @@ struct ContentView: View {
         }
         // app is back to foreground
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            self.isActive = true
+            if self.cards.isEmpty == false {
+                self.isActive = true
+            }
         }
     }
 
     func removeCard(at index: Int) {
         cards.remove(at: index)
+
+        if cards.isEmpty {
+            isActive = false
+        }
+    }
+
+    func resetCards() {
+        cards = [Card](repeating: Card.example, count: 10)
+        timeRemaining = Self.initialTimerValue
+        isActive = true
     }
 }
 

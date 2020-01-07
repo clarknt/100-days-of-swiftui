@@ -35,6 +35,7 @@ struct CardView: View {
                             .fill(offset.width > 0 ? Color.green : Color.red)
                 )
                 .shadow(radius: 10)
+            
             VStack {
                 Text(card.prompt)
                     .font(.largeTitle)
