@@ -42,14 +42,17 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+
             // MARK: background
             Image(decorative: "background")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
 
+
             // MARK: main UI
             VStack {
+
                 // MARK: main UI/time
                 Text("Time: \(timeRemaining)")
                     .font(.largeTitle)
@@ -63,6 +66,7 @@ struct ContentView: View {
                     )
 
                 ZStack {
+
                     // MARK: main UI/cards
                     ForEach(cards) { card in
                         // Challenge 1
@@ -95,93 +99,49 @@ struct ContentView: View {
                     }
                     .allowsHitTesting(timeRemaining > 0)
 
+
                     // MARK: main UI/restart
                     // Challenge 1
                     if timeRemaining == 0 || !isActive {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                .fill(Color.black)
-
-                            VStack(alignment: .center) {
-                                Text("Statistics")
-                                    .font(.headline)
-
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("Cards" + (retryIncorrectCards ? " (unique)" : ""))
-                                        Text("Reviewed")
-                                        Text("Correct")
-                                        Text("Incorrect")
-                                    }
-                                    VStack(alignment: .trailing) {
-                                        Text("\(initialCardsCount)")
-                                        Text("\(reviewedCards)")
-                                        Text("\(correctCards)")
-                                        Text("\(incorrectCards)")
-                                    }
-                                }
-                                .font(.subheadline)
-                                .padding(.bottom)
-
-                                Button("Start Again", action: resetCards)
-                                    .padding()
-                                    .background(Color.white)
-                                    .foregroundColor(.black)
-                                    .clipShape(Capsule())
-                            }
-                            .foregroundColor(.white)
-                        }
+                        RestartView(retryIncorrectCards: retryIncorrectCards,
+                                    initialCardsCount: initialCardsCount,
+                                    reviewedCards: reviewedCards,
+                                    correctCards: correctCards,
+                                    incorrectCards: incorrectCards,
+                                    restartAction: resetCards)
                         // in comparison with the 450, 250 for each card
                         .frame(width: 300, height: 200)
                     }
                 }
             }
 
+
             // MARK: settings button
             // Challenge 2
             VStack {
                 HStack {
-                    Button(action: {
-                        self.sheetType = .settings
-                        self.showingSheet = true
-                    }) {
-                        Image(systemName: "gear")
-                            .padding()
-                            .background(Color.black.opacity(0.7))
-                            .clipShape(Circle())
+                    ActionButton(systemImage: "gear") {
+                        self.showSheet(type: .settings)
                     }
-
                     Spacer()
                 }
-
                 Spacer()
             }
-            .foregroundColor(.white)
-            .font(.largeTitle)
             .padding()
+
 
             // MARK: edit mode button
             VStack {
                 HStack {
                     Spacer()
-
-                    Button(action: {
-                        // Challenge 2
-                        self.sheetType = .editCards
-                        self.showingSheet = true
-                    }) {
-                        Image(systemName: "plus.circle")
-                            .padding()
-                            .background(Color.black.opacity(0.7))
-                            .clipShape(Circle())
+                    ActionButton(systemImage: "plus.circle") {
+                        self.showSheet(type: .editCards)
                     }
                 }
-
                 Spacer()
             }
-            .foregroundColor(.white)
-            .font(.largeTitle)
             .padding()
+
 
             // MARK: accessibility
             if (differentiateWithoutColor || accessibilityEnabled) &&
@@ -190,53 +150,39 @@ struct ContentView: View {
                     Spacer()
 
                     HStack {
-                        Button(
-                            action: {
-                                // Challenge 1
-                                self.incorrectCards += 1
 
-                                // Challenge 2
-                                if self.retryIncorrectCards {
-                                    self.restackCard(at: self.cards.count - 1)
-                                    return
-                                }
+                        // MARK: accessibility/incorrect buttom
+                        ActionButton(systemImage: "xmark.circle") {
+                            // Challenge 1
+                            self.incorrectCards += 1
 
-                                withAnimation {
-                                    self.removeCard(at: self.cards.count - 1)
-                                }
-                            },
-                            label: {
-                                Image(systemName: "xmark.circle")
-                                    .padding()
-                                    .background(Color.black.opacity(0.7))
-                                    .clipShape(Circle())
+                            // Challenge 2
+                            if self.retryIncorrectCards {
+                                self.restackCard(at: self.cards.count - 1)
+                                return
                             }
-                        )
+
+                            withAnimation {
+                                self.removeCard(at: self.cards.count - 1)
+                            }
+                        }
                         .accessibility(label: Text("Wrong"))
                         .accessibility(hint: Text("Mark your answer as being incorrect."))
 
                         Spacer()
 
-                        Button(
-                            action: {
-                                withAnimation {
-                                    self.removeCard(at: self.cards.count - 1)
-                                    // Challenge 1
-                                    self.correctCards += 1
-                                }
-                            },
-                            label: {
-                                Image(systemName: "checkmark.circle")
-                                    .padding()
-                                    .background(Color.black.opacity(0.7))
-                                    .clipShape(Circle())
+
+                        // MARK: accessibility/correct buttom
+                        ActionButton(systemImage: "checkmark.circle") {
+                            withAnimation {
+                                self.removeCard(at: self.cards.count - 1)
+                                // Challenge 1
+                                self.correctCards += 1
                             }
-                        )
+                        }
                         .accessibility(label: Text("Correct"))
                         .accessibility(hint: Text("Mark your answer as being correct."))
                     }
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
                     .padding()
                 }
             }
@@ -330,7 +276,79 @@ struct ContentView: View {
     func index(for card: Card) -> Int {
         return cards.firstIndex(where: { $0.id == card.id }) ?? 0
     }
+
+    // Challenge 2
+    func showSheet(type: SheetType) {
+        self.sheetType = type
+        self.showingSheet = true
+    }
 }
+
+
+// Challenge 1
+struct RestartView: View {
+    let retryIncorrectCards: Bool
+    let initialCardsCount: Int
+    let reviewedCards: Int
+    let correctCards: Int
+    let incorrectCards: Int
+    let restartAction: () -> Void
+
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(Color.black)
+
+            VStack(alignment: .center) {
+                Text("Statistics")
+                    .font(.headline)
+
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Cards" + (retryIncorrectCards ? " (unique)" : ""))
+                        Text("Reviewed")
+                        Text("Correct")
+                        Text("Incorrect")
+                    }
+                    VStack(alignment: .trailing) {
+                        Text("\(initialCardsCount)")
+                        Text("\(reviewedCards)")
+                        Text("\(correctCards)")
+                        Text("\(incorrectCards)")
+                    }
+                }
+                .font(.subheadline)
+                .padding(.bottom)
+
+                Button("Start Again", action: restartAction)
+                    .padding()
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .clipShape(Capsule())
+            }
+            .foregroundColor(.white)
+        }
+    }
+}
+
+
+// Challenge 2
+struct ActionButton: View {
+    let systemImage: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: systemImage)
+                .padding()
+                .background(Color.black.opacity(0.7))
+                .clipShape(Circle())
+        }
+        .foregroundColor(.white)
+        .font(.largeTitle)
+    }
+}
+
 
 extension View {
     func stacked(at position: Int, in total: Int) -> some View {
@@ -338,6 +356,7 @@ extension View {
         return self.offset(CGSize(width: 0, height: offset * 10))
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

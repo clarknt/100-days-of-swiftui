@@ -31,22 +31,26 @@ struct CardView: View {
 
     var body: some View {
         ZStack {
+            // MARK: Background
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(
                     differentiateWithoutColor
                         ? Color.white
                         : Color.white
                             .opacity(1 - Double(abs(offset.width / 50)))
+                            .opacity(0)
 
                 )
                 .background(
                     differentiateWithoutColor
                         ? nil
                         : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(offset.width > 0 ? Color.green : Color.red)
+                            // Challenge 3
+                            .fill(getBackgroundColor(offset: offset))
                 )
                 .shadow(radius: 10)
-            
+
+            // MARK: Text
             VStack {
                 if accessibilityEnabled {
                     Text(isShowingAnswer ? card.answer : card.prompt)
@@ -77,41 +81,54 @@ struct CardView: View {
         // start at 2 to keep it opaque until reaching 50 points
         .opacity(2 - Double(abs(offset.width / 50)))
         .accessibility(addTraits: .isButton)
-        .gesture(
-            DragGesture()
-                .onChanged { gesture in
-                    self.offset = gesture.translation
-                    // warm up taptic engine to avoid delay when playing haptic feedback
-                    self.feedback.prepare()
-                }
-                .onEnded { _ in
-                    if abs(self.offset.width) > 100 {
-                        // remove the card
-                        if self.offset.width > 0 {
-                            self.feedback.notificationOccurred(.success)
-                        } else {
-                            self.feedback.notificationOccurred(.error)
-                        }
+        .gesture(dragGesture())
+        .onTapGesture { self.isShowingAnswer.toggle() }
+        .animation(.spring())
+    }
 
-                        // Challenge 1
-                        self.removal?(self.offset.width > 0)
+    // Challenge 3
+    func getBackgroundColor(offset: CGSize) -> Color {
+        if offset.width > 0 {
+            return .green
+        }
 
-                        // Challenge 2
-                        if self.shouldResetPosition {
-                            self.isShowingAnswer = false
-                            self.offset = .zero
-                        }
+        if offset.width < 0 {
+            return .red
+        }
+
+        return .white
+    }
+
+    func dragGesture() -> some Gesture {
+        DragGesture()
+            .onChanged { gesture in
+                self.offset = gesture.translation
+                // warm up taptic engine to avoid delay when playing haptic feedback
+                self.feedback.prepare()
+            }
+            .onEnded { _ in
+                if abs(self.offset.width) > 100 {
+                    // remove the card
+                    if self.offset.width > 0 {
+                        self.feedback.notificationOccurred(.success)
+                    } else {
+                        self.feedback.notificationOccurred(.error)
                     }
-                    else {
-                        // restore the card
+
+                    // Challenge 1
+                    self.removal?(self.offset.width > 0)
+
+                    // Challenge 2
+                    if self.shouldResetPosition {
+                        self.isShowingAnswer = false
                         self.offset = .zero
                     }
                 }
-        )
-        .onTapGesture {
-            self.isShowingAnswer.toggle()
-        }
-        .animation(.spring())
+                else {
+                    // restore the card
+                    self.offset = .zero
+                }
+            }
     }
 }
 
