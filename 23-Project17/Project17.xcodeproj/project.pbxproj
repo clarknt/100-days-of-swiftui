@@ -12,6 +12,7 @@
 		9537390723BECA7200E05243 /* HapticsIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390623BECA7200E05243 /* HapticsIntro.swift */; };
 		9537390923BEE85400E05243 /* DisableInteractivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537390823BEE85400E05243 /* DisableInteractivity.swift */; };
 		95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */; };
+		953A71AD23C677C2008984F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A71AC23C677C2008984F6 /* SettingsView.swift */; };
 		95974AE323C4EF2A00B463AD /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95974AE223C4EF2A00B463AD /* EditCards.swift */; };
 		95974AE523C53F5300B463AD /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95974AE423C53F5300B463AD /* Haptics.swift */; };
 		95E1A41823C004040065E0FE /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E1A41723C004040065E0FE /* Timers.swift */; };
@@ -31,6 +32,7 @@
 		9537390623BECA7200E05243 /* HapticsIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsIntro.swift; sourceTree = "<group>"; };
 		9537390823BEE85400E05243 /* DisableInteractivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableInteractivity.swift; sourceTree = "<group>"; };
 		95374AC423C2EC54009B5471 /* SpecificAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificAccessibility.swift; sourceTree = "<group>"; };
+		953A71AC23C677C2008984F6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		95974AE223C4EF2A00B463AD /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 		95974AE423C53F5300B463AD /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		95E1A41723C004040065E0FE /* Timers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				952E223223C4D4690002B7D8 /* CardView.swift */,
 				95EA6AF223BD5CDC00754BE6 /* ContentView.swift */,
 				95974AE223C4EF2A00B463AD /* EditCards.swift */,
+				953A71AC23C677C2008984F6 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				9537390723BECA7200E05243 /* HapticsIntro.swift in Sources */,
 				95374AC523C2EC54009B5471 /* SpecificAccessibility.swift in Sources */,
 				95EA6AF323BD5CDC00754BE6 /* ContentView.swift in Sources */,
+				953A71AD23C677C2008984F6 /* SettingsView.swift in Sources */,
 				95974AE523C53F5300B463AD /* Haptics.swift in Sources */,
 				952E223123C4D3700002B7D8 /* Card.swift in Sources */,
 				95E1A41A23C007B60065E0FE /* ResignNotification.swift in Sources */,

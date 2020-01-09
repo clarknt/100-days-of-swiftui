@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+// Challenge 2
+enum SheetType {
+    case editCards, settings
+}
+
 struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
@@ -15,7 +20,8 @@ struct ContentView: View {
     @State private var cards = [Card]()
     @State private var timeRemaining = Self.initialTimerValue
     @State private var isActive = true
-    @State private var showingEditScreen = false
+    // Challenge 2
+    @State private var showingSheet = false
 
     // Challenge 1
     @State private var initialCardsCount = 0
@@ -25,6 +31,10 @@ struct ContentView: View {
         correctCards + incorrectCards
     }
     let haptics = Haptics()
+
+    // Challenge 2
+    @State private var retryIncorrectCards = false
+    @State private var sheetType = SheetType.editCards
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -54,30 +64,40 @@ struct ContentView: View {
 
                 ZStack {
                     // MARK: main UI/cards
-                    ForEach(0..<cards.count, id: \.self) { index in
+                    ForEach(cards) { card in
                         // Challenge 1
-                        CardView(card: self.cards[index]) { isCorrect in
-                            withAnimation {
-                                self.removeCard(at: index)
-                            }
+                        CardView(card: card, retryIncorrectCards: self.retryIncorrectCards) { isCorrect in
+
+                            // update stats
                             if isCorrect {
                                 self.correctCards += 1
                             }
                             else {
                                 self.incorrectCards += 1
+
+                                // Challenge 2
+                                if self.retryIncorrectCards {
+                                    self.restackCard(at: self.index(for: card))
+                                    return
+                                }
+                            }
+
+                            // remove card
+                            withAnimation {
+                                self.removeCard(at: self.index(for: card))
                             }
                         }
-                        .stacked(at: index, in: self.cards.count)
+                        .stacked(at: self.index(for: card), in: self.cards.count)
                         // allow dragging only the top card
-                        .allowsHitTesting(index == self.cards.count - 1)
+                        .allowsHitTesting(self.index(for: card) == self.cards.count - 1)
                         // let voice over read only the top card
-                        .accessibility(hidden: index < self.cards.count - 1)
+                        .accessibility(hidden: self.index(for: card) < self.cards.count - 1)
                     }
                     .allowsHitTesting(timeRemaining > 0)
 
                     // MARK: main UI/restart
                     // Challenge 1
-                    if cards.isEmpty || timeRemaining == 0 {
+                    if timeRemaining == 0 || !isActive {
                         ZStack {
                             RoundedRectangle(cornerRadius: 25, style: .continuous)
                                 .fill(Color.black)
@@ -86,10 +106,19 @@ struct ContentView: View {
                                 Text("Statistics")
                                     .font(.headline)
 
-                                VStack {
-                                    Text("Cards reviewed: \(reviewedCards) / \(initialCardsCount)")
-                                    Text("Correct answers: \(correctCards) / \(reviewedCards)")
-                                    Text("Incorrect answers: \(incorrectCards) / \(reviewedCards)")
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("Cards" + (retryIncorrectCards ? " (unique)" : ""))
+                                        Text("Reviewed")
+                                        Text("Correct")
+                                        Text("Incorrect")
+                                    }
+                                    VStack(alignment: .trailing) {
+                                        Text("\(initialCardsCount)")
+                                        Text("\(reviewedCards)")
+                                        Text("\(correctCards)")
+                                        Text("\(incorrectCards)")
+                                    }
                                 }
                                 .font(.subheadline)
                                 .padding(.bottom)
@@ -108,13 +137,38 @@ struct ContentView: View {
                 }
             }
 
+            // MARK: settings button
+            // Challenge 2
+            VStack {
+                HStack {
+                    Button(action: {
+                        self.sheetType = .settings
+                        self.showingSheet = true
+                    }) {
+                        Image(systemName: "gear")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+
+                    Spacer()
+                }
+
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .font(.largeTitle)
+            .padding()
+
             // MARK: edit mode button
             VStack {
                 HStack {
                     Spacer()
 
                     Button(action: {
-                        self.showingEditScreen = true
+                        // Challenge 2
+                        self.sheetType = .editCards
+                        self.showingSheet = true
                     }) {
                         Image(systemName: "plus.circle")
                             .padding()
@@ -130,17 +184,25 @@ struct ContentView: View {
             .padding()
 
             // MARK: accessibility
-            if (differentiateWithoutColor || accessibilityEnabled) && timeRemaining > 0 {
+            if (differentiateWithoutColor || accessibilityEnabled) &&
+                timeRemaining > 0 && isActive {
                 VStack {
                     Spacer()
 
                     HStack {
                         Button(
                             action: {
+                                // Challenge 1
+                                self.incorrectCards += 1
+
+                                // Challenge 2
+                                if self.retryIncorrectCards {
+                                    self.restackCard(at: self.cards.count - 1)
+                                    return
+                                }
+
                                 withAnimation {
                                     self.removeCard(at: self.cards.count - 1)
-                                    // Challenge 1
-                                    self.incorrectCards += 1
                                 }
                             },
                             label: {
@@ -179,8 +241,14 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
-            EditCards()
+        .sheet(isPresented: $showingSheet, onDismiss: resetCards) {
+            // Challenge 2
+            if self.sheetType == .editCards {
+                EditCards()
+            }
+            else if self.sheetType == .settings {
+                SettingsView(retryIncorrectCards: self.$retryIncorrectCards)
+            }
         }
         .onAppear(perform: resetCards)
         .onReceive(timer) { time in
@@ -227,6 +295,15 @@ struct ContentView: View {
         }
     }
 
+    // Challenge 2
+    func restackCard(at index: Int) {
+        guard index >= 0 else { return }
+
+        let card = cards[index]
+        cards.remove(at: index)
+        cards.insert(card, at: 0)
+    }
+
     func resetCards() {
         timeRemaining = Self.initialTimerValue
         isActive = true
@@ -247,6 +324,11 @@ struct ContentView: View {
                 }
             }
         }
+    }
+
+    // Challenge 2
+    func index(for card: Card) -> Int {
+        return cards.firstIndex(where: { $0.id == card.id }) ?? 0
     }
 }
 

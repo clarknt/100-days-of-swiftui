@@ -15,6 +15,13 @@ struct CardView: View {
 
     let card: Card
 
+    // Challenge 2
+    let retryIncorrectCards: Bool
+    private var shouldResetPosition: Bool {
+        // incorrect answer && retry incorrect cards
+        offset.width < 0 && retryIncorrectCards
+    }
+
     // Challenge 1
     var removal: ((_ isCorrect: Bool) -> Void)?
 
@@ -88,6 +95,12 @@ struct CardView: View {
 
                         // Challenge 1
                         self.removal?(self.offset.width > 0)
+
+                        // Challenge 2
+                        if self.shouldResetPosition {
+                            self.isShowingAnswer = false
+                            self.offset = .zero
+                        }
                     }
                     else {
                         // restore the card
@@ -104,7 +117,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: Card.example)
+        CardView(card: Card.example, retryIncorrectCards: false)
             .previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
     }
 }
