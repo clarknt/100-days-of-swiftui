@@ -8,7 +8,9 @@
 
 import SwiftUI
 
-struct Intro03Layout: View {
+struct Intro03CustomAlignment: View {
+    @Binding var topic: Topics
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -57,6 +59,7 @@ struct Intro03Layout: View {
                 }
             }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
     }
 }
 
@@ -70,8 +73,8 @@ extension VerticalAlignment {
     static let midAccountAndName = VerticalAlignment(MidAccountAndName.self)
 }
 
-struct Intro03LAyout_Previews: PreviewProvider {
+struct Intro03CustomAlignment_Previews: PreviewProvider {
     static var previews: some View {
-        Intro03Layout()
+        Intro03CustomAlignment(topic: .constant(.customAlignment))
     }
 }

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Intro01Layout: View {
+    @Binding var topic: Topics
+
     var body: some View {
         TabView {
             VStack {
@@ -44,11 +46,12 @@ struct Intro01Layout: View {
                     Text("Neutral size")
                 }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
     }
 }
 
 struct Intro01Layout_Previews: PreviewProvider {
     static var previews: some View {
-        Intro01Layout()
+        Intro01Layout(topic: .constant(.layout))
     }
 }

@@ -8,7 +8,9 @@
 
 import SwiftUI
 
-struct Intro04AbsolutPositioning: View {
+struct Intro04AbsolutePositioning: View {
+    @Binding var topic: Topics
+
     var body: some View {
         TabView {
             Text("Hello, World!")
@@ -27,11 +29,12 @@ struct Intro04AbsolutPositioning: View {
                 .background(Text("Original position"))
                 .tabItem { Text("Offset") }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
     }
 }
 
 struct Intro04AbsolutPositioning_Previews: PreviewProvider {
     static var previews: some View {
-        Intro04AbsolutPositioning()
+        Intro04AbsolutePositioning(topic: .constant(.absolutePositioning))
     }
 }

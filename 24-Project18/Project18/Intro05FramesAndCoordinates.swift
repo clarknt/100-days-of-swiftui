@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Intro05FramesAndCoordinates: View {
+    @Binding var topic: Topics
+
     var body: some View {
         TabView {
             VStack {
@@ -29,6 +31,7 @@ struct Intro05FramesAndCoordinates: View {
                 .coordinateSpace(name: "Custom")
                 .tabItem { Text("CoordinateSpace") }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
     }
 }
 
@@ -65,6 +68,6 @@ struct InnerView: View {
 
 struct Intro05FramesAndCoordinates_Previews: PreviewProvider {
     static var previews: some View {
-        Intro05FramesAndCoordinates()
+        Intro05FramesAndCoordinates(topic: .constant(.framesAndCoordinates))
     }
 }

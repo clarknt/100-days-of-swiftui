@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Intro06ScrollViewEffect: View {
     @State private var displayHelix = true
+    @Binding var topic: Topics
 
     var body: some View {
         Group {
@@ -20,6 +21,7 @@ struct Intro06ScrollViewEffect: View {
                 CoverFlow()
             }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
         .onTapGesture { self.displayHelix.toggle() }
     }
 }
@@ -78,6 +80,6 @@ struct CoverFlow: View {
 
 struct Intro06ScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        Intro06ScrollViewEffect()
+        Intro06ScrollViewEffect(topic: .constant(.scrollViewEffect))
     }
 }

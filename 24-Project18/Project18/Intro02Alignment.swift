@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Intro02Alignment: View {
+    @Binding var topic: Topics
+
     var body: some View {
         TabView {
             Text("Live long and prosper")
@@ -96,11 +98,12 @@ struct Intro02Alignment: View {
             }
             .tabItem { Text("Alignment Guide") }
         }
+        .onTapGesture(count: 2) { self.topic = .none }
     }
 }
 
 struct Intro02Alignment_Previews: PreviewProvider {
     static var previews: some View {
-        Intro02Alignment()
+        Intro02Alignment(topic: .constant(.alignment))
     }
 }
