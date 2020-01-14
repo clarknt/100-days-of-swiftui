@@ -15,6 +15,7 @@
 		952D316223C7BEA700FAD52F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952D316023C7BEA700FAD52F /* LaunchScreen.storyboard */; };
 		952D7FFE23CD535A00D5FCC2 /* Intro04AbsolutPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D7FFD23CD535A00D5FCC2 /* Intro04AbsolutPositioning.swift */; };
 		952D800023CD6A2800D5FCC2 /* Intro05FramesAndCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D7FFF23CD6A2800D5FCC2 /* Intro05FramesAndCoordinates.swift */; };
+		952D800223CD6F0300D5FCC2 /* Intro06ScrollViewEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D800123CD6F0300D5FCC2 /* Intro06ScrollViewEffect.swift */; };
 		952F5DA823C9177300D3F56E /* Intro01Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952F5DA723C9177300D3F56E /* Intro01Layout.swift */; };
 		952F5DAA23C9232C00D3F56E /* Intro02Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952F5DA923C9232C00D3F56E /* Intro02Alignment.swift */; };
 		9535BA8D23CA73570096483B /* Intro03CustomAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9535BA8C23CA73570096483B /* Intro03CustomAlignment.swift */; };
@@ -31,6 +32,7 @@
 		952D316323C7BEA700FAD52F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		952D7FFD23CD535A00D5FCC2 /* Intro04AbsolutPositioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro04AbsolutPositioning.swift; sourceTree = "<group>"; };
 		952D7FFF23CD6A2800D5FCC2 /* Intro05FramesAndCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro05FramesAndCoordinates.swift; sourceTree = "<group>"; };
+		952D800123CD6F0300D5FCC2 /* Intro06ScrollViewEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro06ScrollViewEffect.swift; sourceTree = "<group>"; };
 		952F5DA723C9177300D3F56E /* Intro01Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro01Layout.swift; sourceTree = "<group>"; };
 		952F5DA923C9232C00D3F56E /* Intro02Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro02Alignment.swift; sourceTree = "<group>"; };
 		9535BA8C23CA73570096483B /* Intro03CustomAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro03CustomAlignment.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				9535BA8C23CA73570096483B /* Intro03CustomAlignment.swift */,
 				952D7FFD23CD535A00D5FCC2 /* Intro04AbsolutPositioning.swift */,
 				952D7FFF23CD6A2800D5FCC2 /* Intro05FramesAndCoordinates.swift */,
+				952D800123CD6F0300D5FCC2 /* Intro06ScrollViewEffect.swift */,
 				952D315523C7BEA400FAD52F /* AppDelegate.swift */,
 				952D315723C7BEA400FAD52F /* SceneDelegate.swift */,
 				952D315923C7BEA400FAD52F /* ContentView.swift */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952D315623C7BEA400FAD52F /* AppDelegate.swift in Sources */,
+				952D800223CD6F0300D5FCC2 /* Intro06ScrollViewEffect.swift in Sources */,
 				9535BA8D23CA73570096483B /* Intro03CustomAlignment.swift in Sources */,
 				952D315823C7BEA400FAD52F /* SceneDelegate.swift in Sources */,
 				952D800023CD6A2800D5FCC2 /* Intro05FramesAndCoordinates.swift in Sources */,
@@ -306,6 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project18/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project18/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project18/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project18/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
