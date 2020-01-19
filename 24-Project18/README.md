@@ -11,7 +11,7 @@ Layout, alignment, geometry, positioning
 ## Challenges
 
 1. [Challenge 1](Challenge1/)
-2. Challenge 2
+2. [Challenge 2](Challenge2/)
 3. Challenge 3
 
 ## Screenshots
