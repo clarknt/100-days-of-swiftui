@@ -12,7 +12,7 @@ Layout, alignment, geometry, positioning
 
 1. [Challenge 1](Challenge1/)
 2. [Challenge 2](Challenge2/)
-3. Challenge 3
+3. [Challenge 3](Challenge3/)
 
 ## Screenshots
 
