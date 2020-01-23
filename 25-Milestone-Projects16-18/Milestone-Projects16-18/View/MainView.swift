@@ -8,6 +8,13 @@
 
 import SwiftUI
 
+struct Roll: Identifiable {
+    var id = UUID()
+    var dieSides: Int
+    var result: [Int]
+    var total: Int
+}
+
 struct MainConstants {
     static let lightDisabledOpacity = 0.6
     static let darkDisabledOpacity = 0.4
@@ -26,6 +33,8 @@ struct MainConstants {
 
 struct MainView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+
+    @State var rolls = [Roll]()
 
     // MARK:- Private properties
 
@@ -181,17 +190,46 @@ struct MainView: View {
 
             // MARK:- Results
 
-//            List {
-//                Text("Total \(total)")
-//                    .listRowBackground(Color.green.opacity(0.3))
-//                Text("Item 2")
-//                    .listRowBackground(Color.green.opacity(0.5))
-//                Text("Item 3")
-//                    .listRowBackground(Color.green.opacity(0.7))
-//            }
-//            .listStyle(GroupedListStyle())
-////            .padding()
-//            .environment(\.horizontalSizeClass, .regular)
+            List {
+                ForEach(rolls) { roll in
+                    ZStack {
+                        HStack {
+                            Text("\(roll.dieSides)")
+                            Text("⚁")
+                                .rotationEffect(.radians(.pi / 8))
+
+                            Spacer()
+
+                            HStack(alignment: .lastTextBaseline) {
+                                Text("Σ")
+                                    .font(.caption)
+                                Text("\(roll.total)")
+                            }
+                        }
+
+                        HStack {
+                            Spacer()
+
+                            ForEach(roll.result, id: \.self) { side in
+                                Text("\(side)")
+                            }
+
+                            Spacer()
+                        }
+                    }
+                    .listRowBackground(self.rollColor(for: roll))
+                }
+            }
+            .padding(.vertical)
+            .foregroundColor(.gray)
+            .onAppear {
+                UITableView.appearance().separatorStyle = .none
+                UITableView.appearance().backgroundColor = UIColor.clear
+            }
+            .onDisappear {
+                UITableView.appearance().separatorStyle = .singleLine
+                UITableView.appearance().backgroundColor = UIColor.systemBackground
+            }
 
             // MARK:- Roll button
 
@@ -217,6 +255,11 @@ struct MainView: View {
 
                     let endTime = (Double(self.diceNumber + 2) / 2)
                     DispatchQueue.main.asyncAfter(deadline: .now() + endTime) {
+                        var result = [Int]()
+                        result += self.selectedSides[0..<self.diceNumber]
+                        let total = result.reduce(0, +)
+
+                        self.rolls.insert(Roll(dieSides: self.dieSides, result: result, total: total), at: 0)
                         self.rollDisabled = false
                     }
                 },
@@ -260,17 +303,43 @@ struct MainView: View {
 
         return .primary
     }
+
+    private func rollColor(for roll: Roll) -> Color {
+        if colorScheme == .light {
+            return index(for: roll) % 2 == 0 ?
+                Color.green.opacity(0.05) :
+                Color.green.opacity(0.15)
+        }
+
+        return index(for: roll) % 2 == 0 ?
+            Color.white.opacity(0.1) :
+            Color.white.opacity(0.075)
+    }
+
+    private func index(for roll: Roll) -> Int {
+        rolls.firstIndex(where: { roll.id == $0.id }) ?? 0
+    }
 }
 
 struct MainView_Previews: PreviewProvider {
+    static let rolls = [
+        Roll(dieSides: 20, result: [18, 15, 19, 17, 16, 19], total: 104),
+        Roll(dieSides: 6, result: [1, 3, 4], total: 8),
+        Roll(dieSides: 100, result: [95, 45, 21, 21, 32], total: 214)
+    ]
+
     static var previews: some View {
         Group {
-            MainView().environment(\.colorScheme, .light)
+            MainView(rolls: rolls).environment(\.colorScheme, .light)
 
-//            MainView().environment(\.colorScheme, .dark)
-//            MainView().previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//            MainView().previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
-//            MainView().previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
+            ZStack {
+                Color.black.edgesIgnoringSafeArea(.all)
+                MainView(rolls: rolls).environment(\.colorScheme, .dark)
+            }
+            
+//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
+//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
         }
     }
 }
