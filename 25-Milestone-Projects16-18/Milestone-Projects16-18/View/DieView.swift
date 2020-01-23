@@ -18,7 +18,13 @@ struct DieConstants {
     static let numbersPadding = 2
 }
 
+enum DieStyle {
+    case normal, wheel
+}
+
 struct DieView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     // MARK: - Parameters
 
     /// Number of sides on the die
@@ -30,6 +36,9 @@ struct DieView: View {
 
     /// Duration of the slot-like animation that takes effect when changing selectedSide
     @Binding var animationDuration: Double
+
+    /// Normal or wheel
+    var style: DieStyle = .normal
 
     // MARK:- Public properties
 
@@ -88,62 +97,53 @@ struct DieView: View {
         return initialOffset
     }
 
+    // 0 to 1, 0 being no effect, 1 maximum effect
+    private let wheelStyleStrength: Double = 0.5
+
+    private var wheelMaskColor: Color {
+        colorScheme == .light ?
+            Color.gray :
+            Color(red: 0.2, green: 0.2, blue: 0.2)
+    }
+
     // MARK:- View
 
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
-                    ForEach(numbers, id: \.self) { number in
+        ZStack {
+            VStack {
+                ForEach(numbers, id: \.self) { number in
                         Text("\(number)")
                             .font(.largeTitle)
                             .frame(height: DieConstants.numberFrameHeight)
-                    }
-                    .offset(x: 0, y: CGFloat(offset))
-                    .animation(.easeOut(duration: animationDuration))
                 }
-                .frame(height: DieConstants.slotFrameHeight)
-                .clipped()
+                .offset(x: 0, y: CGFloat(offset))
+                .animation(.easeOut(duration: animationDuration))
+            }
+            .frame(height: DieConstants.slotFrameHeight)
+            .clipped()
+
+            if style == .wheel {
+                VStack(alignment: .center, spacing: 0) {
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            wheelMaskColor.opacity(wheelStyleStrength),
+                            wheelMaskColor.opacity(0),
+                            wheelMaskColor.opacity(wheelStyleStrength)
+                        ]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: DieConstants.slotFrameHeight)
+                }
             }
         }
-//        .onAppear(perform: initNumbers)
     }
 
     // MARK:- Private functions
 
-//    private func initNumbers() {
-////        let count = maxUniqueNumbers.count
-//
-//        // match minimum digits
-//        var repetitions = Int(ceil(Double(DieConstants.minNumbers) / Double(sides)))
-//
-//        // match minimum repeat
-//        if repetitions < DieConstants.minUniqueNumbersRepeat {
-//            repetitions = DieConstants.minUniqueNumbersRepeat
-//        }
-//
-//        // build numbers
-//        for _ in 0..<repetitions {
-//            numbers += maxUniqueNumbers[0..<sides]
-//        }
-//
-//        // add padding
-//        for i in 0..<DieConstants.numbersPadding {
-//            // implies a minimum of "padding" unique numbers
-//            numbers.insert(maxUniqueNumbers[sides - 1 - i], at: 0)
-//            numbers.append(maxUniqueNumbers[i])
-//        }
-//
-//        // compute offsets
-//        let halfCount = CGFloat(numbers.count) / 2
-//        let firstElement = halfCount - CGFloat(DieConstants.numbersPadding)
-//        initialOffset = Double(firstElement * DieConstants.numberFrameHeight) - DieConstants.defaultOffset
-//    }
-
     private func roundToMultiple(number: Double, multiple: Double) -> Double {
         return round(number / multiple) * multiple;
     }
-
 }
 
 struct Die_Previews: PreviewProvider {

@@ -8,26 +8,81 @@
 
 import SwiftUI
 
-struct IdentifiableInt: Identifiable {
-    let id = UUID()
+struct MainConstants {
+    static let lightDisabledOpacity = 0.6
+    static let darkDisabledOpacity = 0.4
 
-    var value: Int
+    static let pickerDefaultOpacity = 0.8
+    static let rollButtonDefaultOpacity = 0.8
+
+    static let lightDividerOpacity = 0.1
+    static let darkDividerOpacity = 0.3
+
+    static let numbersSaturation = 0.7
+    static let numbersBrightness = 0.8
+
+    static let maxDiceNumber = 6
 }
 
 struct MainView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
-    static private let maxDiceNumber = 6
-    @State private var diceNumber = 6
+    // MARK:- Private properties
 
+    @State private var diceNumber = 6
     @State private var dieSides = 6
 
-    @State private var selectedSides = Array<Int>(repeating: 0, count: Self.maxDiceNumber)
-    @State private var animationDurations = Array<Double>(repeating: 0, count: 6)
+    @State private var selectedSides =
+        Array<Int>(repeating: 0, count: MainConstants.maxDiceNumber)
+    
+    @State private var animationDurations =
+        Array<Double>(repeating: 0, count: MainConstants.maxDiceNumber)
 
     @State private var rollDisabled = false
 
-    @State private var colored = true
+    @State private var coloredNumbers = true
+
+    private var pickerOpacity: Double {
+        if rollDisabled {
+            return colorScheme == .light ?
+                MainConstants.lightDisabledOpacity :
+                MainConstants.darkDisabledOpacity
+        }
+
+        return MainConstants.pickerDefaultOpacity
+    }
+
+    private var rollButtonOpacity: Double {
+        if rollDisabled {
+            return colorScheme == .light ?
+                MainConstants.lightDisabledOpacity :
+                MainConstants.darkDisabledOpacity
+        }
+
+        return MainConstants.rollButtonDefaultOpacity
+    }
+
+    private var dividerOpacity: Double {
+        colorScheme == .light ?
+            MainConstants.lightDividerOpacity :
+            MainConstants.darkDividerOpacity
+    }
+
+    private var slotsBackground: Color {
+        colorScheme == .light ? .white : .black
+    }
+
+    private var total: Int {
+        var total = 0
+
+        for i in 0..<diceNumber {
+            total += selectedSides[i]
+        }
+
+        return total
+    }
+
+    // MARK:- View
 
     var body: some View {
         let diceNumberWithCallback = Binding<Int>(
@@ -49,9 +104,6 @@ struct MainView: View {
         )
 
         return VStack {
-//            Text("Roll the dice")
-//                .font(.title)
-//                .foregroundColor(Color.green)
 
             // MARK:- Number of dice
 
@@ -72,13 +124,7 @@ struct MainView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .disabled(self.rollDisabled)
-            .background(
-                Color.green.opacity(
-                    self.rollDisabled ?
-                    (self.colorScheme == .light ? 0.5 : 0.3) :
-                    0.8
-                )
-            )
+            .background(Color.green.opacity(pickerOpacity))
             .cornerRadius(8)
             .animation(.linear(duration: 0.1))
             .padding(.horizontal)
@@ -104,13 +150,7 @@ struct MainView: View {
                 Text("100").tag(100)
             }
             .pickerStyle(SegmentedPickerStyle())
-            .background(
-                Color.green.opacity(
-                    self.rollDisabled ?
-                    (self.colorScheme == .light ? 0.5 : 0.3) :
-                    0.8
-                )
-            )
+            .background(Color.green.opacity(pickerOpacity))
             .cornerRadius(8)
             .disabled(self.rollDisabled)
             .animation(.linear(duration: 0.1))
@@ -120,12 +160,7 @@ struct MainView: View {
 
             ZStack {
                 Divider()
-                    .background(Color.green.opacity(0.001))
-
-//                RoundedRectangle(cornerRadius: 0)
-//                    .stroke(Color.green.opacity(0.3), lineWidth: 0.5)
-//                    .frame(height: 40)
-//                    .padding(.horizontal, -10)
+                    .background(Color.green.opacity(dividerOpacity))
 
                 HStack {
                     Spacer(minLength: 0)
@@ -134,20 +169,29 @@ struct MainView: View {
                         DieView(sides: self.$dieSides,
                                 selectedSide: self.$selectedSides[i],
                                 animationDuration: self.$animationDurations[i])
-                            .foregroundColor(
-                                self.colored ?
-                                    Color(hue: Double(i) / Double(self.diceNumber),
-                                          saturation: 0.7,
-                                          brightness: 0.8) :
-                                    .primary
-                            )
+                            .foregroundColor(self.dieColor(for: i))
 
                         Spacer(minLength: 0)
                     }
                     .id(self.diceNumber)
                 }
             }
-            .padding(.top)
+            .background(slotsBackground)
+            .padding(.vertical)
+
+            // MARK:- Results
+
+//            List {
+//                Text("Total \(total)")
+//                    .listRowBackground(Color.green.opacity(0.3))
+//                Text("Item 2")
+//                    .listRowBackground(Color.green.opacity(0.5))
+//                Text("Item 3")
+//                    .listRowBackground(Color.green.opacity(0.7))
+//            }
+//            .listStyle(GroupedListStyle())
+////            .padding()
+//            .environment(\.horizontalSizeClass, .regular)
 
             // MARK:- Roll button
 
@@ -178,6 +222,7 @@ struct MainView: View {
                 },
                 label: {
                     HStack{
+                        Spacer()
                         Text("⚁")
                             .font(.largeTitle)
                             .rotationEffect(.radians(.pi / 8))
@@ -187,28 +232,33 @@ struct MainView: View {
                         Text("⚄")
                             .font(.largeTitle)
                             .rotationEffect(.radians(.pi / 8))
+                        Spacer()
                     }
                 }
             )
-            .foregroundColor(Color.white)
-            .padding()
-            .background(self.rollDisabled ? Color.green : Color.green)
-            .opacity(self.rollDisabled ?
-                (self.colorScheme == .light ? 0.5 : 0.3) :
-                1
-            )
+            .foregroundColor(.primary)
+            .padding(.vertical, 8)
+            .background(Color.green)
+            .opacity(self.rollButtonOpacity)
             .animation(.linear(duration: 0.1))
-            .cornerRadius(16)
+            .cornerRadius(8)
             .padding()
             .disabled(self.rollDisabled)
-
-//            List {
-//                Text("Item 1")
-//                Text("Item 2")
-//                Text("Item 3")
-//            }.listStyle(GroupedListStyle())
-//            .environment(\.horizontalSizeClass, .regular)
         }
+    }
+
+    // MARK:- Private functions
+
+    private func dieColor(for index: Int) -> Color {
+        if self.coloredNumbers {
+            return Color(
+                hue: Double(index) / Double(diceNumber),
+                saturation: MainConstants.numbersSaturation,
+                brightness: MainConstants.numbersBrightness
+            )
+        }
+
+        return .primary
     }
 }
 
