@@ -190,103 +190,135 @@ struct MainView: View {
 
             // MARK:- Results
 
-            List {
-                ForEach(rolls) { roll in
+            ZStack {
+                GeometryReader { listProxy in
+                    List {
+                        ForEach(self.rolls) { roll in
+                            GeometryReader { itemProxy in
+                                ZStack {
+                                    HStack {
+                                        Text("\(roll.dieSides)")
+                                        Text("⚁")
+                                            .rotationEffect(.radians(.pi / 8))
+
+                                        Spacer()
+
+                                        HStack(alignment: .lastTextBaseline) {
+                                            Text("Σ")
+                                                .font(.caption)
+                                            Text("\(roll.total)")
+                                        }
+                                    }
+                                    .padding(.horizontal)
+
+                                    HStack {
+                                        Spacer()
+
+                                        ForEach(roll.result, id: \.self) { side in
+                                            Text("\(side)")
+                                        }
+
+                                        Spacer()
+                                    }
+                                }
+                                .frame(height: itemProxy.size.height)
+                                .background(self.rollColor(for: roll))
+                                .opacity(self.itemOpacity(listProxy: listProxy, itemProxy: itemProxy))
+                            }
+                            .listRowInsets(EdgeInsets())
+                        }
+                    }
+                    .foregroundColor(.gray)
+                    .onAppear {
+                        UITableView.appearance().separatorStyle = .none
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                    }
+                    .onDisappear {
+                        UITableView.appearance().separatorStyle = .singleLine
+                        UITableView.appearance().backgroundColor = UIColor.systemBackground
+                    }
+                }
+                .padding(.top)
+                .edgesIgnoringSafeArea(.bottom)
+
+                // MARK:- Roll button
+
+                VStack {
+                    Spacer()
+
                     ZStack {
-                        HStack {
-                            Text("\(roll.dieSides)")
-                            Text("⚁")
-                                .rotationEffect(.radians(.pi / 8))
-
-                            Spacer()
-
-                            HStack(alignment: .lastTextBaseline) {
-                                Text("Σ")
-                                    .font(.caption)
-                                Text("\(roll.total)")
+                        // dummy button over the list that acts as a solid background
+                        // for the roll button. Allows modifying roll button's opacity
+                        // without the list below showing through
+                        Button(action: {}, label: {
+                                HStack {
+                                    Spacer()
+                                    Text(" ").font(.largeTitle)
+                                    Spacer()
+                                }
                             }
-                        }
+                        )
+                        .padding(.vertical, 8)
+                        .background(Color(UIColor.systemBackground))
+                        .cornerRadius(8)
+                        .padding()
+                        .allowsHitTesting(false)
 
-                        HStack {
-                            Spacer()
+                        Button(
+                            action: {
+                                self.rollDisabled = true
 
-                            ForEach(roll.result, id: \.self) { side in
-                                Text("\(side)")
+                                for i in 0..<self.diceNumber {
+                                    let duration = Double(i + 2) / 2
+
+                                    // reset position
+                                    self.animationDurations[i] = 0.2
+                                    self.selectedSides[i] = 0
+
+                                    // if done immediately, it won't have time to reset
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        self.animationDurations[i] = duration
+                                        self.selectedSides[i] = Int.random(in: 1...self.dieSides)
+                                    }
+                                }
+
+                                let endTime = (Double(self.diceNumber + 2) / 2)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + endTime) {
+                                    var result = [Int]()
+                                    result += self.selectedSides[0..<self.diceNumber]
+                                    let total = result.reduce(0, +)
+
+                                    self.rolls.insert(Roll(dieSides: self.dieSides, result: result, total: total), at: 0)
+                                    self.rollDisabled = false
+                                }
+                            },
+                            label: {
+                                HStack{
+                                    Spacer()
+                                    Text("⚁")
+                                        .font(.largeTitle)
+                                        .rotationEffect(.radians(.pi / 8))
+                                    Text("ROLL")
+                                        .font(.title)
+                                        .padding(.horizontal)
+                                    Text("⚄")
+                                        .font(.largeTitle)
+                                        .rotationEffect(.radians(.pi / 8))
+                                    Spacer()
+                                }
                             }
-
-                            Spacer()
-                        }
+                        )
+                        .foregroundColor(.primary)
+                        .padding(.vertical, 8)
+                        .background(Color.green)
+                        .opacity(self.rollButtonOpacity)
+                        .animation(.linear(duration: 0.1))
+                        .cornerRadius(8)
+                        .padding()
+                        .disabled(self.rollDisabled)
                     }
-                    .listRowBackground(self.rollColor(for: roll))
                 }
             }
-            .padding(.vertical)
-            .foregroundColor(.gray)
-            .onAppear {
-                UITableView.appearance().separatorStyle = .none
-                UITableView.appearance().backgroundColor = UIColor.clear
-            }
-            .onDisappear {
-                UITableView.appearance().separatorStyle = .singleLine
-                UITableView.appearance().backgroundColor = UIColor.systemBackground
-            }
-
-            // MARK:- Roll button
-
-            Spacer()
-
-            Button(
-                action: {
-                    self.rollDisabled = true
-
-                    for i in 0..<self.diceNumber {
-                        let duration = Double(i + 2) / 2
-
-                        // reset position
-                        self.animationDurations[i] = 0.2
-                        self.selectedSides[i] = 0
-
-                        // if done immediately, it won't have time to reset
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.animationDurations[i] = duration
-                            self.selectedSides[i] = Int.random(in: 1...self.dieSides)
-                        }
-                    }
-
-                    let endTime = (Double(self.diceNumber + 2) / 2)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + endTime) {
-                        var result = [Int]()
-                        result += self.selectedSides[0..<self.diceNumber]
-                        let total = result.reduce(0, +)
-
-                        self.rolls.insert(Roll(dieSides: self.dieSides, result: result, total: total), at: 0)
-                        self.rollDisabled = false
-                    }
-                },
-                label: {
-                    HStack{
-                        Spacer()
-                        Text("⚁")
-                            .font(.largeTitle)
-                            .rotationEffect(.radians(.pi / 8))
-                        Text("ROLL")
-                            .font(.title)
-                            .padding(.horizontal)
-                        Text("⚄")
-                            .font(.largeTitle)
-                            .rotationEffect(.radians(.pi / 8))
-                        Spacer()
-                    }
-                }
-            )
-            .foregroundColor(.primary)
-            .padding(.vertical, 8)
-            .background(Color.green)
-            .opacity(self.rollButtonOpacity)
-            .animation(.linear(duration: 0.1))
-            .cornerRadius(8)
-            .padding()
-            .disabled(self.rollDisabled)
         }
     }
 
@@ -311,13 +343,28 @@ struct MainView: View {
                 Color.green.opacity(0.15)
         }
 
+        // dark scheme
         return index(for: roll) % 2 == 0 ?
-            Color.white.opacity(0.1) :
+            Color.white.opacity(0.125) :
             Color.white.opacity(0.075)
     }
 
     private func index(for roll: Roll) -> Int {
         rolls.firstIndex(where: { roll.id == $0.id }) ?? 0
+    }
+
+    private func itemOpacity(listProxy: GeometryProxy, itemProxy: GeometryProxy) -> Double {
+        let itemMinY = itemProxy.frame(in: .global).minY
+        let listMinY = listProxy.frame(in: .global).minY
+
+        let positionInList = itemMinY - listMinY
+        let ratio = positionInList / listProxy.size.height
+
+        return 1 - Double(ratio * ratio)
+
+        // other possible fading speeds
+        //return 1 - Double(ratio)
+        //return 0 - log(Double(ratio))
     }
 }
 
@@ -325,7 +372,13 @@ struct MainView_Previews: PreviewProvider {
     static let rolls = [
         Roll(dieSides: 20, result: [18, 15, 19, 17, 16, 19], total: 104),
         Roll(dieSides: 6, result: [1, 3, 4], total: 8),
-        Roll(dieSides: 100, result: [95, 45, 21, 21, 32], total: 214)
+        Roll(dieSides: 100, result: [95, 45, 21, 21, 32], total: 214),
+        Roll(dieSides: 8, result: [4, 8, 3], total: 15),
+        Roll(dieSides: 4, result: [1, 1, 3, 2, 4], total: 11),
+        Roll(dieSides: 6, result: [4, 5, 2, 6, 3, 3], total: 23),
+        Roll(dieSides: 6, result: [2, 1, 2, 6, 5, 4], total: 20),
+        Roll(dieSides: 6, result: [5, 5, 5, 1, 4, 2], total: 22),
+        Roll(dieSides: 6, result: [5, 3, 5, 4, 4], total: 21)
     ]
 
     static var previews: some View {
