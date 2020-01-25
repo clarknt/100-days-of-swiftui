@@ -96,19 +96,17 @@ struct MainView: View {
     var body: some View {
         let diceNumberWithCallback = Binding<Int>(
             get: { self.diceNumber },
-            set: { self.diceNumber = $0 }
+            set: {
+                self.diceNumber = $0
+                self.resetPositions()
+            }
         )
 
         let dieSidesWithCallback = Binding<Int>(
             get: { self.dieSides },
             set: {
                 self.dieSides = $0
-
-                // reset positions
-                for i in 0..<self.diceNumber {
-                    self.animationDurations[i] = 0
-                    self.selectedSides[i] = 0
-                }
+                self.resetPositions()
             }
         )
 
@@ -365,6 +363,13 @@ struct MainView: View {
         // other possible fading speeds
         //return 1 - Double(ratio)
         //return 0 - log(Double(ratio))
+    }
+
+    private func resetPositions() {
+        for i in 0..<self.diceNumber {
+            self.animationDurations[i] = 0
+            self.selectedSides[i] = 0
+        }
     }
 }
 

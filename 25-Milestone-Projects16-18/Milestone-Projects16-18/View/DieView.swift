@@ -16,6 +16,9 @@ struct DieConstants {
     static let minNumbers = 100
     static let minUniqueNumbersRepeat = 2
     static let numbersPadding = 2
+
+    static let largeNumberPadding = 1
+    static let largeNumber = 100
 }
 
 enum DieStyle {
@@ -72,12 +75,20 @@ struct DieView: View {
             numbers.append(maxUniqueNumbers[i])
         }
 
+        // use the largest number to provision for the largest width. Another
+        // option is to fix the width (51 is the minimum to fit number 100),
+        // but this is more flexible if the font size changes in the future
+        // note: layoutPriority and flexible frames both didn't solve truncated
+        // text issues
+        numbers.insert(DieConstants.largeNumber, at: 0)
+        numbers.append(DieConstants.largeNumber)
+
         return numbers
     }
 
     private var initialOffset: Double {
         let halfCount = CGFloat(numbers.count) / 2
-        let firstElement = halfCount - CGFloat(DieConstants.numbersPadding)
+        let firstElement = halfCount - CGFloat(DieConstants.numbersPadding) - CGFloat(DieConstants.largeNumberPadding)
         let initialOffset = Double(firstElement * DieConstants.numberFrameHeight) - DieConstants.defaultOffset
 
         return initialOffset
@@ -142,7 +153,7 @@ struct DieView: View {
     // MARK:- Private functions
 
     private func roundToMultiple(number: Double, multiple: Double) -> Double {
-        return round(number / multiple) * multiple;
+        return round(number / multiple) * multiple
     }
 }
 
