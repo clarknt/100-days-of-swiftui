@@ -237,22 +237,13 @@ struct MainView: View {
                         UITableView.appearance().separatorStyle = .singleLine
                         UITableView.appearance().backgroundColor = UIColor.systemBackground
                     }
-                    .gesture(
-                        LongPressGesture()
-                            .onEnded{ finished in
-                                if finished && !self.rolls.isEmpty {
-                                    self.showingAction = true
-                                }
-                            }
-                    )
-                    .actionSheet(isPresented: self.$showingAction, content: {
-                        ActionSheet(title: Text("Delete history?"), buttons: [
-                            .destructive(Text("Delete")) {
-                                self.rolls = [Roll]()
-                            },
-                            .cancel()
-                        ])
-                    })
+                    // without onTapGesture, onLongPressGesture will break scroll
+                    .onTapGesture {}
+                    .onLongPressGesture {
+                        if !self.rolls.isEmpty {
+                            self.showingAction = true
+                        }
+                    }
                 }
                 .padding(.top)
                 .edgesIgnoringSafeArea(.bottom)
@@ -336,6 +327,14 @@ struct MainView: View {
                 }
             }
         }
+        .actionSheet(isPresented: self.$showingAction, content: {
+            ActionSheet(title: Text("Delete history?"), buttons: [
+                .destructive(Text("Delete")) {
+                    self.rolls = [Roll]()
+                },
+                .cancel()
+            ])
+        })
     }
 
     // MARK:- Private functions
