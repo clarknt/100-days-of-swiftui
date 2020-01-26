@@ -51,6 +51,8 @@ struct MainView: View {
 
     @State private var coloredNumbers = true
 
+    @State private var showingAction = false
+
     private var pickerOpacity: Double {
         if rollDisabled {
             return colorScheme == .light ?
@@ -235,6 +237,22 @@ struct MainView: View {
                         UITableView.appearance().separatorStyle = .singleLine
                         UITableView.appearance().backgroundColor = UIColor.systemBackground
                     }
+                    .gesture(
+                        LongPressGesture()
+                            .onEnded{ finished in
+                                if finished && !self.rolls.isEmpty {
+                                    self.showingAction = true
+                                }
+                            }
+                    )
+                    .actionSheet(isPresented: self.$showingAction, content: {
+                        ActionSheet(title: Text("Delete history?"), buttons: [
+                            .destructive(Text("Delete")) {
+                                self.rolls = [Roll]()
+                            },
+                            .cancel()
+                        ])
+                    })
                 }
                 .padding(.top)
                 .edgesIgnoringSafeArea(.bottom)
