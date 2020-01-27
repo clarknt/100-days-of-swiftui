@@ -10,6 +10,9 @@ import CoreData
 import Foundation
 
 class CoreDataRolls: Rolls {
+
+    // MARK:- Private properties
+
     // maintain and keep in sync 2 arrays:
     // one with actual data from Core Data and one for publication
     private var items = [CoreDataRoll]() {
@@ -18,13 +21,9 @@ class CoreDataRolls: Rolls {
         }
     }
 
-    @Published private(set) var all = [Roll]()
-
-    // Rolls implementation
-    var allPublished: Published<[Roll]> { _all }
-    var allPublisher: Published<[Roll]>.Publisher { $all }
-
     private var container: NSPersistentContainer
+
+    // MARK:- Init
 
     init() {
         container = NSPersistentContainer(name: "Milestone-Projects16-18")
@@ -38,6 +37,13 @@ class CoreDataRolls: Rolls {
 
         loadSavedData()
     }
+
+    // MARK:- Rolls conformance
+
+    @Published private(set) var all = [Roll]()
+
+    var allPublished: Published<[Roll]> { _all }
+    var allPublisher: Published<[Roll]>.Publisher { $all }
 
     func insert(roll: Roll) {
         let cdRoll = buildCoreDataRoll(roll: roll)
@@ -55,6 +61,7 @@ class CoreDataRolls: Rolls {
     }
 
     // MARK: - Private functions
+
     private func loadSavedData() {
         let request = CoreDataRoll.createFetchRequest()
         let sort = NSSortDescriptor(key: "date", ascending: false)
@@ -109,7 +116,6 @@ class CoreDataRolls: Rolls {
         cdRoll.result = roll.result.map { Int16($0) }
         cdRoll.total = Int16(roll.total)
     }
-
 
     private func saveContext() {
         if container.viewContext.hasChanges {

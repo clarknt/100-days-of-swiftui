@@ -6,6 +6,7 @@
 //  Copyright © 2020 clarknt. All rights reserved.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct MainConstants {
@@ -45,6 +46,8 @@ struct MainView<GenericRolls>: View where GenericRolls: Rolls {
     @State private var coloredNumbers = true
 
     @State private var showingAction = false
+
+    @State private var engine: CHHapticEngine?
 
     private var pickerOpacity: Double {
         if rollDisabled {
@@ -266,6 +269,7 @@ struct MainView<GenericRolls>: View where GenericRolls: Rolls {
 
                         Button(
                             action: {
+                                self.prepareHaptics()
                                 self.rollDisabled = true
 
                                 for i in 0..<self.diceNumber {
@@ -275,20 +279,25 @@ struct MainView<GenericRolls>: View where GenericRolls: Rolls {
                                     self.animationDurations[i] = 0.2
                                     self.selectedSides[i] = 0
 
-                                    // if done immediately, it won't have time to reset
+                                    // for a smoother animation, don't wait until reset end
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                         self.animationDurations[i] = duration
                                         self.selectedSides[i] = Int.random(in: 1...self.dieSides)
                                     }
                                 }
 
-                                let endTime = (Double(self.diceNumber + 2) / 2)
+                                let lastDieIndex = self.diceNumber - 1
+                                let duration = Double(lastDieIndex + 2) / 2
+                                let endTime = duration + 0.1
+
                                 DispatchQueue.main.asyncAfter(deadline: .now() + endTime) {
                                     var result = [Int]()
                                     result += self.selectedSides[0..<self.diceNumber]
                                     let total = result.reduce(0, +)
 
                                     self.rolls.insert(roll: Roll(dieSides: self.dieSides, result: result, total: total))
+
+                                    self.playCompletionHaptics()
                                     self.rollDisabled = false
                                 }
                             },
@@ -379,6 +388,38 @@ struct MainView<GenericRolls>: View where GenericRolls: Rolls {
         for i in 0..<self.diceNumber {
             self.animationDurations[i] = 0
             self.selectedSides[i] = 0
+        }
+    }
+
+    private func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+
+        do {
+            self.engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
+    }
+
+    private func playCompletionHaptics() {
+        // make sure that the device supports haptics
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+
+        // create one extremely light, blurry tap
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.3)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        events.append(event)
+
+        // convert those events into a pattern and play it immediately
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try engine?.makePlayer(with: pattern)
+            try player?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
 }

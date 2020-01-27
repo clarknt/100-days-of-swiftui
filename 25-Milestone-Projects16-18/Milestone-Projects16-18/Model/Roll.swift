@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A roll and its result
 struct Roll: Identifiable {
     var id = UUID()
 
