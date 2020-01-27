@@ -8,13 +8,6 @@
 
 import SwiftUI
 
-struct Roll: Identifiable {
-    var id = UUID()
-    var dieSides: Int
-    var result: [Int]
-    var total: Int
-}
-
 struct MainConstants {
     static let lightDisabledOpacity = 0.6
     static let darkDisabledOpacity = 0.4
@@ -31,10 +24,10 @@ struct MainConstants {
     static let maxDiceNumber = 6
 }
 
-struct MainView: View {
+struct MainView<GenericRolls>: View where GenericRolls: Rolls {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
-    @State var rolls = [Roll]()
+    @ObservedObject var rolls: GenericRolls
 
     // MARK:- Private properties
 
@@ -193,7 +186,7 @@ struct MainView: View {
             ZStack {
                 GeometryReader { listProxy in
                     List {
-                        ForEach(self.rolls) { roll in
+                        ForEach(self.rolls.all) { roll in
                             GeometryReader { itemProxy in
                                 ZStack {
                                     HStack {
@@ -240,7 +233,7 @@ struct MainView: View {
                     // without onTapGesture, onLongPressGesture will break scroll
                     .onTapGesture {}
                     .onLongPressGesture {
-                        if !self.rolls.isEmpty {
+                        if !self.rolls.all.isEmpty {
                             self.showingAction = true
                         }
                     }
@@ -295,7 +288,7 @@ struct MainView: View {
                                     result += self.selectedSides[0..<self.diceNumber]
                                     let total = result.reduce(0, +)
 
-                                    self.rolls.insert(Roll(dieSides: self.dieSides, result: result, total: total), at: 0)
+                                    self.rolls.insert(roll: Roll(dieSides: self.dieSides, result: result, total: total))
                                     self.rollDisabled = false
                                 }
                             },
@@ -329,8 +322,8 @@ struct MainView: View {
         }
         .actionSheet(isPresented: self.$showingAction, content: {
             ActionSheet(title: Text("Delete history?"), buttons: [
-                .destructive(Text("Delete")) {
-                    self.rolls = [Roll]()
+                .destructive(Text("Delete all")) {
+                    self.rolls.removeAll()
                 },
                 .cancel()
             ])
@@ -365,7 +358,7 @@ struct MainView: View {
     }
 
     private func index(for roll: Roll) -> Int {
-        rolls.firstIndex(where: { roll.id == $0.id }) ?? 0
+        rolls.all.firstIndex(where: { roll.id == $0.id }) ?? 0
     }
 
     private func itemOpacity(listProxy: GeometryProxy, itemProxy: GeometryProxy) -> Double {
@@ -403,18 +396,29 @@ struct MainView_Previews: PreviewProvider {
         Roll(dieSides: 6, result: [5, 3, 5, 4, 4], total: 21)
     ]
 
+    class PreviewRolls: Rolls {
+        @Published private(set) var all: [Roll]
+        var allPublished: Published<[Roll]> { _all }
+        var allPublisher: Published<[Roll]>.Publisher { $all }
+        init(rolls: [Roll]) { self.all = rolls }
+        func insert(roll: Roll) { }
+        func removeAll() { }
+    }
+
+    static let previewRolls = PreviewRolls(rolls: rolls)
+
     static var previews: some View {
         Group {
-            MainView(rolls: rolls).environment(\.colorScheme, .light)
+            MainView(rolls: previewRolls).environment(\.colorScheme, .light)
 
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
-                MainView(rolls: rolls).environment(\.colorScheme, .dark)
+                MainView(rolls: previewRolls).environment(\.colorScheme, .dark)
             }
-            
-//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
-//            MainView(rolls: rolls).previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
+
+//            MainView(rolls: previewRolls).previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//            MainView(rolls: previewRolls).previewDevice(PreviewDevice(rawValue: "iPhone 8 Plus"))
+//            MainView(rolls: previewRolls).previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
         }
     }
 }
