@@ -14,6 +14,7 @@
 		952FC6F523E132D40038DA0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952FC6F423E132D40038DA0D /* Preview Assets.xcassets */; };
 		952FC6F823E132D50038DA0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952FC6F623E132D50038DA0D /* LaunchScreen.storyboard */; };
 		952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FC70023E139C90038DA0D /* Intro01SideBySideViews.swift */; };
+		952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */; };
 		9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532C9CF23E29895003B23DC /* Intro02AlertAndSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		952FC6F723E132D50038DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		952FC6F923E132D50038DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		952FC70023E139C90038DA0D /* Intro01SideBySideViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro01SideBySideViews.swift; sourceTree = "<group>"; };
+		952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro03TransparentGroups.swift; sourceTree = "<group>"; };
 		9532C9CF23E29895003B23DC /* Intro02AlertAndSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro02AlertAndSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 			children = (
 				952FC70023E139C90038DA0D /* Intro01SideBySideViews.swift */,
 				9532C9CF23E29895003B23DC /* Intro02AlertAndSheet.swift */,
+				952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				952FC6EE23E132D30038DA0D /* SceneDelegate.swift in Sources */,
 				9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */,
 				952FC6F023E132D30038DA0D /* ContentView.swift in Sources */,
+				952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */,
 				952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

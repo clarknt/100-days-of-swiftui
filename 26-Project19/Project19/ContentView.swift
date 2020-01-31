@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Intro02AlertAndSheet()
+        Intro03TransparentGroups()
     }
 }
 
