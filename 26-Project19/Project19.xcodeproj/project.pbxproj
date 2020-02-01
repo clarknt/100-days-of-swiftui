@@ -16,6 +16,9 @@
 		952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FC70023E139C90038DA0D /* Intro01SideBySideViews.swift */; };
 		952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */; };
 		9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532C9CF23E29895003B23DC /* Intro02AlertAndSheet.swift */; };
+		9532CA2823E524E600EA3225 /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA2723E524E600EA3225 /* Resort.swift */; };
+		9532CA2A23E5255E00EA3225 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */; };
+		9532CA2C23E525B300EA3225 /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9532CA2B23E525B300EA3225 /* resorts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		952FC70023E139C90038DA0D /* Intro01SideBySideViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro01SideBySideViews.swift; sourceTree = "<group>"; };
 		952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro03TransparentGroups.swift; sourceTree = "<group>"; };
 		9532C9CF23E29895003B23DC /* Intro02AlertAndSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro02AlertAndSheet.swift; sourceTree = "<group>"; };
+		9532CA2723E524E600EA3225 /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
+		9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		9532CA2B23E525B300EA3225 /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				952FC6FF23E139B30038DA0D /* Introduction */,
+				9532CA2623E524D200EA3225 /* Model */,
 				952FC6EB23E132D30038DA0D /* AppDelegate.swift */,
 				952FC6ED23E132D30038DA0D /* SceneDelegate.swift */,
 				952FC6EF23E132D30038DA0D /* ContentView.swift */,
@@ -70,6 +77,8 @@
 				952FC6F623E132D50038DA0D /* LaunchScreen.storyboard */,
 				952FC6F923E132D50038DA0D /* Info.plist */,
 				952FC6F323E132D40038DA0D /* Preview Content */,
+				9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */,
+				9532CA2B23E525B300EA3225 /* resorts.json */,
 			);
 			path = Project19;
 			sourceTree = "<group>";
@@ -90,6 +99,14 @@
 				952FEF6123E3E2260076386C /* Intro03TransparentGroups.swift */,
 			);
 			path = Introduction;
+			sourceTree = "<group>";
+		};
+		9532CA2623E524D200EA3225 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9532CA2723E524E600EA3225 /* Resort.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +169,7 @@
 			files = (
 				952FC6F823E132D50038DA0D /* LaunchScreen.storyboard in Resources */,
 				952FC6F523E132D40038DA0D /* Preview Assets.xcassets in Resources */,
+				9532CA2C23E525B300EA3225 /* resorts.json in Resources */,
 				952FC6F223E132D40038DA0D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +183,8 @@
 			files = (
 				952FC6EC23E132D30038DA0D /* AppDelegate.swift in Sources */,
 				952FC6EE23E132D30038DA0D /* SceneDelegate.swift in Sources */,
+				9532CA2823E524E600EA3225 /* Resort.swift in Sources */,
+				9532CA2A23E5255E00EA3225 /* Bundle-Decodable.swift in Sources */,
 				9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */,
 				952FC6F023E132D30038DA0D /* ContentView.swift in Sources */,
 				952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */,

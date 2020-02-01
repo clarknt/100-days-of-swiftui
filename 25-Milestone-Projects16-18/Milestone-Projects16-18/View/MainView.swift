@@ -25,7 +25,8 @@ struct MainConstants {
     static let maxDiceNumber = 6
 }
 
-struct MainView<GenericRolls>: View where GenericRolls: Rolls {
+//struct MainView<GenericRolls>: View where GenericRolls: Rolls {
+struct MainView<GenericRolls: Rolls>: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @ObservedObject var rolls: GenericRolls
