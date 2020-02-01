@@ -19,6 +19,11 @@
 		9532CA2823E524E600EA3225 /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA2723E524E600EA3225 /* Resort.swift */; };
 		9532CA2A23E5255E00EA3225 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */; };
 		9532CA2C23E525B300EA3225 /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9532CA2B23E525B300EA3225 /* resorts.json */; };
+		9532CA3123E5296800EA3225 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3023E5296800EA3225 /* WelcomeView.swift */; };
+		9532CA3423E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3323E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift */; };
+		9532CA3623E52ECB00EA3225 /* ResortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3523E52ECB00EA3225 /* ResortView.swift */; };
+		9532CA3823E52F4E00EA3225 /* SkiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */; };
+		9532CA3A23E52F7A00EA3225 /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		9532CA2723E524E600EA3225 /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
 		9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		9532CA2B23E525B300EA3225 /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
+		9532CA3023E5296800EA3225 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9532CA3323E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-PhoneOnlyStackNavigationView.swift"; sourceTree = "<group>"; };
+		9532CA3523E52ECB00EA3225 /* ResortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortView.swift; sourceTree = "<group>"; };
+		9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkiDetailsView.swift; sourceTree = "<group>"; };
+		9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,17 +78,13 @@
 		952FC6EA23E132D30038DA0D /* Project19 */ = {
 			isa = PBXGroup;
 			children = (
+				9532CA2E23E5293D00EA3225 /* Init */,
 				952FC6FF23E139B30038DA0D /* Introduction */,
 				9532CA2623E524D200EA3225 /* Model */,
-				952FC6EB23E132D30038DA0D /* AppDelegate.swift */,
-				952FC6ED23E132D30038DA0D /* SceneDelegate.swift */,
-				952FC6EF23E132D30038DA0D /* ContentView.swift */,
+				9532CA2D23E5292B00EA3225 /* View */,
 				952FC6F123E132D40038DA0D /* Assets.xcassets */,
-				952FC6F623E132D50038DA0D /* LaunchScreen.storyboard */,
 				952FC6F923E132D50038DA0D /* Info.plist */,
 				952FC6F323E132D40038DA0D /* Preview Content */,
-				9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */,
-				9532CA2B23E525B300EA3225 /* resorts.json */,
 			);
 			path = Project19;
 			sourceTree = "<group>";
@@ -104,9 +110,50 @@
 		9532CA2623E524D200EA3225 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9532CA2F23E5295200EA3225 /* Utils */,
 				9532CA2723E524E600EA3225 /* Resort.swift */,
+				9532CA2B23E525B300EA3225 /* resorts.json */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9532CA2D23E5292B00EA3225 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9532CA3223E529F300EA3225 /* Utils */,
+				952FC6EF23E132D30038DA0D /* ContentView.swift */,
+				9532CA3023E5296800EA3225 /* WelcomeView.swift */,
+				9532CA3523E52ECB00EA3225 /* ResortView.swift */,
+				9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */,
+				9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9532CA2E23E5293D00EA3225 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				952FC6EB23E132D30038DA0D /* AppDelegate.swift */,
+				952FC6ED23E132D30038DA0D /* SceneDelegate.swift */,
+				952FC6F623E132D50038DA0D /* LaunchScreen.storyboard */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		9532CA2F23E5295200EA3225 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9532CA2923E5255E00EA3225 /* Bundle-Decodable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9532CA3223E529F300EA3225 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9532CA3323E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,11 +231,16 @@
 				952FC6EC23E132D30038DA0D /* AppDelegate.swift in Sources */,
 				952FC6EE23E132D30038DA0D /* SceneDelegate.swift in Sources */,
 				9532CA2823E524E600EA3225 /* Resort.swift in Sources */,
+				9532CA3623E52ECB00EA3225 /* ResortView.swift in Sources */,
+				9532CA3423E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift in Sources */,
 				9532CA2A23E5255E00EA3225 /* Bundle-Decodable.swift in Sources */,
+				9532CA3123E5296800EA3225 /* WelcomeView.swift in Sources */,
+				9532CA3823E52F4E00EA3225 /* SkiDetailsView.swift in Sources */,
 				9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */,
 				952FC6F023E132D30038DA0D /* ContentView.swift in Sources */,
 				952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */,
 				952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */,
+				9532CA3A23E52F7A00EA3225 /* ResortDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

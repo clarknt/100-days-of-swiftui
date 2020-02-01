@@ -13,8 +13,9 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
+            // menu view
             List(resorts) { resort in
-                NavigationLink(destination: Text(resort.name)) {
+                NavigationLink(destination: ResortView(resort: resort)) {
                     Image(resort.country)
                         .resizable()
                         .scaledToFill()
@@ -36,7 +37,12 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Resorts")
+
+            // main view
+            WelcomeView()
         }
+        // optional
+        //.phoneOnlyStackNavigationView()
     }
 }
 
