@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952FE69F23E790A2001069E5 /* Pickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FE69E23E790A2001069E5 /* Pickers.swift */; };
+		952FE6A123E79323001069E5 /* RollsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FE6A023E79323001069E5 /* RollsList.swift */; };
+		952FE6A323E796AC001069E5 /* RollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FE6A223E796AC001069E5 /* RollButton.swift */; };
+		952FE6A623E7AEA4001069E5 /* DieAnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FE6A523E7AEA4001069E5 /* DieAnimatableModifier.swift */; };
 		95301D0823DE3C74001A805E /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95301D0723DE3C74001A805E /* Roll.swift */; };
 		95301D0B23DE3E0B001A805E /* Milestone-Projects16-18.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95301D0923DE3E0B001A805E /* Milestone-Projects16-18.xcdatamodeld */; };
 		95301D1E23DE52EE001A805E /* CoreDataRolls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95301D1D23DE52EE001A805E /* CoreDataRolls.swift */; };
@@ -20,9 +24,14 @@
 		95303CE523D690D1003DCBB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95303CE423D690D1003DCBB2 /* Preview Assets.xcassets */; };
 		95303CE823D690D1003DCBB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95303CE623D690D1003DCBB2 /* LaunchScreen.storyboard */; };
 		95303CF023D698F7003DCBB2 /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95303CEF23D698F7003DCBB2 /* DieView.swift */; };
+		9587BA4823E7D79500B753CE /* DeleteHistoryModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587BA4723E7D79500B753CE /* DeleteHistoryModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		952FE69E23E790A2001069E5 /* Pickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickers.swift; sourceTree = "<group>"; };
+		952FE6A023E79323001069E5 /* RollsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollsList.swift; sourceTree = "<group>"; };
+		952FE6A223E796AC001069E5 /* RollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollButton.swift; sourceTree = "<group>"; };
+		952FE6A523E7AEA4001069E5 /* DieAnimatableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieAnimatableModifier.swift; sourceTree = "<group>"; };
 		95301D0723DE3C74001A805E /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		95301D0A23DE3E0B001A805E /* Milestone-Projects16-18.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Milestone-Projects16-18.xcdatamodel"; sourceTree = "<group>"; };
 		95301D1D23DE52EE001A805E /* CoreDataRolls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRolls.swift; sourceTree = "<group>"; };
@@ -38,6 +47,7 @@
 		95303CE723D690D1003DCBB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95303CE923D690D1003DCBB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95303CEF23D698F7003DCBB2 /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
+		9587BA4723E7D79500B753CE /* DeleteHistoryModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHistoryModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +64,8 @@
 		9503895E23D802CC00943456 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95303CEF23D698F7003DCBB2 /* DieView.swift */,
-				95303CDF23D690CE003DCBB2 /* MainView.swift */,
+				952FE69D23E79086001069E5 /* MainView */,
+				952FE6A423E7AE81001069E5 /* DieView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -68,6 +78,27 @@
 				95303CE623D690D1003DCBB2 /* LaunchScreen.storyboard */,
 			);
 			path = Init;
+			sourceTree = "<group>";
+		};
+		952FE69D23E79086001069E5 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				95303CDF23D690CE003DCBB2 /* MainView.swift */,
+				952FE69E23E790A2001069E5 /* Pickers.swift */,
+				952FE6A023E79323001069E5 /* RollsList.swift */,
+				952FE6A223E796AC001069E5 /* RollButton.swift */,
+				9587BA4723E7D79500B753CE /* DeleteHistoryModifier.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		952FE6A423E7AE81001069E5 /* DieView */ = {
+			isa = PBXGroup;
+			children = (
+				95303CEF23D698F7003DCBB2 /* DieView.swift */,
+				952FE6A523E7AEA4001069E5 /* DieAnimatableModifier.swift */,
+			);
+			path = DieView;
 			sourceTree = "<group>";
 		};
 		95301D0623DE3C63001A805E /* Model */ = {
@@ -199,15 +230,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9587BA4823E7D79500B753CE /* DeleteHistoryModifier.swift in Sources */,
 				95303CDC23D690CE003DCBB2 /* AppDelegate.swift in Sources */,
 				95303CDE23D690CE003DCBB2 /* SceneDelegate.swift in Sources */,
 				95301D0B23DE3E0B001A805E /* Milestone-Projects16-18.xcdatamodeld in Sources */,
+				952FE6A623E7AEA4001069E5 /* DieAnimatableModifier.swift in Sources */,
 				95303CF023D698F7003DCBB2 /* DieView.swift in Sources */,
 				95301D1E23DE52EE001A805E /* CoreDataRolls.swift in Sources */,
 				95301D4023DE819D001A805E /* Rolls.swift in Sources */,
 				95303CE023D690CE003DCBB2 /* MainView.swift in Sources */,
 				95301D3E23DE80AF001A805E /* CoreDataRoll+CoreDataProperties.swift in Sources */,
+				952FE69F23E790A2001069E5 /* Pickers.swift in Sources */,
 				95301D3D23DE80AF001A805E /* CoreDataRoll+CoreDataClass.swift in Sources */,
+				952FE6A123E79323001069E5 /* RollsList.swift in Sources */,
+				952FE6A323E796AC001069E5 /* RollButton.swift in Sources */,
 				95301D0823DE3C74001A805E /* Roll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
