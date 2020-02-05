@@ -24,6 +24,8 @@
 		9532CA3623E52ECB00EA3225 /* ResortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3523E52ECB00EA3225 /* ResortView.swift */; };
 		9532CA3823E52F4E00EA3225 /* SkiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */; };
 		9532CA3A23E52F7A00EA3225 /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */; };
+		9533390723EA70D200BF0D7E /* Facility-ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */; };
+		9533390923EA733400BF0D7E /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533390823EA733400BF0D7E /* Facility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		9532CA3523E52ECB00EA3225 /* ResortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortView.swift; sourceTree = "<group>"; };
 		9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkiDetailsView.swift; sourceTree = "<group>"; };
 		9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
+		9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Facility-ViewUtils.swift"; sourceTree = "<group>"; };
+		9533390823EA733400BF0D7E /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				9532CA2F23E5295200EA3225 /* Utils */,
+				9533390823EA733400BF0D7E /* Facility.swift */,
 				9532CA2723E524E600EA3225 /* Resort.swift */,
 				9532CA2B23E525B300EA3225 /* resorts.json */,
 			);
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9532CA3323E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift */,
+				9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				952FC6F023E132D30038DA0D /* ContentView.swift in Sources */,
 				952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */,
 				952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */,
+				9533390923EA733400BF0D7E /* Facility.swift in Sources */,
+				9533390723EA70D200BF0D7E /* Facility-ViewUtils.swift in Sources */,
 				9532CA3A23E52F7A00EA3225 /* ResortDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

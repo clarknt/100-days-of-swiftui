@@ -20,6 +20,10 @@ struct Resort: Codable, Identifiable {
     let elevation: Int
     let runs: Int
     let facilities: [String]
+
+    var facilityTypes: [Facility] {
+        facilities.map(Facility.init)
+    }
 }
 
 extension Resort {
