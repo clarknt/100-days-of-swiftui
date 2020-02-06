@@ -4,6 +4,15 @@ Solutions to Paul Hudson's "100 days of SwiftUI" projects and challenges.
 
 https://www.hackingwithswift.com/100/swiftui
 
+## Completion status
+
+Type               | Number  | Completion
+:---               |  :---:  |   :---:
+Projects           | 18 / 19 | 95%
+Challenges         | 54 / 57 | 95%
+Milestone Projects |  6 / 6  | 100%
+Challenge days     |  1 / 1  | 100%
+
 ## Preview
 
 *Within each project are larger versions of the screenshots.*
