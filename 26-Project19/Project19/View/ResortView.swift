@@ -39,6 +39,7 @@ struct ResortView: View {
                             }
                         }
                     )
+                    .clipped()
 
                 Group {
                     HStack {
