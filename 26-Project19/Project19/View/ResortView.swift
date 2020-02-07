@@ -22,6 +22,23 @@ struct ResortView: View {
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
+                    // challenge 1
+                    .overlay(
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("Photo by \(resort.imageCredit)")
+                                    .font(.caption)
+                                    .foregroundColor(Color.black.opacity(0.7))
+                                    .padding(4)
+                                    .padding([.bottom, .trailing], 8) // larger padding
+                                    .background(Color.white.opacity(0.5))
+                                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                                    .offset(x: 8, y: 8) // then offset to hide rounded corners
+                            }
+                        }
+                    )
 
                 Group {
                     HStack {
