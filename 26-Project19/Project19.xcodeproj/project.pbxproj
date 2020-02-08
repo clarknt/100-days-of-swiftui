@@ -26,6 +26,8 @@
 		9532CA3A23E52F7A00EA3225 /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */; };
 		9533390723EA70D200BF0D7E /* Facility-ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */; };
 		9533390923EA733400BF0D7E /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533390823EA733400BF0D7E /* Facility.swift */; };
+		9538935323EE54DC00244D6E /* SortAndFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538935223EE54DC00244D6E /* SortAndFilterView.swift */; };
+		9538935523EE5A3C00244D6E /* Resort-ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9538935423EE5A3C00244D6E /* Resort-ViewUtils.swift */; };
 		9568569223EB4447009A6663 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9568569123EB4447009A6663 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 		9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Facility-ViewUtils.swift"; sourceTree = "<group>"; };
 		9533390823EA733400BF0D7E /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
+		9538935223EE54DC00244D6E /* SortAndFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFilterView.swift; sourceTree = "<group>"; };
+		9538935423EE5A3C00244D6E /* Resort-ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resort-ViewUtils.swift"; sourceTree = "<group>"; };
 		9568569123EB4447009A6663 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,7 @@
 				9532CA3523E52ECB00EA3225 /* ResortView.swift */,
 				9532CA3723E52F4E00EA3225 /* SkiDetailsView.swift */,
 				9532CA3923E52F7A00EA3225 /* ResortDetailsView.swift */,
+				9538935223EE54DC00244D6E /* SortAndFilterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			children = (
 				9532CA3323E52A1900EA3225 /* View-PhoneOnlyStackNavigationView.swift */,
 				9533390623EA70D200BF0D7E /* Facility-ViewUtils.swift */,
+				9538935423EE5A3C00244D6E /* Resort-ViewUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -245,8 +251,10 @@
 				9532CA2A23E5255E00EA3225 /* Bundle-Decodable.swift in Sources */,
 				9532CA3123E5296800EA3225 /* WelcomeView.swift in Sources */,
 				9532CA3823E52F4E00EA3225 /* SkiDetailsView.swift in Sources */,
+				9538935323EE54DC00244D6E /* SortAndFilterView.swift in Sources */,
 				9532C9D023E29895003B23DC /* Intro02AlertAndSheet.swift in Sources */,
 				952FC6F023E132D30038DA0D /* ContentView.swift in Sources */,
+				9538935523EE5A3C00244D6E /* Resort-ViewUtils.swift in Sources */,
 				952FEF6223E3E2260076386C /* Intro03TransparentGroups.swift in Sources */,
 				952FC70123E139C90038DA0D /* Intro01SideBySideViews.swift in Sources */,
 				9533390923EA733400BF0D7E /* Facility.swift in Sources */,
@@ -390,6 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project19/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -409,6 +418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project19/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Project19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
