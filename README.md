@@ -8,8 +8,8 @@ https://www.hackingwithswift.com/100/swiftui
 
 Type               | Number  | Completion
 :---               |  :---:  |   :---:
-Projects           | 18 / 19 | 95%
-Challenges         | 56 / 57 | 98%
+Projects           | 19 / 19 | 100%
+Challenges         | 57 / 57 | 100%
 Milestone Projects |  6 / 6  | 100%
 Challenge days     |  1 / 1  | 100%
 
@@ -44,3 +44,4 @@ Projects / Topics                                                               
 [Project 17](23-Project17) - *Flashzilla* <br/>(with challenges)                                       <br/><sub> Gestures, haptics, Combine, timers, accessibility </sub> | ![screen1](23-Project17/screenshots/small/screen01.png) ![screen2](23-Project17/screenshots/small/screen02.png) ![screen3](23-Project17/screenshots/small/screen03.png) ![screen4](23-Project17/screenshots/small/screen04.png) ![screen5](23-Project17/screenshots/small/screen05.png) ![screen5](23-Project17/screenshots/small/screen06.png) |
 [Project 18](24-Project18) - *Layout and Geometry* <br/>(with challenges)                                       <br/><sub> Layout, alignment, geometry, positioning </sub> | ![screen1](24-Project18/screenshots/small/screen01.png) ![screen2](24-Project18/screenshots/small/screen02.png) ![screen3](24-Project18/screenshots/small/screen03.png) |
 [Milestone Projects 16-18](25-Milestone-Projects16-18) - *Roll the Dice*  | ![screen1](25-Milestone-Projects16-18/screenshots/small/screen01.png) ![screen2](25-Milestone-Projects16-18/screenshots/small/screen02.png)  ![screen3](25-Milestone-Projects16-18/screenshots/small/screen03.png) ![screen4](25-Milestone-Projects16-18/screenshots/small/screen04.png) |
+[Project 19](26-Project19) - *SnowSeeker* <br/>(with challenges)                                       <br/><sub> Split view layouts, optional alerts, flexible layouts with Group, ListFormatter </sub> | ![screen1](26-Project19/screenshots/small/screen01.png) ![screen2](26-Project19/screenshots/small/screen02.png) ![screen3](26-Project19/screenshots/small/screen03.png) |
