@@ -10,6 +10,7 @@ import Foundation
 
 // Note: in a production app, better use protocols/generics
 // than typealiases for switching implementation
+// See Milestone-Projects16-18 for an example of it
 
 // File
 //typealias Persons = FilePersons
